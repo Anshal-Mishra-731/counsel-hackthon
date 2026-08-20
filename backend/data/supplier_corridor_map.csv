@@ -1,0 +1,19 @@
+supplier_country,supplier_iso3,primary_corridor,secondary_corridor,base_risk_exposure,notes
+Russia,RUS,Suez Canal / Red Sea,Strait of Malacca (Pacific/ESPO route),Medium-High,"Sanctioned crude sometimes reroutes via Cape of Good Hope; treat as multi-corridor, most exposed to Red Sea risk"
+Iraq,IRQ,Strait of Hormuz,,High,Nearly all Iraqi crude to India transits Hormuz; highest single-point dependency
+United Arab Emirates,ARE,Strait of Hormuz,,High,"Persian Gulf origin, fully Hormuz-dependent"
+Saudi Arabia,SAU,Strait of Hormuz,"Red Sea (Yanbu terminal, partial)",High,Majority via Hormuz; small share can bypass via Red Sea-side export terminals
+United States,USA,Cape of Good Hope,Suez Canal,Low,"Long Atlantic route, no single chokepoint dependency"
+Brazil,BRA,Cape of Good Hope,,Low,"Direct South Atlantic to Indian Ocean route, avoids Middle East chokepoints"
+Venezuela,VEN,Cape of Good Hope,,Low,"Caribbean origin, similar route profile to Brazil"
+Angola,AGO,Direct Indian Ocean route,Cape of Good Hope,Low,West Africa to Indian Ocean; naturally low chokepoint exposure
+Nigeria,NGA,Direct Indian Ocean route,Cape of Good Hope,Low,Same route family as Angola
+Kuwait,KWT,Strait of Hormuz,,High,"Persian Gulf origin, fully Hormuz-dependent"
+Oman,OMN,Gulf of Oman (outside Hormuz chokepoint),Strait of Hormuz (partial),Medium,Sits just outside the strait itself; genuinely less exposed than other Gulf suppliers
+Mexico,MEX,Cape of Good Hope,Suez Canal,Low,"Gulf of Mexico origin, long Atlantic route"
+Colombia,COL,Cape of Good Hope,,Low,Similar profile to Brazil/Mexico
+Kazakhstan,KAZ,Suez Canal / Red Sea,,Medium,"Landlocked; exposure begins at Black Sea/CPC or BTC pipeline export stage, then Suez"
+Azerbaijan,AZE,Suez Canal / Red Sea,,Medium,"Reaches Mediterranean via BTC pipeline to Ceyhan, then Suez route family"
+Norway,NOR,Cape of Good Hope,Suez Canal,Low,"North Sea origin, long route either way"
+Guyana,GUY,Cape of Good Hope,,Low,"South America Atlantic route, no chokepoint dependency"
+Canada,CAN,Cape of Good Hope,Panama Canal / Pacific route,Low,Route varies depending on which coast the crude is loaded from

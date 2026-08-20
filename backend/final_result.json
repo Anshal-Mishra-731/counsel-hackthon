@@ -1,0 +1,207 @@
+{
+  "strait_of_hormuz": {
+    "phase1_context": {
+      "name": "Strait Of Hormuz",
+      "risk_score": 70,
+      "threat_level": 4,
+      "traffic_halted": true
+    },
+    "auto_derived_inputs": {
+      "severity": 0.9,
+      "duration_days": 15,
+      "derived_from": "risk_score + traffic_halted -> severity; threat_level -> duration"
+    },
+    "scenario": {
+      "corridor": "Strait of Hormuz",
+      "duration_days": 15,
+      "severity": 0.9
+    },
+    "baseline": {
+      "india_total_import_bpd": 4931790,
+      "corridor_dependency_share": 0.4853,
+      "corridor_dependent_bpd": 2393561
+    },
+    "supply_impact": {
+      "daily_loss_bbl": 2154205,
+      "gross_loss_bbl": 32313073,
+      "inventory_offset_bbl": 9500000,
+      "net_gap_bbl": 22813073
+    },
+    "alternative_sources": [
+      {
+        "supplier": "Russia",
+        "corridor": "Suez Canal / Red Sea",
+        "additional_barrels_offered": 7828087
+      },
+      {
+        "supplier": "United States",
+        "corridor": "Cape of Good Hope",
+        "additional_barrels_offered": 1189467
+      },
+      {
+        "supplier": "Nigeria",
+        "corridor": "Direct Indian Ocean route",
+        "additional_barrels_offered": 660773
+      },
+      {
+        "supplier": "Angola",
+        "corridor": "Direct Indian Ocean route",
+        "additional_barrels_offered": 490878
+      },
+      {
+        "supplier": "Canada",
+        "corridor": "Cape of Good Hope",
+        "additional_barrels_offered": 374811
+      },
+      {
+        "supplier": "Brazil",
+        "corridor": "Cape of Good Hope",
+        "additional_barrels_offered": 309091
+      },
+      {
+        "supplier": "Colombia",
+        "corridor": "Cape of Good Hope",
+        "additional_barrels_offered": 299006
+      },
+      {
+        "supplier": "Venezuela",
+        "corridor": "Cape of Good Hope",
+        "additional_barrels_offered": 136392
+      },
+      {
+        "supplier": "Oman",
+        "corridor": "Gulf of Oman (outside Hormuz chokepoint)",
+        "additional_barrels_offered": 70392
+      },
+      {
+        "supplier": "Azerbaijan",
+        "corridor": "Suez Canal / Red Sea",
+        "additional_barrels_offered": 40225
+      },
+      {
+        "supplier": "Kazakhstan",
+        "corridor": "Suez Canal / Red Sea",
+        "additional_barrels_offered": 22908
+      }
+    ],
+    "residual_shortage_bbl": 11391042
+  },
+  "red_sea": {
+    "phase1_context": {
+      "name": "Red Sea",
+      "risk_score": 70,
+      "threat_level": 4,
+      "traffic_halted": true
+    },
+    "auto_derived_inputs": {
+      "severity": 0.9,
+      "duration_days": 15,
+      "derived_from": "risk_score + traffic_halted -> severity; threat_level -> duration"
+    },
+    "scenario": {
+      "corridor": "Suez Canal / Red Sea",
+      "duration_days": 15,
+      "severity": 0.9
+    },
+    "baseline": {
+      "india_total_import_bpd": 4931790,
+      "corridor_dependency_share": 0.3556,
+      "corridor_dependent_bpd": 1753604
+    },
+    "supply_impact": {
+      "daily_loss_bbl": 1578244,
+      "gross_loss_bbl": 23673659,
+      "inventory_offset_bbl": 9500000,
+      "net_gap_bbl": 14173659
+    },
+    "alternative_sources": [
+      {
+        "supplier": "Iraq",
+        "corridor": "Strait of Hormuz",
+        "additional_barrels_offered": 4423402
+      },
+      {
+        "supplier": "Saudi Arabia",
+        "corridor": "Strait of Hormuz",
+        "additional_barrels_offered": 3252029
+      },
+      {
+        "supplier": "United Arab Emirates",
+        "corridor": "Strait of Hormuz",
+        "additional_barrels_offered": 2351787
+      },
+      {
+        "supplier": "United States",
+        "corridor": "Cape of Good Hope",
+        "additional_barrels_offered": 1189467
+      },
+      {
+        "supplier": "Kuwait",
+        "corridor": "Strait of Hormuz",
+        "additional_barrels_offered": 725489
+      },
+      {
+        "supplier": "Nigeria",
+        "corridor": "Direct Indian Ocean route",
+        "additional_barrels_offered": 660773
+      },
+      {
+        "supplier": "Angola",
+        "corridor": "Direct Indian Ocean route",
+        "additional_barrels_offered": 490878
+      },
+      {
+        "supplier": "Canada",
+        "corridor": "Cape of Good Hope",
+        "additional_barrels_offered": 374811
+      },
+      {
+        "supplier": "Brazil",
+        "corridor": "Cape of Good Hope",
+        "additional_barrels_offered": 309091
+      },
+      {
+        "supplier": "Colombia",
+        "corridor": "Cape of Good Hope",
+        "additional_barrels_offered": 299006
+      },
+      {
+        "supplier": "Venezuela",
+        "corridor": "Cape of Good Hope",
+        "additional_barrels_offered": 96925
+      }
+    ],
+    "residual_shortage_bbl": 0
+  },
+  "cape_of_good_hope": {
+    "phase1_context": {
+      "name": "Cape Of Good Hope",
+      "risk_score": 30,
+      "threat_level": 3,
+      "traffic_halted": false
+    },
+    "auto_derived_inputs": {
+      "severity": 0.3,
+      "duration_days": 10,
+      "derived_from": "risk_score + traffic_halted -> severity; threat_level -> duration"
+    },
+    "scenario": {
+      "corridor": "Cape of Good Hope",
+      "duration_days": 10,
+      "severity": 0.3
+    },
+    "baseline": {
+      "india_total_import_bpd": 4931790,
+      "corridor_dependency_share": 0.104,
+      "corridor_dependent_bpd": 513059
+    },
+    "supply_impact": {
+      "daily_loss_bbl": 153918,
+      "gross_loss_bbl": 1539178,
+      "inventory_offset_bbl": 1539178,
+      "net_gap_bbl": 0
+    },
+    "alternative_sources": [],
+    "residual_shortage_bbl": 0
+  }
+}
