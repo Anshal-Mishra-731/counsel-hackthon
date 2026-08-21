@@ -1,14 +1,13 @@
 import json
 import os
 import pandas as pd
-from src.models.risk_agent import calculate_global_risk, master_routes # Importing Phase 1
+from src.models.risk_agent import calculate_global_risk, master_routes
+from src.models.procurement_opt import run_procurement_optimization
 
 def generate_dynamic_baseline() -> dict:
     """
     Ingests raw UN Comtrade & PPAC CSV files to dynamically build the supply chain baseline.
-    No hardcoding.
     """
-    # Define file paths (assuming a 'data' folder at the root level)
     base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'data'))
     imports_path = os.path.join(base_dir, 'india_crude_imports_by_supplier_2022_2025.csv')
     map_path = os.path.join(base_dir, 'supplier_corridor_map.csv')
@@ -17,38 +16,36 @@ def generate_dynamic_baseline() -> dict:
         df_imports = pd.read_csv(imports_path)
         df_map = pd.read_csv(map_path)
     except Exception as e:
-        print(f"Error loading CSV files. Ensure they are in the 'data' folder. Details: {e}")
+        print(f"Error loading CSV files from 'data' folder: {e}")
         return {}
 
-    # Standardize country names to match between datasets
+    # Standardize country names between datasets
     df_imports['supplier_country'] = df_imports['supplier_country'].replace({
         'Russian Federation': 'Russia',
         'USA': 'United States'
     })
 
-    # Filter for the most recent complete year (e.g., 2023) to establish a realistic baseline
+    # 2023 full-year baseline
     df_latest = df_imports[df_imports['year'] == 2023]
     total_kg = df_latest.groupby('supplier_country')['net_weight_kg'].sum().reset_index()
 
-    # Convert Kg to Barrels per Day (BPD)
-    # Formula: (Kg / 1000) * 7.33 (approx bbl/tonne) / 365 days
+    # Convert Kg to BPD: (Kg / 1000) * 7.33 / 365
     total_kg['bpd'] = (total_kg['net_weight_kg'] / 1000 * 7.33) / 365
     total_kg['bpd'] = total_kg['bpd'].round(0).astype(int)
 
-    # Merge with the corridor map
     merged = pd.merge(total_kg, df_map, on='supplier_country', how='inner')
 
-    # Standardize corridor keys to match Phase 1 LLM output
     def standardize_corridor(name):
         name = str(name).lower()
         if "hormuz" in name: return "strait_of_hormuz"
         if "red sea" in name or "suez" in name: return "red_sea"
         if "cape" in name: return "cape_of_good_hope"
-        return "other"
+        if "malacca" in name: return "strait_of_malacca"
+        if "vladivostok" in name or "eastern maritime" in name: return "chennai_vladivostok_maritime_corridor"
+        return "direct_ocean"
 
     suppliers = []
     for _, row in merged.iterrows():
-        # Only include major suppliers (e.g., > 20,000 bpd) to keep the graph focused
         if row['bpd'] > 20000:
             suppliers.append({
                 "country": row['supplier_country'],
@@ -67,9 +64,12 @@ def generate_dynamic_baseline() -> dict:
         }
     }
 
-def run_simulation(live_risk_report: dict, simulation_days: int = 15) -> dict:
+def run_simulation(live_risk_report: dict, override_days: int | None = None) -> dict:
     """
-    Phase 2 Engine: Evaluates the live Phase 1 risk scores against the dynamic baseline.
+    Phase 2 + Phase 3 Orchestrator:
+    1. Evaluates daily shortfall from Phase 1 risk scores.
+    2. Calls Phase 3 LP Solver to find optimal rerouting and dynamic transit lead time.
+    3. Calculates total barrel deficit and macroeconomic impact over that exact lead time window.
     """
     baseline = generate_dynamic_baseline()
     if not baseline:
@@ -82,7 +82,7 @@ def run_simulation(live_risk_report: dict, simulation_days: int = 15) -> dict:
     affected_suppliers = []
     triggered_corridors = []
 
-    # 1. Check which corridors from Phase 1 breached the threshold
+    # 1. Identify disrupted corridors
     for corridor_key, metrics in live_risk_report.items():
         is_halted = metrics.get("traffic_halted", False)
         risk_score = metrics.get("risk_score", 0)
@@ -95,7 +95,7 @@ def run_simulation(live_risk_report: dict, simulation_days: int = 15) -> dict:
                 "reason": metrics.get("summary", "")
             })
 
-    # 2. Calculate the barrel deficit by mapping suppliers to the severed corridors
+    # 2. Map severed corridors to supplier shortfalls
     for supplier in suppliers:
         for trigger in triggered_corridors:
             if trigger["corridor"] == supplier["corridor"]:
@@ -110,8 +110,22 @@ def run_simulation(live_risk_report: dict, simulation_days: int = 15) -> dict:
                     "chokepoint_blocked": trigger["corridor"]
                 })
 
-    # 3. Aggregate Phase 2 final metrics
-    total_barrels_lost = total_shortfall_bpd * simulation_days
+    # 3. Dynamic Lead-Time Calculation (Calling Phase 3 LP Solver)
+    procurement_solution = {}
+    if total_shortfall_bpd > 0:
+        procurement_solution = run_procurement_optimization(
+            target_deficit_bpd=total_shortfall_bpd, 
+            live_risk_report=live_risk_report
+        )
+        calculated_days = procurement_solution.get("critical_transit_lead_time_days", 15)
+    else:
+        calculated_days = 0
+
+    # Allow optional manual user override from dashboard, otherwise use LP solver lead time
+    effective_duration_days = override_days if override_days is not None else calculated_days
+
+    # 4. Compute final cumulative deficits & price shocks
+    total_barrels_lost = total_shortfall_bpd * effective_duration_days
     surviving_bpd = total_baseline_bpd - total_shortfall_bpd
     
     supply_drop_pct = (total_shortfall_bpd / total_baseline_bpd) * 100 if total_baseline_bpd > 0 else 0
@@ -119,7 +133,8 @@ def run_simulation(live_risk_report: dict, simulation_days: int = 15) -> dict:
 
     return {
         "simulation_parameters": {
-            "duration_days": simulation_days,
+            "lead_time_source": "Phase 3 LP Solver (Dynamic)" if override_days is None else "User Override",
+            "duration_days": effective_duration_days,
             "triggered_corridors": triggered_corridors
         },
         "impact_metrics": {
@@ -129,23 +144,23 @@ def run_simulation(live_risk_report: dict, simulation_days: int = 15) -> dict:
             "total_barrels_lost": total_barrels_lost,
             "affected_suppliers": affected_suppliers
         },
+        "procurement_optimization_phase3": procurement_solution,
         "economic_estimates": {
-            "estimated_crude_price_spike_pct": round(estimated_price_spike_pct, 2)
+            "estimated_crude_price_spike_pct": round(estimated_price_spike_pct, 2),
+            "disclaimer": "Modelled estimates based on historical supply-price elasticity."
         }
     }
 
-# --- TEST THE FULL PIPELINE (PHASE 1 -> PHASE 2) ---
 if __name__ == "__main__":
-    # Ensure pandas is installed: pip install pandas
-    print("Initiating full autonomous pipeline test...")
+    print("Initiating full autonomous pipeline test (Phase 1 -> Phase 2 & 3)...")
     
-    # 1. Run Phase 1 (Live Geopolitical LLM Parsing)
-    print("Running Phase 1 (Fetching live news & generating risk scores)...")
-    live_risk_data = calculate_global_risk(master_routes)
+    # 1. Fetch live risk scores
+    print("Running Phase 1...")
+    live_risk = calculate_global_risk(master_routes)
     
-    # 2. Run Phase 2 (Dynamic CSV baseline ingestion + Disruption Math)
-    print("Running Phase 2 (Ingesting UN Comtrade CSVs & simulating impact)...")
-    final_output = run_simulation(live_risk_report=live_risk_data, simulation_days=15)
+    # 2. Run integrated Phase 2 & Phase 3 pipeline
+    print("Running Phase 2 & 3...")
+    result = run_simulation(live_risk_report=live_risk)
     
-    print("\n=== FINAL PHASE 2 API PAYLOAD ===")
-    print(json.dumps(final_output, indent=2))
+    print("\n=== INTEGRATED PIPELINE OUTPUT ===")
+    print(json.dumps(result, indent=2))
