@@ -1,131 +1,111 @@
-import Header from "../components/Header";
-import CorridorCard from "../components/CorridorCard";
-import WorldMap from "../components/WorldMap";
-import SimulationPanel from "../components/SimulationPanel";
-import { usePipelineData } from "../lib/usePipelineData";
+import React, { useEffect, useState } from "react";
+import Sidebar from "../components/Sidebar.jsx";
+import MapView from "../components/MapView.jsx";
+import DetailOverlay from "../components/DetailOverlay.jsx";
+import { api } from "../lib/api";
 
 export default function Dashboard() {
-  const { data, source, lastUpdated } = usePipelineData();
-  const phase2 = data.phase2_disruption_report;
-  const corridors = Object.entries(phase2.corridors);
+  const [theme, setTheme] = useState("dark");
+  const [meta, setMeta] = useState(null);
+  const [corridors, setCorridors] = useState([]);
+  const [mode, setMode] = useState("uninitialized");
+  const [updatedAt, setUpdatedAt] = useState(null);
+  const [selectedSource, setSelectedSource] = useState(null);
+  const [activeCorridorKey, setActiveCorridorKey] = useState(null);
+  const [openDetailKey, setOpenDetailKey] = useState(null);
+  const [simulating, setSimulating] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    api.meta()
+      .then((m) => {
+        setMeta(m);
+        setSelectedSource(m.suppliers[0]?.country ?? null);
+      })
+      .catch((e) => setError(e.message));
+    loadCorridors();
+  }, []);
+
+  useEffect(() => {
+    if (!selectedSource || !meta) return;
+    api.route(selectedSource)
+      .then((r) => setActiveCorridorKey(r.corridor_key))
+      .catch(() => {});
+  }, [selectedSource, meta]);
+
+  function loadCorridors() {
+    return api.corridors()
+      .then((data) => {
+        setCorridors(data.corridors);
+        setMode(data.mode);
+        setUpdatedAt(data.updated_at);
+      })
+      .catch((e) => setError(e.message));
+  }
+
+  async function handleStartSimulation() {
+    setSimulating(true);
+    try {
+      const data = await api.simulate();
+      setCorridors(data.corridors);
+      setMode(data.mode);
+      setUpdatedAt(data.updated_at);
+    } catch (e) {
+      setError(e.message);
+    } finally {
+      setSimulating(false);
+    }
+  }
+
+  if (error) {
+    return (
+      <div className="app" data-theme={theme}>
+        <div className="app-error">
+          <p>Can't reach the API at the configured VITE_API_BASE.</p>
+          <p className="mono">{error}</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!meta) {
+    return (
+      <div className="app" data-theme={theme}>
+        <div className="app-loading">Loading dashboard…</div>
+      </div>
+    );
+  }
 
   return (
-    <div className="app">
-      <Header
-        baselineYear={phase2.baseline_year}
-        totalBpd={phase2.india_total_import_bpd}
-        source={source}
-        lastUpdated={lastUpdated}
+    <div className="app" data-theme={theme}>
+      <Sidebar
+        theme={theme}
+        setTheme={setTheme}
+        suppliers={meta.suppliers}
+        destination={meta.destination}
+        selectedSource={selectedSource}
+        setSelectedSource={setSelectedSource}
+        corridors={corridors}
+        activeCorridorKey={activeCorridorKey}
+        onSelectCorridor={(key) => setActiveCorridorKey(key)}
+        onStartSimulation={handleStartSimulation}
+        simulating={simulating}
+        mode={mode}
+        updatedAt={updatedAt}
       />
-
-      <main className="app__main">
-        <div className="app__intro">
-          <span className="app__eyebrow mono">01 · SUPPLY CHAIN DIGITAL TWIN</span>
-          <h2>Live corridor map</h2>
-          <p>
-            A geospatial view of every route crude actually travels to reach India — the chokepoint
-            it must pass, the suppliers behind it, and how exposed each one is right now. Select a
-            corridor to trace its route and see who's affected.
-          </p>
-        </div>
-
-        <div className="app__panel">
-          <WorldMap corridors={phase2.corridors} />
-        </div>
-
-        <div className="app__intro app__intro--spaced">
-          <span className="app__eyebrow mono">02 · WHAT-IF SIMULATOR</span>
-          <h2>Escalate or de-escalate a corridor</h2>
-          <p>
-            Drag the severity slider to see how a corridor's shortfall, price impact and losses move
-            before committing to a full backend re-run. Numbers update instantly on the client.
-          </p>
-        </div>
-
-        <div className="app__panel">
-          <SimulationPanel corridors={phase2.corridors} />
-        </div>
-
-        <div className="app__intro app__intro--spaced">
-          <span className="app__eyebrow mono">03 · REROUTING RECOMMENDATIONS</span>
-          <h2>Corridor disruption scenarios</h2>
-          <p>
-            Auto-derived from live geopolitical risk scoring. Severity comes from each corridor's
-            risk score; replacement time comes from the real shipping lead-time of the fastest
-            available alternative suppliers — not a fixed assumption.
-          </p>
-        </div>
-
-        <div className="app__grid">
-          {corridors.map(([key, value]) => (
-            <CorridorCard key={key} corridorKey={key} corridorData={value} />
-          ))}
-        </div>
-      </main>
-
-      <footer className="app__footer">
-        <span>Chokepoint · modelled estimates, not official forecasts</span>
-      </footer>
-
-      <style>{`
-        .app {
-          min-height: 100%;
-          display: flex;
-          flex-direction: column;
-        }
-        .app__main {
-          flex: 1;
-          padding: 32px;
-          max-width: 1280px;
-          margin: 0 auto;
-          width: 100%;
-        }
-        .app__eyebrow {
-          font-size: 10.5px;
-          letter-spacing: 0.1em;
-          color: var(--accent-cyan);
-        }
-        .app__intro {
-          margin-bottom: 20px;
-          display: flex;
-          flex-direction: column;
-          gap: 6px;
-        }
-        .app__intro--spaced {
-          margin-top: 40px;
-        }
-        .app__intro h2 {
-          font-family: var(--font-display);
-          font-size: 22px;
-          margin: 0;
-        }
-        .app__intro p {
-          max-width: 680px;
-          font-size: 13px;
-          color: var(--text-secondary);
-          line-height: 1.6;
-          margin: 0;
-        }
-        .app__panel {
-          background: var(--ink-700);
-          border: 1px solid var(--hairline);
-          border-radius: var(--radius-lg);
-          padding: 22px;
-          box-shadow: var(--shadow-card);
-        }
-        .app__grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-          gap: 20px;
-        }
-        .app__footer {
-          text-align: center;
-          padding: 20px;
-          font-size: 11px;
-          color: var(--text-muted);
-          border-top: 1px solid var(--hairline);
-        }
-      `}</style>
+      <MapView
+        theme={theme}
+        corridors={corridors}
+        activeCorridorKey={activeCorridorKey}
+        onOpenDetail={setOpenDetailKey}
+        destination={meta.destination}
+        suppliers={meta.suppliers}
+        selectedSource={selectedSource}
+        setSelectedSource={setSelectedSource}
+      />
+      {openDetailKey && (
+        <DetailOverlay corridorKey={openDetailKey} onClose={() => setOpenDetailKey(null)} />
+      )}
     </div>
   );
 }

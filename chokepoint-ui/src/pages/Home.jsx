@@ -56,7 +56,10 @@ const PIPELINE = [
 
 export default function Home() {
   return (
-    <div className="home">
+    <div className="home" data-theme="dark">
+      <div className="home__glow home__glow--1" />
+      <div className="home__glow home__glow--2" />
+
       <nav className="home__nav">
         <Link to="/" className="home__brand">
           <ChokepointMark />
@@ -83,7 +86,9 @@ export default function Home() {
             reaches the refinery gate.
           </p>
           <div className="home__hero-actions">
-            <Link to="/dashboard" className="home__btn home__btn--primary">Open live dashboard</Link>
+            <Link to="/dashboard" className="home__btn home__btn--primary">
+              Open live dashboard <span className="home__btn-arrow">→</span>
+            </Link>
             <a href="#pipeline" className="home__btn home__btn--ghost">See how it works</a>
           </div>
         </div>
@@ -150,7 +155,9 @@ export default function Home() {
 
       <section className="home__cta">
         <h2>The corridors are already scored. Go look.</h2>
-        <Link to="/dashboard" className="home__btn home__btn--primary">Open live dashboard</Link>
+        <Link to="/dashboard" className="home__btn home__btn--primary">
+          Open live dashboard <span className="home__btn-arrow">→</span>
+        </Link>
       </section>
 
       <footer className="home__footer">
@@ -163,8 +170,35 @@ export default function Home() {
 
       <style>{`
         .home {
+          position: relative;
           min-height: 100%;
+          background: var(--bg-deep);
+          overflow: hidden;
         }
+        .home__glow {
+          position: absolute;
+          border-radius: 50%;
+          filter: blur(90px);
+          pointer-events: none;
+          z-index: 0;
+        }
+        .home__glow--1 {
+          width: 560px; height: 560px;
+          top: -180px; right: -120px;
+          background: radial-gradient(circle, var(--accent-cyan-dim), transparent 70%);
+        }
+        .home__glow--2 {
+          width: 460px; height: 460px;
+          top: 40%; left: -160px;
+          background: radial-gradient(circle, rgba(245,185,77,0.08), transparent 70%);
+        }
+
+        .home__nav, .home__hero, .home__stats, .home__context, .home__pipeline,
+        .home__capabilities, .home__cta, .home__footer {
+          position: relative;
+          z-index: 1;
+        }
+
         .home__nav {
           display: flex;
           align-items: center;
@@ -173,8 +207,8 @@ export default function Home() {
           position: sticky;
           top: 0;
           z-index: 30;
-          backdrop-filter: blur(10px);
-          background: linear-gradient(180deg, rgba(5,7,13,0.92), rgba(5,7,13,0.55));
+          backdrop-filter: blur(14px);
+          background: linear-gradient(180deg, rgba(5,7,13,0.95), rgba(5,7,13,0.6));
           border-bottom: 1px solid var(--hairline);
         }
         .home__brand {
@@ -184,54 +218,92 @@ export default function Home() {
           font-family: var(--font-display);
           font-weight: 700;
           font-size: 17px;
+          color: var(--text-primary) !important;
+          text-decoration: none;
         }
         .home__brand--footer { font-size: 15px; }
         .home__nav-links {
           display: flex;
           align-items: center;
-          gap: 28px;
+          gap: 30px;
           font-size: 13px;
           color: var(--text-secondary);
         }
-        .home__nav-links a:hover { color: var(--text-primary); }
+        .home__nav-links > a:not(.home__nav-cta) {
+          position: relative;
+          text-decoration: none;
+          color: var(--text-secondary);
+          padding-bottom: 3px;
+        }
+        .home__nav-links > a:not(.home__nav-cta)::after {
+          content: "";
+          position: absolute;
+          left: 0; bottom: 0;
+          width: 0%; height: 1.5px;
+          background: var(--accent-cyan);
+          transition: width 0.25s ease;
+        }
+        .home__nav-links > a:not(.home__nav-cta):hover {
+          color: var(--text-primary);
+        }
+        .home__nav-links > a:not(.home__nav-cta):hover::after {
+          width: 100%;
+        }
         .home__nav-cta {
-          padding: 8px 16px;
+          padding: 9px 18px;
           border-radius: 999px;
           border: 1px solid var(--accent-cyan);
           color: var(--text-primary) !important;
           background: var(--accent-cyan-dim);
+          text-decoration: none;
+          font-weight: 600;
+          transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+        }
+        .home__nav-cta:hover {
+          background: var(--accent-cyan);
+          color: var(--ink-900) !important;
+          box-shadow: 0 0 24px var(--accent-cyan-dim);
+          transform: translateY(-1px);
         }
 
         .home__hero {
           max-width: 1280px;
           margin: 0 auto;
-          padding: 72px 32px 40px;
+          padding: 88px 32px 48px;
           display: grid;
           grid-template-columns: 1.05fr 0.95fr;
           gap: 48px;
           align-items: center;
         }
         .home__eyebrow {
+          display: inline-block;
           font-size: 11px;
-          letter-spacing: 0.12em;
+          letter-spacing: 0.14em;
           color: var(--accent-cyan);
+          padding: 5px 12px;
+          border: 1px solid var(--hairline-strong);
+          border-radius: 999px;
+          background: var(--ink-800);
         }
         .home__hero-copy h1 {
-          font-size: 44px;
-          line-height: 1.14;
-          margin: 16px 0 20px;
-          letter-spacing: -0.01em;
+          font-family: var(--font-display);
+          font-size: 48px;
+          line-height: 1.15;
+          margin: 20px 0 22px;
+          letter-spacing: -0.015em;
+          color: var(--text-primary);
         }
         .home__hero-copy h1 em {
           font-style: normal;
           color: var(--accent-cyan);
+          text-shadow: 0 0 32px var(--accent-cyan-dim);
         }
         .home__hero-copy p {
           font-size: 15.5px;
-          line-height: 1.65;
+          line-height: 1.7;
           color: var(--text-secondary);
           max-width: 520px;
-          margin: 0 0 28px;
+          margin: 0 0 30px;
         }
         .home__hero-actions {
           display: flex;
@@ -242,23 +314,31 @@ export default function Home() {
           font-family: var(--font-display);
           font-size: 13.5px;
           font-weight: 600;
-          padding: 13px 22px;
+          padding: 14px 24px;
           border-radius: var(--radius-sm);
           display: inline-flex;
           align-items: center;
           gap: 8px;
-          transition: transform 0.15s var(--ease-out), background 0.15s ease, border-color 0.15s ease;
+          text-decoration: none;
+          transition: transform 0.18s ease, background 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
         }
-        .home__btn:hover { transform: translateY(-1px); }
+        .home__btn:hover { transform: translateY(-2px); }
+        .home__btn-arrow { transition: transform 0.18s ease; }
+        .home__btn:hover .home__btn-arrow { transform: translateX(3px); }
         .home__btn--primary {
           background: var(--accent-cyan);
           color: var(--ink-900) !important;
+          box-shadow: 0 8px 28px var(--accent-cyan-dim);
+        }
+        .home__btn--primary:hover {
+          box-shadow: 0 10px 36px rgba(55,201,224,0.35);
         }
         .home__btn--ghost {
           border: 1px solid var(--hairline-strong);
           color: var(--text-primary) !important;
+          background: transparent;
         }
-        .home__btn--ghost:hover { border-color: var(--accent-cyan); }
+        .home__btn--ghost:hover { border-color: var(--accent-cyan); background: var(--ink-800); }
 
         .home__hero-radar {
           aspect-ratio: 1;
@@ -270,7 +350,7 @@ export default function Home() {
         .home__stats {
           max-width: 1280px;
           margin: 0 auto;
-          padding: 0 32px 56px;
+          padding: 0 32px 64px;
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 20px;
@@ -284,9 +364,9 @@ export default function Home() {
         .home__context p {
           max-width: 820px;
           margin: 0 auto;
-          padding: 44px 32px;
-          font-size: 16px;
-          line-height: 1.75;
+          padding: 48px 32px;
+          font-size: 16.5px;
+          line-height: 1.8;
           color: var(--text-secondary);
           font-family: var(--font-display);
           font-weight: 500;
@@ -295,33 +375,43 @@ export default function Home() {
         .home__pipeline, .home__capabilities {
           max-width: 1280px;
           margin: 0 auto;
-          padding: 72px 32px;
+          padding: 80px 32px;
         }
 
         .home__pipeline-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 24px;
-          margin-top: 36px;
+          margin-top: 40px;
         }
         .pipeline-step {
-          padding: 24px;
+          padding: 26px;
           border: 1px solid var(--hairline);
           border-radius: var(--radius-lg);
           background: var(--ink-700);
+          transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .pipeline-step:hover {
+          transform: translateY(-3px);
+          border-color: var(--accent-cyan);
+          box-shadow: var(--shadow-card);
         }
         .pipeline-step__n {
           color: var(--accent-cyan);
-          font-size: 13px;
+          font-size: 22px;
+          font-weight: 700;
+          opacity: 0.6;
         }
         .pipeline-step h3 {
-          font-size: 16px;
-          margin: 10px 0 8px;
+          font-family: var(--font-display);
+          font-size: 16.5px;
+          margin: 12px 0 8px;
+          color: var(--text-primary);
         }
         .pipeline-step p {
           font-size: 13px;
           color: var(--text-secondary);
-          line-height: 1.6;
+          line-height: 1.65;
           margin: 0;
         }
 
@@ -329,20 +419,25 @@ export default function Home() {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
           gap: 20px;
-          margin-top: 36px;
+          margin-top: 40px;
         }
         .capability-card {
-          padding: 22px;
+          padding: 24px;
           border: 1px solid var(--hairline);
           border-radius: var(--radius-lg);
           background: var(--ink-700);
           display: flex;
           flex-direction: column;
-          gap: 12px;
+          gap: 14px;
+          transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .capability-card:hover {
+          transform: translateY(-3px);
+          border-color: var(--hairline-strong);
         }
         .capability-card__icon {
-          width: 34px;
-          height: 34px;
+          width: 36px;
+          height: 36px;
           color: var(--accent-cyan);
         }
         .capability-card__head {
@@ -351,14 +446,16 @@ export default function Home() {
           gap: 8px;
         }
         .capability-card__head h3 {
+          font-family: var(--font-display);
           font-size: 14.5px;
           margin: 0;
+          color: var(--text-primary);
         }
         .capability-card__status {
           align-self: flex-start;
           font-size: 10px;
           letter-spacing: 0.04em;
-          padding: 3px 9px;
+          padding: 3px 10px;
           border-radius: 999px;
           font-family: var(--font-mono);
         }
@@ -374,21 +471,24 @@ export default function Home() {
         .capability-card p {
           font-size: 12.5px;
           color: var(--text-secondary);
-          line-height: 1.6;
+          line-height: 1.65;
           margin: 0;
         }
 
         .home__cta {
           text-align: center;
-          padding: 80px 32px;
+          padding: 90px 32px;
           display: flex;
           flex-direction: column;
           align-items: center;
-          gap: 24px;
+          gap: 26px;
+          background: radial-gradient(ellipse at center, var(--accent-cyan-dim), transparent 70%);
         }
         .home__cta h2 {
-          font-size: 26px;
+          font-family: var(--font-display);
+          font-size: 28px;
           max-width: 520px;
+          color: var(--text-primary);
         }
 
         .home__footer {
@@ -407,8 +507,8 @@ export default function Home() {
         }
 
         @media (max-width: 900px) {
-          .home__hero { grid-template-columns: 1fr; padding-top: 48px; }
-          .home__hero-copy h1 { font-size: 34px; }
+          .home__hero { grid-template-columns: 1fr; padding-top: 56px; }
+          .home__hero-copy h1 { font-size: 36px; }
           .home__stats { grid-template-columns: 1fr; }
           .home__pipeline-grid, .home__capabilities-grid { grid-template-columns: 1fr; }
           .home__nav-links { gap: 16px; }
@@ -425,16 +525,22 @@ function Stat({ value, label }) {
       <span className="stat-block__label">{label}</span>
       <style>{`
         .stat-block {
-          padding: 22px 24px;
+          padding: 24px 26px;
           border: 1px solid var(--hairline);
           border-radius: var(--radius-lg);
           background: var(--ink-700);
           display: flex;
           flex-direction: column;
-          gap: 6px;
+          gap: 8px;
+          transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+        .stat-block:hover {
+          transform: translateY(-3px);
+          border-color: var(--accent-cyan);
         }
         .stat-block__value {
-          font-size: 34px;
+          font-family: var(--font-display);
+          font-size: 36px;
           font-weight: 700;
           color: var(--accent-cyan);
         }
@@ -460,23 +566,22 @@ function SectionHead({ eyebrow, title, desc }) {
           color: var(--accent-cyan);
         }
         .section-head h2 {
-          font-size: 26px;
+          font-family: var(--font-display);
+          font-size: 28px;
           margin: 12px 0 8px;
+          color: var(--text-primary);
         }
         .section-head p {
           font-size: 13.5px;
           color: var(--text-secondary);
           max-width: 560px;
-          line-height: 1.6;
+          line-height: 1.65;
         }
       `}</style>
     </div>
   );
 }
 
-// Abstract live-radar teaser: India at center, three corridor nodes placed by
-// bearing (not literal geography — the full projected map lives in the
-// dashboard's Digital Twin panel) with pulse amplitude driven by risk score.
 function HeroRadar() {
   const corridors = sampleData.phase1_risk_report;
   const nodes = [
