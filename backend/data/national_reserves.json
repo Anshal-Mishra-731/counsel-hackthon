@@ -1,0 +1,46 @@
+{
+  "strategic_petroleum_reserves_isprl": {
+    "agency": "Indian Strategic Petroleum Reserves Limited (ISPRL)",
+    "total_capacity_mmt": 5.33,
+    "total_capacity_barrels": 39068900,
+    "current_fill_percentage": 63.2,
+    "current_stock_barrels": 24700000,
+    "max_combined_discharge_rate_bpd": 750000,
+    "caverns": [
+      {
+        "location": "Visakhapatnam, Andhra Pradesh",
+        "capacity_mmt": 1.33,
+        "capacity_barrels": 9748900,
+        "current_stock_barrels": 6170000,
+        "max_discharge_rate_bpd": 200000,
+        "primary_connected_refinery": "HPCL Visakhapatnam"
+      },
+      {
+        "location": "Mangaluru, Karnataka",
+        "capacity_mmt": 1.50,
+        "capacity_barrels": 10995000,
+        "current_stock_barrels": 6950000,
+        "max_discharge_rate_bpd": 250000,
+        "primary_connected_refinery": "MRPL Mangalore"
+      },
+      {
+        "location": "Padur, Karnataka",
+        "capacity_mmt": 2.50,
+        "capacity_barrels": 18325000,
+        "current_stock_barrels": 11580000,
+        "max_discharge_rate_bpd": 300000,
+        "primary_connected_refinery": "IOCL / BPCL Western Pipeline Network"
+      }
+    ]
+  },
+  "commercial_buffer_omc": {
+    "description": "Commercial crude stock held at refinery tank farms and pipeline linefills (IOCL, BPCL, HPCL, Reliance, Nayara)",
+    "estimated_usable_buffer_barrels": 120000000,
+    "max_commercial_drawdown_rate_bpd": 3500000
+  },
+  "metadata": {
+    "source": "Petroleum Planning & Analysis Cell (PPAC) & ISPRL Annual Report",
+    "classification": "Unclassified / Public Domain Sovereign Baseline",
+    "unit": "Barrels (bbl) & Barrels Per Day (BPD)"
+  }
+}
