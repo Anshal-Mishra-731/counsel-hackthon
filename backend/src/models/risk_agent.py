@@ -8,16 +8,23 @@ from google import genai
 from google.genai import types
 from src.config import settings
 
-# 1. Suppress the annoying Google SDK AFC warnings for a clean terminal
 logging.getLogger("google.genai").setLevel(logging.ERROR)
 warnings.filterwarnings("ignore")
 
 client = genai.Client(api_key=settings.gemini_api_key)
 
-def fetch_corridor_headlines(corridor: str) -> str:
-    """Fetches up to 10 headlines using Finlight or feedparser RSS fallback."""
-    headlines = []
+# --- MASTER CORRIDORS LIST (Module-Level Export) ---
+master_routes = [
+    "Strait of Hormuz",
+    "Red Sea",
+    "Cape of Good Hope",
+    "Strait of Malacca",
+    "Chennai Vladivostok Maritime Corridor",
+    "International North South Transport Corridor"
+]
 
+def fetch_corridor_headlines(corridor: str) -> str:
+    headlines = []
     if settings.finlight_api_key:
         try:
             url = "https://api.finlight.me/v2/articles"
@@ -32,7 +39,7 @@ def fetch_corridor_headlines(corridor: str) -> str:
                 articles = response.json().get("articles", [])
                 headlines = [a.get("title", "") for a in articles if a.get("title")]
         except Exception as e:
-            pass # Silently fallback to RSS
+            pass
 
     if not headlines:
         query = corridor.replace(" ", "+")
@@ -45,7 +52,10 @@ def fetch_corridor_headlines(corridor: str) -> str:
 
     return "\n".join(headlines) if headlines else "No recent news available."
 
-def calculate_global_risk(corridors: list[str]) -> dict:
+def calculate_global_risk(corridors: list[str] = None) -> dict:
+    if corridors is None:
+        corridors = master_routes
+
     corridor_news_map = {}
     for corridor in corridors:
         safe_key = corridor.lower().replace(" ", "_").replace("-", "_")
@@ -74,12 +84,10 @@ def calculate_global_risk(corridors: list[str]) -> dict:
 
     parsed_evaluations = {}
     max_retries = 2
-    
-    # 2. Automatic Retry Logic for 429 Rate Limits
     for attempt in range(max_retries):
         try:
             response = client.models.generate_content(
-                model='gemini-3.6-flash',
+                model='gemini-3.5-flash-lite',
                 contents=prompt,
                 config=types.GenerateContentConfig(
                     response_mime_type="application/json",
@@ -87,19 +95,16 @@ def calculate_global_risk(corridors: list[str]) -> dict:
                 )
             )
             parsed_evaluations = json.loads(response.text)
-            break # Success, exit the retry loop
-            
+            break
         except Exception as e:
             error_msg = str(e)
             if "429" in error_msg or "RESOURCE_EXHAUSTED" in error_msg:
-                wait_time = 35 # Wait safely past the 30s cooldown
-                print(f"⚠️ Google API free-tier cooldown hit. Pausing for {wait_time} seconds before retrying...")
+                wait_time = 35
+                print(f"⚠️ Rate limit hit. Waiting {wait_time}s...")
                 time.sleep(wait_time)
             else:
-                print(f"LLM parsing failed: {e}")
+                print(f"LLM parsing error: {e}")
                 break
-    else:
-        print("Max retries reached. Defaulting to baseline scores.")
 
     final_report = {}
     for key, data in corridor_news_map.items():
@@ -123,15 +128,6 @@ def calculate_global_risk(corridors: list[str]) -> dict:
     return final_report
 
 if __name__ == "__main__":
-    master_routes = [
-        "Strait of Hormuz",
-        "Red Sea",
-        "Cape of Good Hope",
-        "Strait of Malacca",
-        "Chennai Vladivostok Maritime Corridor",
-        "International North South Transport Corridor"
-    ]
-
     print("Evaluating all corridors in a single batch...")
     result = calculate_global_risk(master_routes)
     print(json.dumps(result, indent=2))

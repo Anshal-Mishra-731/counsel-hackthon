@@ -1,0 +1,560 @@
+year,month_num,year_month,importer,flow,supplier_country,supplier_iso3,hs_code,commodity,qty_kg,qty_unit,net_weight_kg,cif_value_usd,trade_value_usd,date
+2022,1,202201,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,281504000,kg,281504000.0,176559188.889,176559188.889,2022-01-01
+2022,1,202201,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,291696000,kg,291696000.0,156735463.873,156735463.873,2022-01-01
+2022,1,202201,India,Import,Canada,CAN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,223716400,kg,223716400.0,118829026.397,118829026.397,2022-01-01
+2022,1,202201,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,292481000,kg,292481000.0,151957200.192,151957200.192,2022-01-01
+2022,1,202201,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3776990000,kg,3776990000.0,2145302745.633,2145302745.633,2022-01-01
+2022,1,202201,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,610996000,kg,610996000.0,354548282.805,354548282.805,2022-01-01
+2022,1,202201,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,661672000,kg,661672000.0,418838603.215,418838603.215,2022-01-01
+2022,1,202201,India,Import,Oman,OMN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,601441000,kg,601441000.0,364262858.869,364262858.869,2022-01-01
+2022,1,202201,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,260326000,kg,260326000.0,178175012.998,178175012.998,2022-01-01
+2022,1,202201,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,4192280000,kg,4192280000.0,2513242799.71,2513242799.71,2022-01-01
+2022,1,202201,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,695097000,kg,695097000.0,426041210.495,426041210.495,2022-01-01
+2022,1,202201,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,723221000,kg,723221000.0,440537898.451,440537898.451,2022-01-01
+2022,2,202202,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,252019000,kg,252019000.0,155703987.109,155703987.109,2022-02-01
+2022,2,202202,India,Import,Azerbaijan,AZE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,136966000,kg,136966000.0,94042325.117,94042325.117,2022-02-01
+2022,2,202202,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,143781000,kg,143781000.0,96348068.631,96348068.631,2022-02-01
+2022,2,202202,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,504799000,kg,504799000.0,269016961.707,269016961.707,2022-02-01
+2022,2,202202,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,5025480000,kg,5025480000.0,3016515679.596,3016515679.596,2022-02-01
+2022,2,202202,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1402346000,kg,1402346000.0,878902771.187,878902771.187,2022-02-01
+2022,2,202202,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,786240000,kg,786240000.0,486792796.233,486792796.233,2022-02-01
+2022,2,202202,India,Import,Oman,OMN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,281258000,kg,281258000.0,179004136.331,179004136.331,2022-02-01
+2022,2,202202,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3567100000,kg,3567100000.0,2361699713.855,2361699713.855,2022-02-01
+2022,2,202202,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2679040000,kg,2679040000.0,1651456631.847,1651456631.847,2022-02-01
+2022,2,202202,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2445950000,kg,2445950000.0,1525893592.94,1525893592.94,2022-02-01
+2022,3,202203,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,658950000,kg,658950000.0,454437592.649,454437592.649,2022-03-01
+2022,3,202203,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,275573000,kg,275573000.0,217216090.092,217216090.092,2022-03-01
+2022,3,202203,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,225850000,kg,225850000.0,115629600.508,115629600.508,2022-03-01
+2022,3,202203,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,6028530000,kg,6028530000.0,4269285024.224,4269285024.224,2022-03-01
+2022,3,202203,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1308684000,kg,1308684000.0,1021973729.969,1021973729.969,2022-03-01
+2022,3,202203,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1701245000,kg,1701245000.0,1207369316.963,1207369316.963,2022-03-01
+2022,3,202203,India,Import,Norway,NOR,2709,Petroleum oils and oils obtained from bituminous minerals; crude,146939000,kg,146939000.0,130203119.206,130203119.206,2022-03-01
+2022,3,202203,India,Import,Oman,OMN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,822980000,kg,822980000.0,607437114.839,607437114.839,2022-03-01
+2022,3,202203,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,396938000,kg,396938000.0,343272205.548,343272205.548,2022-03-01
+2022,3,202203,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,4119940000,kg,4119940000.0,3156656913.84,3156656913.84,2022-03-01
+2022,3,202203,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2528540000,kg,2528540000.0,1648381779.27,1648381779.27,2022-03-01
+2022,3,202203,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1972496000,kg,1972496000.0,1383469579.652,1383469579.652,2022-03-01
+2022,4,202204,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,263704000,kg,263704000.0,192588437.776,192588437.776,2022-04-01
+2022,4,202204,India,Import,Azerbaijan,AZE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,138450000,kg,138450000.0,131777085.597,131777085.597,2022-04-01
+2022,4,202204,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,144075000,kg,144075000.0,104222107.743,104222107.743,2022-04-01
+2022,4,202204,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,442215000,kg,442215000.0,303224017.809,303224017.809,2022-04-01
+2022,4,202204,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,5232680000,kg,5232680000.0,3992413743.402,3992413743.402,2022-04-01
+2022,4,202204,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,707526000,kg,707526000.0,532080762.068,532080762.068,2022-04-01
+2022,4,202204,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,922433000,kg,922433000.0,807801297.992,807801297.992,2022-04-01
+2022,4,202204,India,Import,Oman,OMN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,692916000,kg,692916000.0,584968192.102,584968192.102,2022-04-01
+2022,4,202204,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1620580000,kg,1620580000.0,1278780741.396,1278780741.396,2022-04-01
+2022,4,202204,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3783270000,kg,3783270000.0,3050782280.204,3050782280.204,2022-04-01
+2022,4,202204,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1557370000,kg,1557370000.0,1182596718.412,1182596718.412,2022-04-01
+2022,4,202204,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3164260000,kg,3164260000.0,2424336223.38,2424336223.38,2022-04-01
+2022,5,202205,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,389343000,kg,389343000.0,316369827.108,316369827.108,2022-05-01
+2022,5,202205,India,Import,Azerbaijan,AZE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,137568000,kg,137568000.0,114928507.134,114928507.134,2022-05-01
+2022,5,202205,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,299522000,kg,299522000.0,207705846.605,207705846.605,2022-05-01
+2022,5,202205,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,4666730000,kg,4666730000.0,3528865541.745,3528865541.745,2022-05-01
+2022,5,202205,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1128310000,kg,1128310000.0,859015858.049,859015858.049,2022-05-01
+2022,5,202205,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1301010000,kg,1301010000.0,1097362658.712,1097362658.712,2022-05-01
+2022,5,202205,India,Import,Oman,OMN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,477920000,kg,477920000.0,385502976.519,385502976.519,2022-05-01
+2022,5,202205,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2769040000,kg,2769040000.0,1902411854.388,1902411854.388,2022-05-01
+2022,5,202205,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3072670000,kg,3072670000.0,2531211366.44,2531211366.44,2022-05-01
+2022,5,202205,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,824716000,kg,824716000.0,597444760.137,597444760.137,2022-05-01
+2022,5,202205,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2341630000,kg,2341630000.0,1890997686.698,1890997686.698,2022-05-01
+2022,6,202206,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,274610000,kg,274610000.0,218874076.648,218874076.648,2022-06-01
+2022,6,202206,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,262338000,kg,262338000.0,215213076.277,215213076.277,2022-06-01
+2022,6,202206,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,5680390000,kg,5680390000.0,3863109364.36,3863109364.36,2022-06-01
+2022,6,202206,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1208530000,kg,1208530000.0,1006079882.05,1006079882.05,2022-06-01
+2022,6,202206,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,685777000,kg,685777000.0,589150593.914,589150593.914,2022-06-01
+2022,6,202206,India,Import,Oman,OMN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,842277000,kg,842277000.0,700724150.421,700724150.421,2022-06-01
+2022,6,202206,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,4034660000,kg,4034660000.0,3018979558.998,3018979558.998,2022-06-01
+2022,6,202206,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3299730000,kg,3299730000.0,2781134632.496,2781134632.496,2022-06-01
+2022,6,202206,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,990248000,kg,990248000.0,832391147.867,832391147.867,2022-06-01
+2022,6,202206,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1588960000,kg,1588960000.0,1245473281.063,1245473281.063,2022-06-01
+2022,7,202207,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,395222000,kg,395222000.0,363411403.196,363411403.196,2022-07-01
+2022,7,202207,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,510794000,kg,510794000.0,402988602.191,402988602.191,2022-07-01
+2022,7,202207,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,438516000,kg,438516000.0,316981177.172,316981177.172,2022-07-01
+2022,7,202207,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,4162790000,kg,4162790000.0,3200835026.636,3200835026.636,2022-07-01
+2022,7,202207,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1156260000,kg,1156260000.0,980616980.641,980616980.641,2022-07-01
+2022,7,202207,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,277844000,kg,277844000.0,351729360.953,351729360.953,2022-07-01
+2022,7,202207,India,Import,Oman,OMN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,349550000,kg,349550000.0,285434785.933,285434785.933,2022-07-01
+2022,7,202207,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3882560000,kg,3882560000.0,2879206249.092,2879206249.092,2022-07-01
+2022,7,202207,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3193820000,kg,3193820000.0,2676699173.782,2676699173.782,2022-07-01
+2022,7,202207,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1012240000,kg,1012240000.0,881559826.778,881559826.778,2022-07-01
+2022,7,202207,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2388220000,kg,2388220000.0,2004721983.473,2004721983.473,2022-07-01
+2022,8,202208,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,132153000,kg,132153000.0,114806998.76,114806998.76,2022-08-01
+2022,8,202208,India,Import,Azerbaijan,AZE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,138642000,kg,138642000.0,128207706.201,128207706.201,2022-08-01
+2022,8,202208,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,140299000,kg,140299000.0,105676678.306,105676678.306,2022-08-01
+2022,8,202208,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,158052000,kg,158052000.0,109322614.515,109322614.515,2022-08-01
+2022,8,202208,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,4091830000,kg,4091830000.0,2924326670.985,2924326670.985,2022-08-01
+2022,8,202208,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,787086000,kg,787086000.0,603358540.094,603358540.094,2022-08-01
+2022,8,202208,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,389664000,kg,389664000.0,368855920.653,368855920.653,2022-08-01
+2022,8,202208,India,Import,Oman,OMN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,284775000,kg,284775000.0,231980715.419,231980715.419,2022-08-01
+2022,8,202208,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3818840000,kg,3818840000.0,2645706810.21,2645706810.21,2022-08-01
+2022,8,202208,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,4067570000,kg,4067570000.0,3273161046.041,3273161046.041,2022-08-01
+2022,8,202208,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1095800000,kg,1095800000.0,842937496.761,842937496.761,2022-08-01
+2022,8,202208,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1708250000,kg,1708250000.0,1425558708.946,1425558708.946,2022-08-01
+2022,9,202209,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,264839000,kg,264839000.0,199397688.645,199397688.645,2022-09-01
+2022,9,202209,India,Import,Azerbaijan,AZE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,138520000,kg,138520000.0,120829271.395,120829271.395,2022-09-01
+2022,9,202209,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,30902000,kg,30902000.0,16367809.991,16367809.991,2022-09-01
+2022,9,202209,India,Import,Canada,CAN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,118,kg,118.0,6585.823,6585.823,2022-09-01
+2022,9,202209,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,150037000,kg,150037000.0,95569518.612,95569518.612,2022-09-01
+2022,9,202209,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,4037400000,kg,4037400000.0,2775743207.448,2775743207.448,2022-09-01
+2022,9,202209,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1073820000,kg,1073820000.0,762445648.361,762445648.361,2022-09-01
+2022,9,202209,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,542072000,kg,542072000.0,438784516.04,438784516.04,2022-09-01
+2022,9,202209,India,Import,Oman,OMN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,256222000,kg,256222000.0,210241153.836,210241153.836,2022-09-01
+2022,9,202209,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,5083960000,kg,5083960000.0,3365972484.344,3365972484.344,2022-09-01
+2022,9,202209,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,4472700000,kg,4472700000.0,3485107469.561,3485107469.561,2022-09-01
+2022,9,202209,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1172180000,kg,1172180000.0,894619671.486,894619671.486,2022-09-01
+2022,9,202209,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1750540000,kg,1750540000.0,1480687006.73,1480687006.73,2022-09-01
+2022,10,202210,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,381147000,kg,381147000.0,263104082.528,263104082.528,2022-10-01
+2022,10,202210,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,612184000,kg,612184000.0,410154641.322,410154641.322,2022-10-01
+2022,10,202210,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,4281780000,kg,4281780000.0,2776200699.018,2776200699.018,2022-10-01
+2022,10,202210,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1262950000,kg,1262950000.0,858874645.33,858874645.33,2022-10-01
+2022,10,202210,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1010210000,kg,1010210000.0,776049171.589,776049171.589,2022-10-01
+2022,10,202210,India,Import,Oman,OMN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,42813000,kg,42813000.0,31038356.202,31038356.202,2022-10-01
+2022,10,202210,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,5061340000,kg,5061340000.0,3199397424.332,3199397424.332,2022-10-01
+2022,10,202210,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2778760000,kg,2778760000.0,2017313093.209,2017313093.209,2022-10-01
+2022,10,202210,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,987273000,kg,987273000.0,703018689.321,703018689.321,2022-10-01
+2022,10,202210,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1699430000,kg,1699430000.0,1287146027.679,1287146027.679,2022-10-01
+2022,11,202211,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,528040000,kg,528040000.0,374572146.911,374572146.911,2022-11-01
+2022,11,202211,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,874033000,kg,874033000.0,597486337.246,597486337.246,2022-11-01
+2022,11,202211,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,225261000,kg,225261000.0,161343213.985,161343213.985,2022-11-01
+2022,11,202211,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3266890000,kg,3266890000.0,2128292368.445,2128292368.445,2022-11-01
+2022,11,202211,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1021800000,kg,1021800000.0,636014949.244,636014949.244,2022-11-01
+2022,11,202211,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,129155000,kg,129155000.0,105036845.508,105036845.508,2022-11-01
+2022,11,202211,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,4629510000,kg,4629510000.0,3089245213.489,3089245213.489,2022-11-01
+2022,11,202211,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3104290000,kg,3104290000.0,2295908059.544,2295908059.544,2022-11-01
+2022,11,202211,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1760880000,kg,1760880000.0,1216036615.358,1216036615.358,2022-11-01
+2022,11,202211,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2090010000,kg,2090010000.0,1718045019.747,1718045019.747,2022-11-01
+2022,12,202212,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,519778000,kg,519778000.0,305457864.911,305457864.911,2022-12-01
+2022,12,202212,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,197814000,kg,197814000.0,95708102.921,95708102.921,2022-12-01
+2022,12,202212,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,436558000,kg,436558000.0,222494539.607,222494539.607,2022-12-01
+2022,12,202212,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,4343900000,kg,4343900000.0,2535346891.458,2535346891.458,2022-12-01
+2022,12,202212,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1090600000,kg,1090600000.0,619583522.584,619583522.584,2022-12-01
+2022,12,202212,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1160030000,kg,1160030000.0,751667592.498,751667592.498,2022-12-01
+2022,12,202212,India,Import,Oman,OMN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,149357000,kg,149357000.0,119154297.503,119154297.503,2022-12-01
+2022,12,202212,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,5462450000,kg,5462450000.0,3167894763.979,3167894763.979,2022-12-01
+2022,12,202212,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3800980000,kg,3800980000.0,2551828254.107,2551828254.107,2022-12-01
+2022,12,202212,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3685590000,kg,3685590000.0,2054394617.351,2054394617.351,2022-12-01
+2022,12,202212,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1546300000,kg,1546300000.0,1004041343.158,1004041343.158,2022-12-01
+2023,1,202301,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,517938000,kg,517938000.0,337901932.475,337901932.475,2023-01-01
+2023,1,202301,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,285791000,kg,285791000.0,150029701.01,150029701.01,2023-01-01
+2023,1,202301,India,Import,Canada,CAN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,480361000,kg,480361000.0,272851487.42,272851487.42,2023-01-01
+2023,1,202301,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,294558000,kg,294558000.0,158661176.721,158661176.721,2023-01-01
+2023,1,202301,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,4184920000,kg,4184920000.0,2421486115.885,2421486115.885,2023-01-01
+2023,1,202301,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,669621000,kg,669621000.0,369884345.463,369884345.463,2023-01-01
+2023,1,202301,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,263913000,kg,263913000.0,173167393.216,173167393.216,2023-01-01
+2023,1,202301,India,Import,Oman,OMN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,67750000,kg,67750000.0,43537335.605,43537335.605,2023-01-01
+2023,1,202301,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,6242885000,kg,6242885000.0,3370411291.061,3370411291.061,2023-01-01
+2023,1,202301,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3595090000,kg,3595090000.0,2262372767.702,2262372767.702,2023-01-01
+2023,1,202301,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1484590000,kg,1484590000.0,886440173.055,886440173.055,2023-01-01
+2023,1,202301,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1306530000,kg,1306530000.0,918806039.277,918806039.277,2023-01-01
+2023,2,202302,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,394203000,kg,394203000.0,244094890.174,244094890.174,2023-02-01
+2023,2,202302,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,160631000,kg,160631000.0,93261226.858,93261226.858,2023-02-01
+2023,2,202302,India,Import,Canada,CAN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,558935000,kg,558935000.0,276250470.139,276250470.139,2023-02-01
+2023,2,202302,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3650840000,kg,3650840000.0,2039021836.648,2039021836.648,2023-02-01
+2023,2,202302,India,Import,Kazakhstan,KAZ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,266578000,kg,266578000.0,199303029.845,199303029.845,2023-02-01
+2023,2,202302,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1586870000,kg,1586870000.0,951353249.878,951353249.878,2023-02-01
+2023,2,202302,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,657562000,kg,657562000.0,431813382.266,431813382.266,2023-02-01
+2023,2,202302,India,Import,Oman,OMN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,322263000,kg,322263000.0,197435521.71,197435521.71,2023-02-01
+2023,2,202302,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,7238113100,kg,7238113100.0,3800316853.984,3800316853.984,2023-02-01
+2023,2,202302,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3730449000,kg,3730449000.0,2378558431.777,2378558431.777,2023-02-01
+2023,2,202302,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,895319000,kg,895319000.0,566952075.429,566952075.429,2023-02-01
+2023,2,202302,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2069230000,kg,2069230000.0,1379279528.361,1379279528.361,2023-02-01
+2023,3,202303,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,379930000,kg,379930000.0,244336897.264,244336897.264,2023-03-01
+2023,3,202303,India,Import,Azerbaijan,AZE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,138795000,kg,138795000.0,94136277.299,94136277.299,2023-03-01
+2023,3,202303,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,262997000,kg,262997000.0,144759044.085,144759044.085,2023-03-01
+2023,3,202303,India,Import,Canada,CAN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,327924000,kg,327924000.0,173518835.261,173518835.261,2023-03-01
+2023,3,202303,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,442534000,kg,442534000.0,198408931.472,198408931.472,2023-03-01
+2023,3,202303,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,5251430000,kg,5251430000.0,2986041032.366,2986041032.366,2023-03-01
+2023,3,202303,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,770456000,kg,770456000.0,426866326.948,426866326.948,2023-03-01
+2023,3,202303,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,264499000,kg,264499000.0,167840850.334,167840850.334,2023-03-01
+2023,3,202303,India,Import,Oman,OMN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,132603000,kg,132603000.0,81410003.817,81410003.817,2023-03-01
+2023,3,202303,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,8492288000,kg,8492288000.0,4379220940.886,4379220940.886,2023-03-01
+2023,3,202303,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,4186586000,kg,4186586000.0,2656490697.251,2656490697.251,2023-03-01
+2023,3,202303,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,314150000,kg,314150000.0,150309437.041,150309437.041,2023-03-01
+2023,3,202303,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1367501000,kg,1367501000.0,833341419.718,833341419.718,2023-03-01
+2023,4,202304,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,137042000,kg,137042000.0,85048347.544,85048347.544,2023-04-01
+2023,4,202304,India,Import,Azerbaijan,AZE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,264534000,kg,264534000.0,177819032.487,177819032.487,2023-04-01
+2023,4,202304,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,306534000,kg,306534000.0,152001203.195,152001203.195,2023-04-01
+2023,4,202304,India,Import,Canada,CAN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,35973600,kg,35973600.0,15870498.978,15870498.978,2023-04-01
+2023,4,202304,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,227946021,kg,227946021.0,106674551.034,106674551.034,2023-04-01
+2023,4,202304,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3882890000,kg,3882890000.0,2228911017.523,2228911017.523,2023-04-01
+2023,4,202304,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,621944000,kg,621944000.0,392522637.767,392522637.767,2023-04-01
+2023,4,202304,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,523396000,kg,523396000.0,328439242.543,328439242.543,2023-04-01
+2023,4,202304,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,7472592000,kg,7472592000.0,3774164419.289,3774164419.289,2023-04-01
+2023,4,202304,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3424304300,kg,3424304300.0,2163676858.187,2163676858.187,2023-04-01
+2023,4,202304,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,256969000,kg,256969000.0,181319670.333,181319670.333,2023-04-01
+2023,4,202304,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,788706000,kg,788706000.0,500470785.311,500470785.311,2023-04-01
+2023,5,202305,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,284659000,kg,284659000.0,125554853.899,125554853.899,2023-05-01
+2023,5,202305,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,584752000,kg,584752000.0,248167131.623,248167131.623,2023-05-01
+2023,5,202305,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,4035950000,kg,4035950000.0,2223773657.735,2223773657.735,2023-05-01
+2023,5,202305,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,521615000,kg,521615000.0,460224571.963,460224571.963,2023-05-01
+2023,5,202305,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,257796000,kg,257796000.0,181397252.192,181397252.192,2023-05-01
+2023,5,202305,India,Import,Oman,OMN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,135784000,kg,135784000.0,83419558.95,83419558.95,2023-05-01
+2023,5,202305,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,9602336000,kg,9602336000.0,4994575217.274,4994575217.274,2023-05-01
+2023,5,202305,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2817482000,kg,2817482000.0,1719567102.875,1719567102.875,2023-05-01
+2023,5,202305,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,795471000,kg,795471000.0,475269706.498,475269706.498,2023-05-01
+2023,5,202305,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1218840000,kg,1218840000.0,759356075.266,759356075.266,2023-05-01
+2023,6,202306,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,537570000,kg,537570000.0,320845459.12,320845459.12,2023-06-01
+2023,6,202306,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,92872000,kg,92872000.0,41914030.56,41914030.56,2023-06-01
+2023,6,202306,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3846060000,kg,3846060000.0,1892270018.356,1892270018.356,2023-06-01
+2023,6,202306,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,200350000,kg,200350000.0,104857421.871,104857421.871,2023-06-01
+2023,6,202306,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,9667361000,kg,9667361000.0,4213385475.467,4213385475.467,2023-06-01
+2023,6,202306,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2483220000,kg,2483220000.0,1486589757.391,1486589757.391,2023-06-01
+2023,6,202306,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,913518000,kg,913518000.0,592627615.399,592627615.399,2023-06-01
+2023,6,202306,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,707266000,kg,707266000.0,450247467.44,450247467.44,2023-06-01
+2023,7,202307,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,264453000,kg,264453000.0,150173743.181,150173743.181,2023-07-01
+2023,7,202307,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,127650000,kg,127650000.0,90235168.713,90235168.713,2023-07-01
+2023,7,202307,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,143585000,kg,143585000.0,139060655.519,139060655.519,2023-07-01
+2023,7,202307,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3026950000,kg,3026950000.0,1772825637.077,1772825637.077,2023-07-01
+2023,7,202307,India,Import,Kazakhstan,KAZ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,36,kg,36.0,1042.557,1042.557,2023-07-01
+2023,7,202307,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,289816000,kg,289816000.0,161617893.242,161617893.242,2023-07-01
+2023,7,202307,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,241735000,kg,241735000.0,149543709.409,149543709.409,2023-07-01
+2023,7,202307,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,6679262300,kg,6679262300.0,3798849821.266,3798849821.266,2023-07-01
+2023,7,202307,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,0,,,1453498535.761,1453498535.761,2023-07-01
+2023,7,202307,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,865468000,kg,865468000.0,550144359.934,550144359.934,2023-07-01
+2023,7,202307,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,726450000,kg,726450000.0,467675771.402,467675771.402,2023-07-01
+2023,8,202308,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,251545000,kg,251545000.0,148968386.806,148968386.806,2023-08-01
+2023,8,202308,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,100590000,kg,100590000.0,58877288.164,58877288.164,2023-08-01
+2023,8,202308,India,Import,Canada,CAN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,177128000,kg,177128000.0,83049951.551,83049951.551,2023-08-01
+2023,8,202308,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,236472000,kg,236472000.0,181484599.866,181484599.866,2023-08-01
+2023,8,202308,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3987220000,kg,3987220000.0,2334843040.859,2334843040.859,2023-08-01
+2023,8,202308,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,527719000,kg,527719000.0,340937611.269,340937611.269,2023-08-01
+2023,8,202308,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,782249000,kg,782249000.0,501460724.055,501460724.055,2023-08-01
+2023,8,202308,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,7535802000,kg,7535802000.0,4197333273.984,4197333273.984,2023-08-01
+2023,8,202308,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,0,,,2130681700.626,2130681700.626,2023-08-01
+2023,8,202308,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,589776000,kg,589776000.0,368858011.986,368858011.986,2023-08-01
+2023,8,202308,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,729382000,kg,729382000.0,543044641.88,543044641.88,2023-08-01
+2023,9,202309,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,262812000,kg,262812000.0,161825291.465,161825291.465,2023-09-01
+2023,9,202309,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,96255700,kg,96255700.0,49687636.78,49687636.78,2023-09-01
+2023,9,202309,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,204096000,kg,204096000.0,173090527.866,173090527.866,2023-09-01
+2023,9,202309,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3758030000,kg,3758030000.0,2301164134.485,2301164134.485,2023-09-01
+2023,9,202309,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,841272000,kg,841272000.0,584732826.888,584732826.888,2023-09-01
+2023,9,202309,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,126728000,kg,126728000.0,87112635.145,87112635.145,2023-09-01
+2023,9,202309,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,5652269000,kg,5652269000.0,3744323317.675,3744323317.675,2023-09-01
+2023,9,202309,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2352320000,kg,2352320000.0,1657595709.643,1657595709.643,2023-09-01
+2023,9,202309,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,837936000,kg,837936000.0,556371440.847,556371440.847,2023-09-01
+2023,9,202309,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,775960000,kg,775960000.0,486878820.629,486878820.629,2023-09-01
+2023,10,202310,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,177316000,kg,177316000.0,105936396.547,105936396.547,2023-10-01
+2023,10,202310,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,396711000,kg,396711000.0,224836204.877,224836204.877,2023-10-01
+2023,10,202310,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,4498210000,kg,4498210000.0,2831431961.506,2831431961.506,2023-10-01
+2023,10,202310,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,367170000,kg,367170000.0,265737257.471,265737257.471,2023-10-01
+2023,10,202310,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,794585000,kg,794585000.0,581738774.522,581738774.522,2023-10-01
+2023,10,202310,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,6948395000,kg,6948395000.0,4365241895.946,4365241895.946,2023-10-01
+2023,10,202310,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2574730000,kg,2574730000.0,1826296351.363,1826296351.363,2023-10-01
+2023,10,202310,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,669490000,kg,669490000.0,499875597.243,499875597.243,2023-10-01
+2023,10,202310,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1382840000,kg,1382840000.0,891389882.302,891389882.302,2023-10-01
+2023,11,202311,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,656595000,kg,656595000.0,462206106.232,462206106.232,2023-11-01
+2023,11,202311,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,143771000,kg,143771000.0,75929344.773,75929344.773,2023-11-01
+2023,11,202311,India,Import,Canada,CAN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,219490000,kg,219490000.0,118654222.121,118654222.121,2023-11-01
+2023,11,202311,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,285624000,kg,285624000.0,149931343.833,149931343.833,2023-11-01
+2023,11,202311,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,4530150000,kg,4530150000.0,2847421600.0,2847421600.0,2023-11-01
+2023,11,202311,India,Import,Kazakhstan,KAZ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,138218000,kg,138218000.0,105597417.095,105597417.095,2023-11-01
+2023,11,202311,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,597174000,kg,597174000.0,374162609.76,374162609.76,2023-11-01
+2023,11,202311,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,6412748025,kg,6412748025.0,4015319818.403,4015319818.403,2023-11-01
+2023,11,202311,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2888400000,kg,2888400000.0,1976093466.532,1976093466.532,2023-11-01
+2023,11,202311,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,846998000,kg,846998000.0,615323957.094,615323957.094,2023-11-01
+2023,11,202311,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,600660000,kg,600660000.0,426675174.089,426675174.089,2023-11-01
+2023,12,202312,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,257748000,kg,257748000.0,188041606.194,188041606.194,2023-12-01
+2023,12,202312,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,662056000,kg,662056000.0,379365961.863,379365961.863,2023-12-01
+2023,12,202312,India,Import,Canada,CAN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,441250000,kg,441250000.0,236690522.348,236690522.348,2023-12-01
+2023,12,202312,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,293573000,kg,293573000.0,143847547.13,143847547.13,2023-12-01
+2023,12,202312,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,4177630000,kg,4177630000.0,2429166515.461,2429166515.461,2023-12-01
+2023,12,202312,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,624019000,kg,624019000.0,383373711.904,383373711.904,2023-12-01
+2023,12,202312,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,257240000,kg,257240000.0,191795851.662,191795851.662,2023-12-01
+2023,12,202312,India,Import,Oman,OMN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,99761000,kg,99761000.0,47803868.91,47803868.91,2023-12-01
+2023,12,202312,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,6976191000,kg,6976191000.0,3981416777.359,3981416777.359,2023-12-01
+2023,12,202312,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3000810000,kg,3000810000.0,1917251605.031,1917251605.031,2023-12-01
+2023,12,202312,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,256123000,kg,256123000.0,176812645.008,176812645.008,2023-12-01
+2023,12,202312,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1478800000,kg,1478800000.0,973611635.665,973611635.665,2023-12-01
+2024,1,202401,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,514239000,kg,514239000.0,330817402.2,330817402.2,2024-01-01
+2024,1,202401,India,Import,Azerbaijan,AZE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,134632000,kg,134632000.0,89760564.179,89760564.179,2024-01-01
+2024,1,202401,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,628310000,kg,628310000.0,351282784.581,351282784.581,2024-01-01
+2024,1,202401,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,367727000,kg,367727000.0,178162145.919,178162145.919,2024-01-01
+2024,1,202401,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,4376030000,kg,4376030000.0,2463499755.312,2463499755.312,2024-01-01
+2024,1,202401,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,957862000,kg,957862000.0,544152722.284,544152722.284,2024-01-01
+2024,1,202401,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,252898000,kg,252898000.0,167815569.737,167815569.737,2024-01-01
+2024,1,202401,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,7892163000,kg,7892163000.0,4554024733.712,4554024733.712,2024-01-01
+2024,1,202401,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2529637000,kg,2529637000.0,1600432838.616,1600432838.616,2024-01-01
+2024,1,202401,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,167037000,kg,167037000.0,107474607.152,107474607.152,2024-01-01
+2024,1,202401,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1448470000,kg,1448470000.0,980124006.289,980124006.289,2024-01-01
+2024,1,202401,India,Import,Venezuela,VEN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,402956000,kg,402956000.0,179113946.7,179113946.7,2024-01-01
+2024,2,202402,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,778598000,kg,778598000.0,467953352.726,467953352.726,2024-02-01
+2024,2,202402,India,Import,Azerbaijan,AZE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,132450000,kg,132450000.0,88986766.571,88986766.571,2024-02-01
+2024,2,202402,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,93615600,kg,93615600.0,42723418.875,42723418.875,2024-02-01
+2024,2,202402,India,Import,Canada,CAN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,144837000,kg,144837000.0,72166349.936,72166349.936,2024-02-01
+2024,2,202402,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,507998000,kg,507998000.0,250273724.677,250273724.677,2024-02-01
+2024,2,202402,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3947940000,kg,3947940000.0,2247493353.613,2247493353.613,2024-02-01
+2024,2,202402,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,537132000,kg,537132000.0,328470608.023,328470608.023,2024-02-01
+2024,2,202402,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,915058000,kg,915058000.0,603054200.798,603054200.798,2024-02-01
+2024,2,202402,India,Import,Oman,OMN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,105433000,kg,105433000.0,58325507.368,58325507.368,2024-02-01
+2024,2,202402,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,6634910600,kg,6634910600.0,3778482196.766,3778482196.766,2024-02-01
+2024,2,202402,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,4266561000,kg,4266561000.0,2661471960.5,2661471960.5,2024-02-01
+2024,2,202402,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,89538200,kg,89538200.0,57865067.538,57865067.538,2024-02-01
+2024,2,202402,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2036200000,kg,2036200000.0,1348053426.885,1348053426.885,2024-02-01
+2024,2,202402,India,Import,Venezuela,VEN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,519702000,kg,519702000.0,239987370.424,239987370.424,2024-02-01
+2024,3,202403,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,536137000,kg,536137000.0,334623019.788,334623019.788,2024-03-01
+2024,3,202403,India,Import,Azerbaijan,AZE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,267116000,kg,267116000.0,182785720.68,182785720.68,2024-03-01
+2024,3,202403,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,141439000,kg,141439000.0,67877510.344,67877510.344,2024-03-01
+2024,3,202403,India,Import,Canada,CAN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,363781000,kg,363781000.0,180773548.156,180773548.156,2024-03-01
+2024,3,202403,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,321163000,kg,321163000.0,167898130.976,167898130.976,2024-03-01
+2024,3,202403,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,5703250000,kg,5703250000.0,3287981147.8,3287981147.8,2024-03-01
+2024,3,202403,India,Import,Kazakhstan,KAZ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,133349000,kg,133349000.0,88168369.161,88168369.161,2024-03-01
+2024,3,202403,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,97081900,kg,97081900.0,53005091.86,53005091.86,2024-03-01
+2024,3,202403,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1205190000,kg,1205190000.0,771291973.991,771291973.991,2024-03-01
+2024,3,202403,India,Import,Oman,OMN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,99071700,kg,99071700.0,58841381.249,58841381.249,2024-03-01
+2024,3,202403,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,7121997000,kg,7121997000.0,4207690526.913,4207690526.913,2024-03-01
+2024,3,202403,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2702680000,kg,2702680000.0,1799230748.059,1799230748.059,2024-03-01
+2024,3,202403,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1803800000,kg,1803800000.0,1130388276.959,1130388276.959,2024-03-01
+2024,3,202403,India,Import,Venezuela,VEN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,787823000,kg,787823000.0,383341492.573,383341492.573,2024-03-01
+2024,4,202404,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,527170000,kg,527170000.0,347135342.193,347135342.193,2024-04-01
+2024,4,202404,India,Import,Azerbaijan,AZE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,276411000,kg,276411000.0,196273248.972,196273248.972,2024-04-01
+2024,4,202404,India,Import,Canada,CAN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,362604000,kg,362604000.0,182581548.331,182581548.331,2024-04-01
+2024,4,202404,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,295689000,kg,295689000.0,164699007.022,164699007.022,2024-04-01
+2024,4,202404,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3888130000,kg,3888130000.0,2344329546.293,2344329546.293,2024-04-01
+2024,4,202404,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,709235000,kg,709235000.0,437104776.222,437104776.222,2024-04-01
+2024,4,202404,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,505099000,kg,505099000.0,343769655.393,343769655.393,2024-04-01
+2024,4,202404,India,Import,Oman,OMN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,105433000,kg,105433000.0,57894192.879,57894192.879,2024-04-01
+2024,4,202404,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,7207618000,kg,7207618000.0,4404190327.898,4404190327.898,2024-04-01
+2024,4,202404,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3456500000,kg,3456500000.0,2295387971.263,2295387971.263,2024-04-01
+2024,4,202404,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,598919000,kg,598919000.0,395128076.621,395128076.621,2024-04-01
+2024,4,202404,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1146790000,kg,1146790000.0,742892645.843,742892645.843,2024-04-01
+2024,4,202404,India,Import,Venezuela,VEN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,645900000,kg,645900000.0,340898133.983,340898133.983,2024-04-01
+2024,5,202405,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,925534000,kg,925534000.0,611400032.898,611400032.898,2024-05-01
+2024,5,202405,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,193085000,kg,193085000.0,99561406.835,99561406.835,2024-05-01
+2024,5,202405,India,Import,Canada,CAN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,144649000,kg,144649000.0,76517602.201,76517602.201,2024-05-01
+2024,5,202405,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,291827000,kg,291827000.0,154790975.959,154790975.959,2024-05-01
+2024,5,202405,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,5912590000,kg,5912590000.0,3596831936.251,3596831936.251,2024-05-01
+2024,5,202405,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,838852000,kg,838852000.0,505665954.037,505665954.037,2024-05-01
+2024,5,202405,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,523235000,kg,523235000.0,373741664.343,373741664.343,2024-05-01
+2024,5,202405,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,10208886000,kg,10208886000.0,6295247333.774,6295247333.774,2024-05-01
+2024,5,202405,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2434008000,kg,2434008000.0,1579011797.585,1579011797.585,2024-05-01
+2024,5,202405,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,278683011,kg,278683011.0,205728216.365,205728216.365,2024-05-01
+2024,5,202405,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2605090000,kg,2605090000.0,1730990792.952,1730990792.952,2024-05-01
+2024,5,202405,India,Import,Venezuela,VEN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,275091000,kg,275091000.0,136424704.035,136424704.035,2024-05-01
+2024,6,202406,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,266077000,kg,266077000.0,167352147.757,167352147.757,2024-06-01
+2024,6,202406,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,95775000,kg,95775000.0,50646954.921,50646954.921,2024-06-01
+2024,6,202406,India,Import,Canada,CAN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,290178000,kg,290178000.0,174365356.733,174365356.733,2024-06-01
+2024,6,202406,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,292319000,kg,292319000.0,154130349.248,154130349.248,2024-06-01
+2024,6,202406,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3553830000,kg,3553830000.0,2081268623.543,2081268623.543,2024-06-01
+2024,6,202406,India,Import,Kazakhstan,KAZ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,131917000,kg,131917000.0,91086165.775,91086165.775,2024-06-01
+2024,6,202406,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,145795000,kg,145795000.0,88038473.785,88038473.785,2024-06-01
+2024,6,202406,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,523275000,kg,523275000.0,363518041.325,363518041.325,2024-06-01
+2024,6,202406,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,7941174000,kg,7941174000.0,4699995627.444,4699995627.444,2024-06-01
+2024,6,202406,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2205452700,kg,2205452700.0,1416537358.572,1416537358.572,2024-06-01
+2024,6,202406,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,923329000,kg,923329000.0,619079084.265,619079084.265,2024-06-01
+2024,6,202406,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1420710000,kg,1420710000.0,945885537.75,945885537.75,2024-06-01
+2024,6,202406,India,Import,Venezuela,VEN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,298996000,kg,298996000.0,148663071.934,148663071.934,2024-06-01
+2024,7,202407,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,514877000,kg,514877000.0,325546878.492,325546878.492,2024-07-01
+2024,7,202407,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,96458200,kg,96458200.0,51169550.906,51169550.906,2024-07-01
+2024,7,202407,India,Import,Canada,CAN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,57036600,kg,57036600.0,31543291.717,31543291.717,2024-07-01
+2024,7,202407,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,193030000,kg,193030000.0,107490439.989,107490439.989,2024-07-01
+2024,7,202407,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2817620000,kg,2817620000.0,1712114283.446,1712114283.446,2024-07-01
+2024,7,202407,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,420072000,kg,420072000.0,276158458.221,276158458.221,2024-07-01
+2024,7,202407,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,7920877000,kg,7920877000.0,4806058379.988,4806058379.988,2024-07-01
+2024,7,202407,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1589880000,kg,1589880000.0,1064591310.832,1064591310.832,2024-07-01
+2024,7,202407,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1055520000,kg,1055520000.0,737935061.504,737935061.504,2024-07-01
+2024,7,202407,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1207320000,kg,1207320000.0,807797952.487,807797952.487,2024-07-01
+2024,8,202408,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,408511000,kg,408511000.0,257671501.898,257671501.898,2024-08-01
+2024,8,202408,India,Import,Azerbaijan,AZE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,137652000,kg,137652000.0,96736066.689,96736066.689,2024-08-01
+2024,8,202408,India,Import,Canada,CAN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,109851000,kg,109851000.0,59871722.015,59871722.015,2024-08-01
+2024,8,202408,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,297053000,kg,297053000.0,154520666.92,154520666.92,2024-08-01
+2024,8,202408,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2769290000,kg,2769290000.0,1640646276.916,1640646276.916,2024-08-01
+2024,8,202408,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,301944000,kg,301944000.0,188253720.757,188253720.757,2024-08-01
+2024,8,202408,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,665983000,kg,665983000.0,452655387.307,452655387.307,2024-08-01
+2024,8,202408,India,Import,Oman,OMN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,98539700,kg,98539700.0,58062441.658,58062441.658,2024-08-01
+2024,8,202408,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,4751372000,kg,4751372000.0,2868933634.538,2868933634.538,2024-08-01
+2024,8,202408,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1462820800,kg,1462820800.0,897314307.853,897314307.853,2024-08-01
+2024,8,202408,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,51039000,kg,51039000.0,31642277.233,31642277.233,2024-08-01
+2024,8,202408,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1077350000,kg,1077350000.0,705727332.95,705727332.95,2024-08-01
+2024,9,202409,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,250689000,kg,250689000.0,162822081.697,162822081.697,2024-09-01
+2024,9,202409,India,Import,Canada,CAN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,73095200,kg,73095200.0,40552337.123,40552337.123,2024-09-01
+2024,9,202409,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,28,kg,28.0,368.878,368.878,2024-09-01
+2024,9,202409,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3566340000,kg,3566340000.0,1969822400.99,1969822400.99,2024-09-01
+2024,9,202409,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,327876000,kg,327876000.0,184813274.547,184813274.547,2024-09-01
+2024,9,202409,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,7498991000,kg,7498991000.0,4361825652.154,4361825652.154,2024-09-01
+2024,9,202409,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1881730000,kg,1881730000.0,1146478905.389,1146478905.389,2024-09-01
+2024,9,202409,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,748511000,kg,748511000.0,502954486.548,502954486.548,2024-09-01
+2024,9,202409,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1249280000,kg,1249280000.0,787565514.287,787565514.287,2024-09-01
+2024,9,202409,India,Import,Venezuela,VEN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,223785000,kg,223785000.0,100918249.015,100918249.015,2024-09-01
+2024,10,202410,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,137465000,kg,137465000.0,79495603.677,79495603.677,2024-10-01
+2024,10,202410,India,Import,Azerbaijan,AZE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,139328000,kg,139328000.0,92840491.613,92840491.613,2024-10-01
+2024,10,202410,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,257793000,kg,257793000.0,137896803.667,137896803.667,2024-10-01
+2024,10,202410,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,220679000,kg,220679000.0,106727724.568,106727724.568,2024-10-01
+2024,10,202410,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,5718930000,kg,5718930000.0,3151633436.79,3151633436.79,2024-10-01
+2024,10,202410,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,152474000,kg,152474000.0,110819747.853,110819747.853,2024-10-01
+2024,10,202410,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,644260000,kg,644260000.0,427151801.269,427151801.269,2024-10-01
+2024,10,202410,India,Import,Oman,OMN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,266970000,kg,266970000.0,175951486.111,175951486.111,2024-10-01
+2024,10,202410,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,11066778100,kg,11066778100.0,6206952717.896,6206952717.896,2024-10-01
+2024,10,202410,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2894670000,kg,2894670000.0,1758503661.0,1758503661.0,2024-10-01
+2024,10,202410,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,563034011,kg,563034011.0,359240758.255,359240758.255,2024-10-01
+2024,10,202410,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2567190000,kg,2567190000.0,1641076296.606,1641076296.606,2024-10-01
+2024,11,202411,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,123575000,kg,123575000.0,57056049.387,57056049.387,2024-11-01
+2024,11,202411,India,Import,Canada,CAN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,357148000,kg,357148000.0,176462550.053,176462550.053,2024-11-01
+2024,11,202411,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,466806000,kg,466806000.0,216892828.834,216892828.834,2024-11-01
+2024,11,202411,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3449600000,kg,3449600000.0,1801862711.748,1801862711.748,2024-11-01
+2024,11,202411,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,349182000,kg,349182000.0,187976527.293,187976527.293,2024-11-01
+2024,11,202411,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,642056000,kg,642056000.0,396913721.787,396913721.787,2024-11-01
+2024,11,202411,India,Import,Oman,OMN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,235690000,kg,235690000.0,142869052.003,142869052.003,2024-11-01
+2024,11,202411,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,7735713000,kg,7735713000.0,4194273900.867,4194273900.867,2024-11-01
+2024,11,202411,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,4390460000,kg,4390460000.0,2620521456.163,2620521456.163,2024-11-01
+2024,11,202411,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,772473000,kg,772473000.0,508311622.335,508311622.335,2024-11-01
+2024,11,202411,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2065260000,kg,2065260000.0,1279884140.681,1279884140.681,2024-11-01
+2024,11,202411,India,Import,Venezuela,VEN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,401819000,kg,401819000.0,186381367.697,186381367.697,2024-11-01
+2024,12,202412,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,922487000,kg,922487000.0,532351709.205,532351709.205,2024-12-01
+2024,12,202412,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,312311000,kg,312311000.0,165529343.306,165529343.306,2024-12-01
+2024,12,202412,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,188082000,kg,188082000.0,87432882.522,87432882.522,2024-12-01
+2024,12,202412,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,4387300000,kg,4387300000.0,2265455286.085,2265455286.085,2024-12-01
+2024,12,202412,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,414188000,kg,414188000.0,237680328.548,237680328.548,2024-12-01
+2024,12,202412,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,518702000,kg,518702000.0,317071628.174,317071628.174,2024-12-01
+2024,12,202412,India,Import,Oman,OMN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,50009500,kg,50009500.0,27517234.626,27517234.626,2024-12-01
+2024,12,202412,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,6028380000,kg,6028380000.0,3199405453.824,3199405453.824,2024-12-01
+2024,12,202412,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1908960000,kg,1908960000.0,1089723715.513,1089723715.513,2024-12-01
+2024,12,202412,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,711072000,kg,711072000.0,435132503.611,435132503.611,2024-12-01
+2024,12,202412,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2623350000,kg,2623350000.0,1556539223.576,1556539223.576,2024-12-01
+2024,12,202412,India,Import,Venezuela,VEN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,172990000,kg,172990000.0,75858980.048,75858980.048,2024-12-01
+2025,1,202501,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,275257000,kg,275257000.0,148891451.452,148891451.452,2025-01-01
+2025,1,202501,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,364703000,kg,364703000.0,189816879.66,189816879.66,2025-01-01
+2025,1,202501,India,Import,Canada,CAN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,251825000,kg,251825000.0,118347460.374,118347460.374,2025-01-01
+2025,1,202501,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,351803000,kg,351803000.0,170617114.992,170617114.992,2025-01-01
+2025,1,202501,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,4374210000,kg,4374210000.0,2296809280.741,2296809280.741,2025-01-01
+2025,1,202501,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,880522000,kg,880522000.0,479262403.123,479262403.123,2025-01-01
+2025,1,202501,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,263405000,kg,263405000.0,153938140.985,153938140.985,2025-01-01
+2025,1,202501,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,6781420000,kg,6781420000.0,3611924240.392,3611924240.392,2025-01-01
+2025,1,202501,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2483295000,kg,2483295000.0,1440748182.848,1440748182.848,2025-01-01
+2025,1,202501,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,596952000,kg,596952000.0,362424825.972,362424825.972,2025-01-01
+2025,1,202501,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1351270000,kg,1351270000.0,772276953.035,772276953.035,2025-01-01
+2025,1,202501,India,Import,Venezuela,VEN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,139466000,kg,139466000.0,57909530.278,57909530.278,2025-01-01
+2025,2,202502,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,544010000,kg,544010000.0,316538638.651,316538638.651,2025-02-01
+2025,2,202502,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,527659000,kg,527659000.0,298048115.519,298048115.519,2025-02-01
+2025,2,202502,India,Import,Canada,CAN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,109749000,kg,109749000.0,51793672.826,51793672.826,2025-02-01
+2025,2,202502,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3114490000,kg,3114490000.0,1742263173.161,1742263173.161,2025-02-01
+2025,2,202502,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,259007000,kg,259007000.0,151933744.272,151933744.272,2025-02-01
+2025,2,202502,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,373531000,kg,373531000.0,226316501.304,226316501.304,2025-02-01
+2025,2,202502,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,5092271000,kg,5092271000.0,2861716893.889,2861716893.889,2025-02-01
+2025,2,202502,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2516400000,kg,2516400000.0,1512557723.912,1512557723.912,2025-02-01
+2025,2,202502,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,531628000,kg,531628000.0,324251771.431,324251771.431,2025-02-01
+2025,2,202502,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1130960000,kg,1130960000.0,691385886.222,691385886.222,2025-02-01
+2025,2,202502,India,Import,Venezuela,VEN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,307186000,kg,307186000.0,139748921.326,139748921.326,2025-02-01
+2025,3,202503,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1056100000,kg,1056100000.0,621754624.331,621754624.331,2025-03-01
+2025,3,202503,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,489440000,kg,489440000.0,263805454.847,263805454.847,2025-03-01
+2025,3,202503,India,Import,Canada,CAN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,402317000,kg,402317000.0,194307961.261,194307961.261,2025-03-01
+2025,3,202503,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,832291000,kg,832291000.0,394963981.989,394963981.989,2025-03-01
+2025,3,202503,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,4471080000,kg,4471080000.0,2433208769.264,2433208769.264,2025-03-01
+2025,3,202503,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1151040000,kg,1151040000.0,652156970.947,652156970.947,2025-03-01
+2025,3,202503,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,377933000,kg,377933000.0,233430316.607,233430316.607,2025-03-01
+2025,3,202503,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,7801370000,kg,7801370000.0,4241650090.518,4241650090.518,2025-03-01
+2025,3,202503,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,5066845700,kg,5066845700.0,2659426486.069,2659426486.069,2025-03-01
+2025,3,202503,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,859479001,kg,859479001.0,543309268.677,543309268.677,2025-03-01
+2025,3,202503,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2608100000,kg,2608100000.0,1522447348.62,1522447348.62,2025-03-01
+2025,3,202503,India,Import,Venezuela,VEN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,456111000,kg,456111000.0,192996565.073,192996565.073,2025-03-01
+2025,4,202504,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,264328000,kg,264328000.0,150999129.475,150999129.475,2025-04-01
+2025,4,202504,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,458292000,kg,458292000.0,252837791.284,252837791.284,2025-04-01
+2025,4,202504,India,Import,Canada,CAN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,253353000,kg,253353000.0,129567566.959,129567566.959,2025-04-01
+2025,4,202504,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,179566000,kg,179566000.0,83261962.493,83261962.493,2025-04-01
+2025,4,202504,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,5307670000,kg,5307670000.0,2893362962.126,2893362962.126,2025-04-01
+2025,4,202504,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1362190000,kg,1362190000.0,803564706.796,803564706.796,2025-04-01
+2025,4,202504,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1308232000,kg,1308232000.0,769320508.466,769320508.466,2025-04-01
+2025,4,202504,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,8930474000,kg,8930474000.0,4942673570.931,4942673570.931,2025-04-01
+2025,4,202504,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3690690000,kg,3690690000.0,2139310133.527,2139310133.527,2025-04-01
+2025,4,202504,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3304050000,kg,3304050000.0,2052634517.898,2052634517.898,2025-04-01
+2025,4,202504,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2952850000,kg,2952850000.0,1807859651.918,1807859651.918,2025-04-01
+2025,4,202504,India,Import,Venezuela,VEN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,179232000,kg,179232000.0,75231864.563,75231864.563,2025-04-01
+2025,5,202505,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,497424000,kg,497424000.0,276602053.322,276602053.322,2025-05-01
+2025,5,202505,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,96183400,kg,96183400.0,42053148.722,42053148.722,2025-05-01
+2025,5,202505,India,Import,Canada,CAN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,431128000,kg,431128000.0,207745175.852,207745175.852,2025-05-01
+2025,5,202505,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,150365000,kg,150365000.0,64201753.838,64201753.838,2025-05-01
+2025,5,202505,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,5005150000,kg,5005150000.0,2470093599.471,2470093599.471,2025-05-01
+2025,5,202505,India,Import,Kazakhstan,KAZ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,129908000,kg,129908000.0,74666696.273,74666696.273,2025-05-01
+2025,5,202505,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,413780000,kg,413780000.0,227899994.176,227899994.176,2025-05-01
+2025,5,202505,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1061920000,kg,1061920000.0,607177948.298,607177948.298,2025-05-01
+2025,5,202505,India,Import,Oman,OMN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3,kg,3.0,40.545,40.545,2025-05-01
+2025,5,202505,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,9270188000,kg,9270188000.0,4543668872.516,4543668872.516,2025-05-01
+2025,5,202505,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2136710000,kg,2136710000.0,1125779340.665,1125779340.665,2025-05-01
+2025,5,202505,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,537375000,kg,537375000.0,318040860.304,318040860.304,2025-05-01
+2025,5,202505,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1808450000,kg,1808450000.0,1027601981.059,1027601981.059,2025-05-01
+2025,5,202505,India,Import,Venezuela,VEN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,349619000,kg,349619000.0,138222834.644,138222834.644,2025-05-01
+2025,6,202506,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,527107000,kg,527107000.0,273308535.619,273308535.619,2025-06-01
+2025,6,202506,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,264574000,kg,264574000.0,131442937.698,131442937.698,2025-06-01
+2025,6,202506,India,Import,Canada,CAN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,363531000,kg,363531000.0,168712513.902,168712513.902,2025-06-01
+2025,6,202506,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,141970000,kg,141970000.0,59756158.176,59756158.176,2025-06-01
+2025,6,202506,India,Import,Iran,IRN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,207601000,kg,207601000.0,111464488.748,111464488.748,2025-06-01
+2025,6,202506,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3502690000,kg,3502690000.0,1658142402.287,1658142402.287,2025-06-01
+2025,6,202506,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,383225000,kg,383225000.0,184409273.624,184409273.624,2025-06-01
+2025,6,202506,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,276777000,kg,276777000.0,140744130.975,140744130.975,2025-06-01
+2025,6,202506,India,Import,Oman,OMN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,85885300,kg,85885300.0,47101138.941,47101138.941,2025-06-01
+2025,6,202506,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,7834615000,kg,7834615000.0,3830855889.802,3830855889.802,2025-06-01
+2025,6,202506,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2619750000,kg,2619750000.0,1361465461.903,1361465461.903,2025-06-01
+2025,6,202506,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1475715000,kg,1475715000.0,901094259.542,901094259.542,2025-06-01
+2025,6,202506,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2177480000,kg,2177480000.0,1172943943.428,1172943943.428,2025-06-01
+2025,6,202506,India,Import,Venezuela,VEN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,114246000,kg,114246000.0,41838403.33,41838403.33,2025-06-01
+2025,7,202507,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,126297000,kg,126297000.0,68847628.772,68847628.772,2025-07-01
+2025,7,202507,India,Import,Canada,CAN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,584356000,kg,584356000.0,260020159.605,260020159.605,2025-07-01
+2025,7,202507,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,292644000,kg,292644000.0,134934181.884,134934181.884,2025-07-01
+2025,7,202507,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3942080000,kg,3942080000.0,1968305136.749,1968305136.749,2025-07-01
+2025,7,202507,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,379211000,kg,379211000.0,211414574.522,211414574.522,2025-07-01
+2025,7,202507,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,790607000,kg,790607000.0,462313488.937,462313488.937,2025-07-01
+2025,7,202507,India,Import,Oman,OMN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,135757000,kg,135757000.0,74438628.319,74438628.319,2025-07-01
+2025,7,202507,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,7512519000,kg,7512519000.0,3799761396.879,3799761396.879,2025-07-01
+2025,7,202507,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3685830000,kg,3685830000.0,2094168341.295,2094168341.295,2025-07-01
+2025,7,202507,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1452670000,kg,1452670000.0,848340251.212,848340251.212,2025-07-01
+2025,7,202507,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2706940000,kg,2706940000.0,1474359337.989,1474359337.989,2025-07-01
+2025,8,202508,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,395157000,kg,395157000.0,217493115.151,217493115.151,2025-08-01
+2025,8,202508,India,Import,Canada,CAN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,289222000,kg,289222000.0,139663433.807,139663433.807,2025-08-01
+2025,8,202508,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,448352000,kg,448352000.0,204223522.845,204223522.845,2025-08-01
+2025,8,202508,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3370770000,kg,3370770000.0,1723866045.124,1723866045.124,2025-08-01
+2025,8,202508,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,283211000,kg,283211000.0,157086223.96,157086223.96,2025-08-01
+2025,8,202508,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,670153000,kg,670153000.0,377496168.358,377496168.358,2025-08-01
+2025,8,202508,India,Import,Oman,OMN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,278208000,kg,278208000.0,167457436.217,167457436.217,2025-08-01
+2025,8,202508,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,7065133000,kg,7065133000.0,3664981474.178,3664981474.178,2025-08-01
+2025,8,202508,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2404070000,kg,2404070000.0,1334696007.179,1334696007.179,2025-08-01
+2025,8,202508,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,133635000,kg,133635000.0,76989770.29,76989770.29,2025-08-01
+2025,8,202508,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2482500000,kg,2482500000.0,1388378831.288,1388378831.288,2025-08-01
+2025,9,202509,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,521152000,kg,521152000.0,281753275.177,281753275.177,2025-09-01
+2025,9,202509,India,Import,Azerbaijan,AZE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,318583000,kg,318583000.0,186334637.675,186334637.675,2025-09-01
+2025,9,202509,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,62751000,kg,62751000.0,27872430.232,27872430.232,2025-09-01
+2025,9,202509,India,Import,Canada,CAN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,297375150,kg,297375150.0,143834300.11,143834300.11,2025-09-01
+2025,9,202509,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,263723000,kg,263723000.0,117646339.526,117646339.526,2025-09-01
+2025,9,202509,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3487270000,kg,3487270000.0,1797276759.613,1797276759.613,2025-09-01
+2025,9,202509,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,418215000,kg,418215000.0,230646216.513,230646216.513,2025-09-01
+2025,9,202509,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,529159000,kg,529159000.0,297513882.112,297513882.112,2025-09-01
+2025,9,202509,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,6952622200,kg,6952622200.0,3511705038.587,3511705038.587,2025-09-01
+2025,9,202509,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3010611000,kg,3010611000.0,1682621937.877,1682621937.877,2025-09-01
+2025,9,202509,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,926564000,kg,926564000.0,528186549.408,528186549.408,2025-09-01
+2025,9,202509,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2659370000,kg,2659370000.0,1444955422.362,1444955422.362,2025-09-01
+2025,10,202510,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,519642000,kg,519642000.0,282972090.469,282972090.469,2025-10-01
+2025,10,202510,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,164286000,kg,164286000.0,83094607.771,83094607.771,2025-10-01
+2025,10,202510,India,Import,Canada,CAN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,406363000,kg,406363000.0,191119217.93,191119217.93,2025-10-01
+2025,10,202510,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,255908000,kg,255908000.0,113025036.864,113025036.864,2025-10-01
+2025,10,202510,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,5197060000,kg,5197060000.0,2379045163.633,2379045163.633,2025-10-01
+2025,10,202510,India,Import,Kazakhstan,KAZ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,129727000,kg,129727000.0,74551054.017,74551054.017,2025-10-01
+2025,10,202510,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,803858000,kg,803858000.0,409145048.888,409145048.888,2025-10-01
+2025,10,202510,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,527174000,kg,527174000.0,289667231.079,289667231.079,2025-10-01
+2025,10,202510,India,Import,Oman,OMN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,130689000,kg,130689000.0,73637566.698,73637566.698,2025-10-01
+2025,10,202510,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,7422450000,kg,7422450000.0,3680413445.073,3680413445.073,2025-10-01
+2025,10,202510,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3387579000,kg,3387579000.0,1874282154.349,1874282154.349,2025-10-01
+2025,10,202510,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,531348000,kg,531348000.0,304494448.339,304494448.339,2025-10-01
+2025,10,202510,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2074600000,kg,2074600000.0,1158988931.914,1158988931.914,2025-10-01
+2025,11,202511,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,351533211,kg,351533211.0,189688661.91,189688661.91,2025-11-01
+2025,11,202511,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,270365036,kg,270365036.0,136963971.969,136963971.969,2025-11-01
+2025,11,202511,India,Import,Canada,CAN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,492802199,kg,492802199.0,219218143.403,219218143.403,2025-11-01
+2025,11,202511,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,284721000,kg,284721000.0,122012866.255,122012866.255,2025-11-01
+2025,11,202511,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3341572846,kg,3341572846.0,1603332046.567,1603332046.567,2025-11-01
+2025,11,202511,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,844658500,kg,844658500.0,390106403.24,390106403.24,2025-11-01
+2025,11,202511,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,930923125,kg,930923125.0,492150851.732,492150851.732,2025-11-01
+2025,11,202511,India,Import,Oman,OMN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,141315520,kg,141315520.0,86716892.576,86716892.576,2025-11-01
+2025,11,202511,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,8047735875,kg,8047735875.0,3875289873.642,3875289873.642,2025-11-01
+2025,11,202511,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2256979767,kg,2256979767.0,1174239554.075,1174239554.075,2025-11-01
+2025,11,202511,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,2265640587,kg,2265640587.0,1224410749.269,1224410749.269,2025-11-01
+2025,11,202511,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1585357129,kg,1585357129.0,861207987.485,861207987.485,2025-11-01
+2025,12,202512,India,Import,Angola,AGO,2709,Petroleum oils and oils obtained from bituminous minerals; crude,485584791,kg,485584791.0,238810214.386,238810214.386,2025-12-01
+2025,12,202512,India,Import,Azerbaijan,AZE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,137321122,kg,137321122.0,73702467.267,73702467.267,2025-12-01
+2025,12,202512,India,Import,Brazil,BRA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,804969798,kg,804969798.0,375232720.181,375232720.181,2025-12-01
+2025,12,202512,India,Import,Canada,CAN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,366071075,kg,366071075.0,156260091.094,156260091.094,2025-12-01
+2025,12,202512,India,Import,Colombia,COL,2709,Petroleum oils and oils obtained from bituminous minerals; crude,187578607,kg,187578607.0,78629014.79,78629014.79,2025-12-01
+2025,12,202512,India,Import,Iraq,IRQ,2709,Petroleum oils and oils obtained from bituminous minerals; crude,5020589817,kg,5020589817.0,2368680427.285,2368680427.285,2025-12-01
+2025,12,202512,India,Import,Kuwait,KWT,2709,Petroleum oils and oils obtained from bituminous minerals; crude,1043745000,kg,1043745000.0,463868110.787,463868110.787,2025-12-01
+2025,12,202512,India,Import,Nigeria,NGA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,379357000,kg,379357000.0,200391785.678,200391785.678,2025-12-01
+2025,12,202512,India,Import,Oman,OMN,2709,Petroleum oils and oils obtained from bituminous minerals; crude,25969000,kg,25969000.0,13790282.003,13790282.003,2025-12-01
+2025,12,202512,India,Import,Russian Federation,RUS,2709,Petroleum oils and oils obtained from bituminous minerals; crude,6012376085,kg,6012376085.0,2818329071.301,2818329071.301,2025-12-01
+2025,12,202512,India,Import,Saudi Arabia,SAU,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3599582597,kg,3599582597.0,1808316192.462,1808316192.462,2025-12-01
+2025,12,202512,India,Import,USA,USA,2709,Petroleum oils and oils obtained from bituminous minerals; crude,866302941,kg,866302941.0,459363850.642,459363850.642,2025-12-01
+2025,12,202512,India,Import,United Arab Emirates,ARE,2709,Petroleum oils and oils obtained from bituminous minerals; crude,3117165610,kg,3117165610.0,1650607315.069,1650607315.069,2025-12-01
