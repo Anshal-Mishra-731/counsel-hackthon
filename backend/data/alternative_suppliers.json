@@ -1,0 +1,68 @@
+{
+  "alternative_suppliers": [
+    {
+      "supplier": "Russia (Cape Route Diversion)",
+      "corridor": "cape_of_good_hope",
+      "spare_capacity_bpd": 1500000,
+      "base_cost_usd_bbl": 70.0,
+      "freight_cost_usd_bbl": 8.5,
+      "transit_days": 32,
+      "crude_grade": "Urals Medium Sour",
+      "assay_compatibility_score": 0.88
+    },
+    {
+      "supplier": "Russia (Vladivostok CVMC)",
+      "corridor": "chennai_vladivostok_maritime_corridor",
+      "spare_capacity_bpd": 600000,
+      "base_cost_usd_bbl": 72.0,
+      "freight_cost_usd_bbl": 4.5,
+      "transit_days": 18,
+      "crude_grade": "ESPO Light Sweet",
+      "assay_compatibility_score": 0.95
+    },
+    {
+      "supplier": "West Africa (Angola/Nigeria)",
+      "corridor": "cape_of_good_hope",
+      "spare_capacity_bpd": 700000,
+      "base_cost_usd_bbl": 78.0,
+      "freight_cost_usd_bbl": 5.0,
+      "transit_days": 22,
+      "crude_grade": "Bonny Light / Agbami Sweet",
+      "assay_compatibility_score": 0.94
+    },
+    {
+      "supplier": "United States (Gulf Coast)",
+      "corridor": "cape_of_good_hope",
+      "spare_capacity_bpd": 800000,
+      "base_cost_usd_bbl": 76.0,
+      "freight_cost_usd_bbl": 9.0,
+      "transit_days": 35,
+      "crude_grade": "WTI Light Sweet",
+      "assay_compatibility_score": 0.92
+    },
+    {
+      "supplier": "Latin America (Brazil/Guyana)",
+      "corridor": "cape_of_good_hope",
+      "spare_capacity_bpd": 500000,
+      "base_cost_usd_bbl": 75.0,
+      "freight_cost_usd_bbl": 8.0,
+      "transit_days": 28,
+      "crude_grade": "Tupi / Liza Medium Sweet",
+      "assay_compatibility_score": 0.90
+    },
+    {
+      "supplier": "Saudi Arabia (Red Sea Yanbu Bypass)",
+      "corridor": "red_sea",
+      "spare_capacity_bpd": 300000,
+      "base_cost_usd_bbl": 77.0,
+      "freight_cost_usd_bbl": 3.0,
+      "transit_days": 8,
+      "crude_grade": "Arab Light",
+      "assay_compatibility_score": 0.99
+    }
+  ],
+  "metadata": {
+    "source": "Global maritime shipping benchmarks & refinery assay mappings",
+    "unit": "USD per barrel, BPD, Days"
+  }
+}

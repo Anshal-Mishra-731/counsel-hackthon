@@ -4,14 +4,19 @@ import numpy as np
 from scipy.optimize import linprog
 
 def load_reserves_data() -> dict:
-    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'data'))
-    reserves_path = os.path.join(base_dir, 'national_reserves.json')
-    try:
-        with open(reserves_path, 'r') as f:
-            return json.load(f)
-    except Exception as e:
-        print(f"Error reading national_reserves.json: {e}")
-        return {}
+    possible_paths = [
+        os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', 'data', 'national_reserves.json')),
+        os.path.abspath(os.path.join(os.getcwd(), 'backend', 'data', 'national_reserves.json')),
+        os.path.abspath(os.path.join(os.getcwd(), 'data', 'national_reserves.json'))
+    ]
+    for path in possible_paths:
+        if os.path.exists(path):
+            try:
+                with open(path, 'r') as f:
+                    return json.load(f)
+            except Exception:
+                continue
+    return {}
 
 def run_spr_optimization(daily_deficit_curve: list[int]) -> dict:
     reserves = load_reserves_data()
@@ -20,59 +25,80 @@ def run_spr_optimization(daily_deficit_curve: list[int]) -> dict:
 
     isprl = reserves["strategic_petroleum_reserves_isprl"]
     omc = reserves["commercial_buffer_omc"]
+    caverns = isprl["caverns"]
+    num_caverns = len(caverns)
 
     T = len(daily_deficit_curve)
-    num_vars = 3 * T 
+    num_vars_per_day = num_caverns + 2  # [Caverns..., OMC, Unmet]
+    total_vars = num_vars_per_day * T
 
     c = []
     bounds = []
 
+    # Loop day-by-day to maintain perfect variable ordering alignment
     for t in range(T):
-        c.append(1.0 + 0.0001 * t)
-        bounds.append((0, isprl["max_combined_discharge_rate_bpd"]))
-
-    for t in range(T):
-        c.append(2.0 + 0.0001 * t)
+        # 1. Cavern discharge variables
+        for cavern in caverns:
+            c.append(1.0)
+            bounds.append((0, cavern["max_discharge_rate_bpd"]))
+            
+        # 2. OMC commercial buffer variable
+        c.append(2.0)
         bounds.append((0, omc["max_commercial_drawdown_rate_bpd"]))
-
-    for t in range(T):
-        c.append(1000.0) 
+        
+        # 3. Unmet deficit variable
+        c.append(500.0)
         bounds.append((0, None))
 
-    A_eq = np.zeros((T, num_vars))
+    # Equality Constraints: Caverns + OMC + Unmet == Deficit for each day
+    A_eq = np.zeros((T, total_vars))
     b_eq = []
     for t in range(T):
-        A_eq[t, t] = 1.0           
-        A_eq[t, T + t] = 1.0       
-        A_eq[t, 2 * T + t] = 1.0   
+        start_idx = t * num_vars_per_day
+        for c_idx in range(num_caverns):
+            A_eq[t, start_idx + c_idx] = 1.0
+        A_eq[t, start_idx + num_caverns] = 1.0     # OMC
+        A_eq[t, start_idx + num_caverns + 1] = 1.0 # Unmet
         b_eq.append(daily_deficit_curve[t])
 
-    A_ub = np.zeros((2, num_vars))
-    A_ub[0, 0:T] = 1.0
-    A_ub[1, T:2 * T] = 1.0
-    b_ub = [
-        isprl["current_stock_barrels"],
-        omc["estimated_usable_buffer_barrels"]
-    ]
+    # Inequality Constraints: Cumulative stock capacity limits across all days
+    A_ub = np.zeros((num_caverns + 1, total_vars))
+    b_ub = []
+    
+    for c_idx, cavern in enumerate(caverns):
+        for t in range(T):
+            A_ub[c_idx, t * num_vars_per_day + c_idx] = 1.0
+        b_ub.append(cavern["current_stock_barrels"])
 
+    omc_idx = num_caverns
+    for t in range(T):
+        A_ub[num_caverns, t * num_vars_per_day + omc_idx] = 1.0
+    b_ub.append(omc["estimated_usable_buffer_barrels"])
+
+    # Run LP solver
     res = linprog(c, A_eq=A_eq, b_eq=b_eq, A_ub=A_ub, b_ub=b_ub, bounds=bounds, method='highs')
+    if not res.success:
+        res = linprog(c, A_eq=A_eq, b_eq=b_eq, A_ub=A_ub, b_ub=b_ub, bounds=bounds, method='interior-point')
 
     if not res.success:
-        return {"error": "Optimization solver failed to converge."}
+        return {"error": "Optimization solver failed to converge.", "details": res.message}
 
-    spr_schedule = [int(x) for x in res.x[0:T]]
-    omc_schedule = [int(x) for x in res.x[T:2 * T]]
-    unmet_schedule = [int(x) for x in res.x[2 * T:]]
+    cavern_schedules = [[] for _ in range(num_caverns)]
+    omc_schedule = []
+    unmet_schedule = []
 
-    total_spr_drawn = sum(spr_schedule)
-    total_omc_drawn = sum(omc_schedule)
-    total_unmet = sum(unmet_schedule)
-    ending_spr_stock = isprl["current_stock_barrels"] - total_spr_drawn
+    for t in range(T):
+        start_idx = t * num_vars_per_day
+        for c_idx in range(num_caverns):
+            cavern_schedules[c_idx].append(int(res.x[start_idx + c_idx]))
+        omc_schedule.append(int(res.x[start_idx + num_caverns]))
+        unmet_schedule.append(int(res.x[start_idx + num_caverns + 1]))
 
     cavern_breakdown = []
-    for cavern in isprl["caverns"]:
-        ratio = cavern["max_discharge_rate_bpd"] / isprl["max_combined_discharge_rate_bpd"]
-        drawn = int(total_spr_drawn * ratio)
+    total_spr_drawn = 0
+    for c_idx, cavern in enumerate(caverns):
+        drawn = sum(cavern_schedules[c_idx])
+        total_spr_drawn += drawn
         cavern_breakdown.append({
             "location": cavern["location"],
             "barrels_drawn": drawn,
@@ -80,7 +106,11 @@ def run_spr_optimization(daily_deficit_curve: list[int]) -> dict:
             "connected_refinery": cavern["primary_connected_refinery"]
         })
 
-    payload = {
+    total_omc_drawn = sum(omc_schedule)
+    total_unmet = sum(unmet_schedule)
+    ending_spr_stock = isprl["current_stock_barrels"] - total_spr_drawn
+
+    return {
         "status": "Reserve Drawdown Optimization Successful",
         "crisis_duration_days": T,
         "isprl_summary": {
@@ -100,32 +130,10 @@ def run_spr_optimization(daily_deficit_curve: list[int]) -> dict:
             {
                 "day": t + 1,
                 "target_deficit_bpd": daily_deficit_curve[t],
-                "isprl_drawdown_bpd": spr_schedule[t],
+                "cavern_drawdowns_bpd": {caverns[c_idx]["location"]: cavern_schedules[c_idx][t] for c_idx in range(num_caverns)},
                 "omc_drawdown_bpd": omc_schedule[t],
                 "unmet_shortfall_bpd": unmet_schedule[t]
             }
             for t in range(T)
         ]
     }
-
-    # === NEW: DOOMSDAY THRESHOLD LOGIC ===
-    if total_unmet > 0:
-        payload["status"] = "CRITICAL FAILURE: Reserves Exhausted. Rationing Protocols Activated."
-        payload["national_rationing_protocols"] = {
-            "alert_level": "RED (Doomsday Scenario)",
-            "rationale": f"The national reserves and commercial buffers were entirely depleted before the {T}-day transit gap could close. {total_unmet:,} barrels remain unfulfilled.",
-            "immediate_actions": [
-                {"tier": 1, "sector": "Civilian Mobility", "action": "Institute immediate odd/even license plate rationing for private vehicles. Halt non-essential domestic aviation."},
-                {"tier": 2, "sector": "Industrial Manufacturing", "action": "Mandate 40% reduction in power allocation to non-essential petrochemical and heavy manufacturing plants."},
-                {"tier": 3, "sector": "Protected Infrastructure (Exempt)", "action": "Ring-fence remaining operational crude flows strictly for Defense, Agricultural logistics (tractors/fertilizer), and Emergency Grid Power."}
-            ]
-        }
-
-    return payload
-
-if __name__ == "__main__":
-    # Test a massive Doomsday shortfall (15 million bpd deficit over 30 days) to trigger the threshold
-    mock_doomsday_deficit = [15000000] * 30
-    print("Testing Phase 4 SPR Optimizer (Doomsday Scenario)...")
-    result = run_spr_optimization(mock_doomsday_deficit)
-    print(json.dumps(result, indent=2))
