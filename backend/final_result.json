@@ -5,15 +5,15 @@
       "risk_score": 40,
       "threat_level": 4,
       "traffic_halted": false,
-      "summary": "Escalating US sanctions, threats of economic collapse, and rising energy prices indicate a high risk of disruption in the Strait of Hormuz.",
-      "raw_headlines": "Diesel still ripping higher than the rest of the barrel; here’s why\nEPA allows early switch to winter gasoline to lower prices\nChevron Jumps as Brent Crude Approaches $94\nUS Treasury secretary says new economic measures will ‘collapse’ Iran\nEPA allows early switch to winter gasoline to lower prices\nIncreased US sanctions on Iran make large-scale war less likely: Bessent\nIran war hits small factories with £350,000 energy shock\nIran war hits small factories with £350,000 energy bill\nYields are on the move once again. These stocks could get a boost if they keep going higher\nChina growth straining global auto shipping capacity: Liner CEO"
+      "summary": "Heightened US-Iran tensions and looming sanctions are driving up energy prices and threatening regional shipping stability.",
+      "raw_headlines": "Europe’s Energy Reserves Worked. The Next Test Will Be Harder\nDiesel still ripping higher than the rest of the barrel; here’s why\nEPA allows early switch to winter gasoline to lower prices\nChevron Jumps as Brent Crude Approaches $94\nUS Treasury secretary says new economic measures will ‘collapse’ Iran\nEPA allows early switch to winter gasoline to lower prices\nIncreased US sanctions on Iran make large-scale war less likely: Bessent\nIran war hits small factories with £350,000 energy shock\nIran war hits small factories with £350,000 energy bill\nYields are on the move once again. These stocks could get a boost if they keep going higher"
     },
     "red_sea": {
       "name": "Red Sea",
-      "risk_score": 80,
-      "threat_level": 5,
+      "risk_score": 70,
+      "threat_level": 4,
       "traffic_halted": true,
-      "summary": "Resurgent Somali piracy and regional chaos linked to the US-Iran conflict have led to vessel seizures and disrupted traffic in the Red Sea.",
+      "summary": "Resurgent Somali piracy and regional chaos linked to the Middle East conflict are severely threatening maritime traffic.",
       "raw_headlines": "Arctic power play gives top US adversary new opening with Russia as US stakes grow\nChina growth straining global auto shipping capacity: Liner CEO\nOne geography, two states: Saudi Arabia’s security approach to Sudan\nGunmen seize tanker off Yemen amid resurgence of Somali piracy\nZim profit rises on Q2 revenue of $1.78 billion\nGreen light for new U.S. port that will handle 2 million containers a year\nNavios Maritime Partners Q2 2026 Earnings Call Transcript\nAP reporter Christopher Bodeen, a tenacious chronicler of China’s rise, dies at 55\nAuto & Transport Roundup: Market Talk\nSomali pirate menace returns as U.S.-Iran war stokes regional chaos and saps enforcement resources"
     },
     "cape_of_good_hope": {
@@ -21,7 +21,7 @@
       "risk_score": 30,
       "threat_level": 3,
       "traffic_halted": false,
-      "summary": "Geopolitical tensions and chokepoint risks are forcing global freight rerouting and opening alternative trade paths like the Arctic and Africa.",
+      "summary": "Global freight is increasingly rerouting around Africa and alternative northern paths due to Middle East chokepoint disruptions.",
       "raw_headlines": "Beyond Tariffs: Geopolitics & Climate Reroute Global Freight\nA 4-Million-Bpd Shadow Oil Highway Is Running Through Hormuz\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nCan China’s new Arctic Sea route to Europe replace Middle East chokepoints?\nThe post-Hormuz era offers Africa a great opportunity\nChina Is Opening the First Regular Cargo Route Through the Arctic\nSomali Piracy Surges Amid Hormuz Blockade\nMaersk returns another Asia-Europe service through Suez, but wider return remains distant"
     }
   },
@@ -35,8 +35,8 @@
           "risk_score": 40,
           "threat_level": 4,
           "traffic_halted": false,
-          "summary": "Escalating US sanctions, threats of economic collapse, and rising energy prices indicate a high risk of disruption in the Strait of Hormuz.",
-          "raw_headlines": "Diesel still ripping higher than the rest of the barrel; here’s why\nEPA allows early switch to winter gasoline to lower prices\nChevron Jumps as Brent Crude Approaches $94\nUS Treasury secretary says new economic measures will ‘collapse’ Iran\nEPA allows early switch to winter gasoline to lower prices\nIncreased US sanctions on Iran make large-scale war less likely: Bessent\nIran war hits small factories with £350,000 energy shock\nIran war hits small factories with £350,000 energy bill\nYields are on the move once again. These stocks could get a boost if they keep going higher\nChina growth straining global auto shipping capacity: Liner CEO"
+          "summary": "Heightened US-Iran tensions and looming sanctions are driving up energy prices and threatening regional shipping stability.",
+          "raw_headlines": "Europe’s Energy Reserves Worked. The Next Test Will Be Harder\nDiesel still ripping higher than the rest of the barrel; here’s why\nEPA allows early switch to winter gasoline to lower prices\nChevron Jumps as Brent Crude Approaches $94\nUS Treasury secretary says new economic measures will ‘collapse’ Iran\nEPA allows early switch to winter gasoline to lower prices\nIncreased US sanctions on Iran make large-scale war less likely: Bessent\nIran war hits small factories with £350,000 energy shock\nIran war hits small factories with £350,000 energy bill\nYields are on the move once again. These stocks could get a boost if they keep going higher"
         },
         "scenario": {
           "corridor": "Strait of Hormuz",
@@ -82,6 +82,20 @@
         ],
         "alternative_sources": [
           {
+            "supplier": "Azerbaijan",
+            "corridor": "Suez Canal / Red Sea",
+            "current_bpd": 8939,
+            "additional_bpd_offered": 2682,
+            "lead_time_days": 0
+          },
+          {
+            "supplier": "Kazakhstan",
+            "corridor": "Suez Canal / Red Sea",
+            "current_bpd": 5091,
+            "additional_bpd_offered": 1527,
+            "lead_time_days": 0
+          },
+          {
             "supplier": "Oman",
             "corridor": "Gulf of Oman (outside Hormuz chokepoint)",
             "current_bpd": 15643,
@@ -107,20 +121,6 @@
             "corridor": "Direct Indian Ocean route",
             "current_bpd": 109084,
             "additional_bpd_offered": 32725,
-            "lead_time_days": 20
-          },
-          {
-            "supplier": "Azerbaijan",
-            "corridor": "Suez Canal / Red Sea",
-            "current_bpd": 8939,
-            "additional_bpd_offered": 2682,
-            "lead_time_days": 20
-          },
-          {
-            "supplier": "Kazakhstan",
-            "corridor": "Suez Canal / Red Sea",
-            "current_bpd": 5091,
-            "additional_bpd_offered": 1527,
             "lead_time_days": 20
           },
           {
@@ -168,10 +168,10 @@
       "red_sea": {
         "phase1_context": {
           "name": "Red Sea",
-          "risk_score": 80,
-          "threat_level": 5,
+          "risk_score": 70,
+          "threat_level": 4,
           "traffic_halted": true,
-          "summary": "Resurgent Somali piracy and regional chaos linked to the US-Iran conflict have led to vessel seizures and disrupted traffic in the Red Sea.",
+          "summary": "Resurgent Somali piracy and regional chaos linked to the Middle East conflict are severely threatening maritime traffic.",
           "raw_headlines": "Arctic power play gives top US adversary new opening with Russia as US stakes grow\nChina growth straining global auto shipping capacity: Liner CEO\nOne geography, two states: Saudi Arabia’s security approach to Sudan\nGunmen seize tanker off Yemen amid resurgence of Somali piracy\nZim profit rises on Q2 revenue of $1.78 billion\nGreen light for new U.S. port that will handle 2 million containers a year\nNavios Maritime Partners Q2 2026 Earnings Call Transcript\nAP reporter Christopher Bodeen, a tenacious chronicler of China’s rise, dies at 55\nAuto & Transport Roundup: Market Talk\nSomali pirate menace returns as U.S.-Iran war stokes regional chaos and saps enforcement resources"
         },
         "scenario": {
@@ -323,7 +323,7 @@
           "risk_score": 30,
           "threat_level": 3,
           "traffic_halted": false,
-          "summary": "Geopolitical tensions and chokepoint risks are forcing global freight rerouting and opening alternative trade paths like the Arctic and Africa.",
+          "summary": "Global freight is increasingly rerouting around Africa and alternative northern paths due to Middle East chokepoint disruptions.",
           "raw_headlines": "Beyond Tariffs: Geopolitics & Climate Reroute Global Freight\nA 4-Million-Bpd Shadow Oil Highway Is Running Through Hormuz\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nCan China’s new Arctic Sea route to Europe replace Middle East chokepoints?\nThe post-Hormuz era offers Africa a great opportunity\nChina Is Opening the First Regular Cargo Route Through the Arctic\nSomali Piracy Surges Amid Hormuz Blockade\nMaersk returns another Asia-Europe service through Suez, but wider return remains distant"
         },
         "scenario": {
@@ -370,6 +370,20 @@
         ],
         "alternative_sources": [
           {
+            "supplier": "Azerbaijan",
+            "corridor": "Suez Canal / Red Sea",
+            "current_bpd": 8939,
+            "additional_bpd_offered": 2682,
+            "lead_time_days": 0
+          },
+          {
+            "supplier": "Kazakhstan",
+            "corridor": "Suez Canal / Red Sea",
+            "current_bpd": 5091,
+            "additional_bpd_offered": 1527,
+            "lead_time_days": 0
+          },
+          {
             "supplier": "Iran",
             "corridor": "Strait of Hormuz",
             "current_bpd": 4070,
@@ -387,7 +401,7 @@
             "supplier": "United Arab Emirates",
             "corridor": "Strait of Hormuz",
             "current_bpd": 522619,
-            "additional_bpd_offered": 148004,
+            "additional_bpd_offered": 143795,
             "lead_time_days": 5
           }
         ],

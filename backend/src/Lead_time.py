@@ -34,7 +34,7 @@ SUPPLIER_LEAD_TIME_DAYS = {
     "Venezuela": 27,
 }
 
-DEFAULT_LEAD_TIME_DAYS = 20  # fallback for any supplier not listed above
+DEFAULT_LEAD_TIME_DAYS = 0  # fallback for any supplier not listed above
 
 
 def get_lead_time_days(supplier_country: str) -> int:
