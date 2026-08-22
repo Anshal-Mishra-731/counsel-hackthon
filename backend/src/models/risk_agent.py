@@ -94,8 +94,21 @@ def calculate_global_risk(corridors: list[str] = None) -> dict:
                     temperature=0.1
                 )
             )
+            
+            # Use response.text directly, no cleaned_json!
             parsed_evaluations = json.loads(response.text)
-            break
+            
+            # Safely convert if Gemini returned a List instead of a Dict
+            if isinstance(parsed_evaluations, list):
+                dict_evals = {}
+                for item in parsed_evaluations:
+                    c_key = item.get("corridor") or item.get("name") or "unknown"
+                    c_key = c_key.lower().replace(" ", "_")
+                    dict_evals[c_key] = item
+                parsed_evaluations = dict_evals
+                
+            break 
+            
         except Exception as e:
             error_msg = str(e)
             if "429" in error_msg or "RESOURCE_EXHAUSTED" in error_msg:
