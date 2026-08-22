@@ -13,7 +13,7 @@
       "risk_score": 80,
       "threat_level": 5,
       "traffic_halted": true,
-      "summary": "Houthi movements to gain control over Bab el-Mandeb and attacks on tankers continue to threaten vital maritime transit.",
+      "summary": "Houthi movements to control Bab el-Mandeb and ongoing attacks force tankers to evade the chokepoint through alternative routes.",
       "raw_headlines": "Iran-linked oil tanker falls victim to Somali piracy surge \nReuters NEXT Gulf leadership summit to return with Abu Dhabi Department of Economic Development as exclusive host city partner for next three years\nOil Extends Rise after Trump Shifts Iran Strategy to Economic Strangling\nClosure of al-Makha port leaves workers and traders fearing for the future\nPort of Los Angeles preps for cargo bump as shippers navigate global risks\nDP World moves 500,000 TEUs across GCC overland network\nSaudis Shuttle Oil North on Sinokor Tankers to Evade Houthis\nEgypt breaks ground on $658mln Abu Tartour phosphoric acid complex\nHouthis Move to Gain Complete Control Over Crucial Bab el-Mandeb Oil Chokepoint\nNavios Maritime Partners LP (NMM) (Q2 2026) Earnings Call Highlights: Record $4. ..."
     },
     "cape_of_good_hope": {
@@ -21,7 +21,7 @@
       "risk_score": 20,
       "threat_level": 2,
       "traffic_halted": false,
-      "summary": "Middle East conflicts are prompting ships to explore alternative routes like the Arctic while benefiting African trade hubs.",
+      "summary": "Middle East and Red Sea conflicts are driving traffic toward alternative passages like the Arctic and African routes, but the Cape sees elevated use rather than kinetic conflict.",
       "raw_headlines": "South Korea ship to test alternative Arctic route as Mideast conflict disrupts shipping\nExplainer: What El Niño's return means for the Panama Canal — and global trade\nBeyond Tariffs: Geopolitics & Climate Reroute Global Freight\nA 4-Million-Bpd Shadow Oil Highway Is Running Through Hormuz\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nCan China’s new Arctic Sea route to Europe replace Middle East chokepoints?\nThe post-Hormuz era offers Africa a great opportunity\nChina Is Opening the First Regular Cargo Route Through the Arctic"
     }
   },
@@ -160,17 +160,17 @@
           }
         ],
         "derived_lead_time": {
-          "estimated_replacement_days": 20,
+          "estimated_replacement_days": 0,
           "covered_daily_bpd": 761469,
           "residual_daily_shortfall_bpd": 1392736,
           "note": "Duration is derived from the barrel-weighted average shipping lead-time of the alternative suppliers actually used to cover the daily shortfall - not a fixed lookup table."
         },
         "supply_impact": {
-          "ramp_up_loss_bbl": 43084097,
+          "ramp_up_loss_bbl": 0,
           "chronic_loss_bbl": 41782085,
-          "gross_loss_bbl": 84866182,
+          "gross_loss_bbl": 41782085,
           "inventory_offset_bbl": 9500000,
-          "net_gap_bbl": 75366182
+          "net_gap_bbl": 32282085
         },
         "economic_estimates": {
           "supply_drop_pct": 43.68,
@@ -185,7 +185,7 @@
           "risk_score": 80,
           "threat_level": 5,
           "traffic_halted": true,
-          "summary": "Houthi movements to gain control over Bab el-Mandeb and attacks on tankers continue to threaten vital maritime transit.",
+          "summary": "Houthi movements to control Bab el-Mandeb and ongoing attacks force tankers to evade the chokepoint through alternative routes.",
           "raw_headlines": "Iran-linked oil tanker falls victim to Somali piracy surge \nReuters NEXT Gulf leadership summit to return with Abu Dhabi Department of Economic Development as exclusive host city partner for next three years\nOil Extends Rise after Trump Shifts Iran Strategy to Economic Strangling\nClosure of al-Makha port leaves workers and traders fearing for the future\nPort of Los Angeles preps for cargo bump as shippers navigate global risks\nDP World moves 500,000 TEUs across GCC overland network\nSaudis Shuttle Oil North on Sinokor Tankers to Evade Houthis\nEgypt breaks ground on $658mln Abu Tartour phosphoric acid complex\nHouthis Move to Gain Complete Control Over Crucial Bab el-Mandeb Oil Chokepoint\nNavios Maritime Partners LP (NMM) (Q2 2026) Earnings Call Highlights: Record $4. ..."
         },
         "scenario": {
@@ -312,17 +312,17 @@
           }
         ],
         "derived_lead_time": {
-          "estimated_replacement_days": 12,
+          "estimated_replacement_days": 0,
           "covered_daily_bpd": 953456,
           "residual_daily_shortfall_bpd": 624788,
           "note": "Duration is derived from the barrel-weighted average shipping lead-time of the alternative suppliers actually used to cover the daily shortfall - not a fixed lookup table."
         },
         "supply_impact": {
-          "ramp_up_loss_bbl": 18938928,
+          "ramp_up_loss_bbl": 0,
           "chronic_loss_bbl": 18743648,
-          "gross_loss_bbl": 37682576,
+          "gross_loss_bbl": 18743648,
           "inventory_offset_bbl": 9500000,
-          "net_gap_bbl": 28182576
+          "net_gap_bbl": 9243648
         },
         "economic_estimates": {
           "supply_drop_pct": 32.0,
@@ -337,7 +337,7 @@
           "risk_score": 20,
           "threat_level": 2,
           "traffic_halted": false,
-          "summary": "Middle East conflicts are prompting ships to explore alternative routes like the Arctic while benefiting African trade hubs.",
+          "summary": "Middle East and Red Sea conflicts are driving traffic toward alternative passages like the Arctic and African routes, but the Cape sees elevated use rather than kinetic conflict.",
           "raw_headlines": "South Korea ship to test alternative Arctic route as Mideast conflict disrupts shipping\nExplainer: What El Niño's return means for the Panama Canal — and global trade\nBeyond Tariffs: Geopolitics & Climate Reroute Global Freight\nA 4-Million-Bpd Shadow Oil Highway Is Running Through Hormuz\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nCan China’s new Arctic Sea route to Europe replace Middle East chokepoints?\nThe post-Hormuz era offers Africa a great opportunity\nChina Is Opening the First Regular Cargo Route Through the Arctic"
         },
         "scenario": {
@@ -420,16 +420,16 @@
           }
         ],
         "derived_lead_time": {
-          "estimated_replacement_days": 5,
+          "estimated_replacement_days": 0,
           "covered_daily_bpd": 51306,
           "residual_daily_shortfall_bpd": 0,
           "note": "Duration is derived from the barrel-weighted average shipping lead-time of the alternative suppliers actually used to cover the daily shortfall - not a fixed lookup table."
         },
         "supply_impact": {
-          "ramp_up_loss_bbl": 256530,
+          "ramp_up_loss_bbl": 0,
           "chronic_loss_bbl": 0,
-          "gross_loss_bbl": 256530,
-          "inventory_offset_bbl": 256530,
+          "gross_loss_bbl": 0,
+          "inventory_offset_bbl": 0,
           "net_gap_bbl": 0
         },
         "economic_estimates": {
