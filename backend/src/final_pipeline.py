@@ -1,16 +1,17 @@
 """
-FINAL ORCHESTRATOR
+STANDALONE console runner (optional - the api_server.py is what your
+frontend actually talks to). Use this if you just want to watch the
+pipeline run in a terminal without the API layer.
 
-Flow (exactly as requested):
+Flow:
     1. Run Phase 1 (live news -> Gemini risk scoring)
-    2. Feed that output into Phase 2 (new engine: alt suppliers -> lead
-       time -> barrel loss -> economics -> affected suppliers)
+    2. Feed that output into Phase 2 (alt suppliers -> lead time ->
+       barrel loss -> economics -> affected suppliers)
     3. Print + save the combined result
     4. Wait REFRESH_INTERVAL_SECONDS, then repeat forever (Ctrl+C to stop)
 
-IMPORTANT: Gemini's free tier has a request-per-minute quota. Running
-every 20 seconds means ~3 calls/minute - check your quota before leaving
-this running unattended for a long time, or you'll hit 429 errors.
+IMPORTANT: Gemini's free tier has a request-per-minute quota. Refreshing
+too often will trip 429 errors - 120s is a safer default than 20s.
 """
 import json
 import time

@@ -8,3 +8,10 @@ python-dotenv>=1.0.1
 feedparser>=6.0.11
 fastapi>=0.110
 uvicorn[standard]>=0.29
+fastapi
+uvicorn[standard]
+pandas
+pydantic-settings
+google-genai
+feedparser
+requests

@@ -1,6 +1,5 @@
 """
-PHASE 2 ENGINE (rewritten per your requested flow):
-
+PHASE 2 ENGINE:
     1. Take Phase-1's risk_score / traffic_halted for a corridor
     2. Work out the DAILY loss rate for that corridor (not yet multiplied
        by any duration)
@@ -8,7 +7,7 @@ PHASE 2 ENGINE (rewritten per your requested flow):
        current bpd, how much extra they could realistically supply)
     4. Using those alternative suppliers' REAL shipping lead-times,
        predict how many days it will actually take before enough
-       replacement oil is flowing  <-- this REPLACES the old arbitrary
+       replacement oil is flowing - this REPLACES an arbitrary
        threat_level -> duration_days guess table
     5. ONLY THEN calculate gross barrel loss, inventory offset, net gap
     6. Calculate economic impact (estimated price spike %)
@@ -18,7 +17,7 @@ import math
 
 from src.step1_baseline import load_baseline_oil_balance
 from src.step2_corridor_mapping import load_supplier_corridor_dependency
-from src.Lead_time import get_lead_time_days, weighted_average_lead_time
+from src.lead_time import get_lead_time_days, weighted_average_lead_time
 
 # ---------------------------------------------------------------------------
 # MODEL ASSUMPTIONS (all in one place, clearly labelled)
@@ -40,7 +39,6 @@ CORRIDOR_KEY_TO_NAME = {
 
 
 def derive_severity_from_risk(risk_score: int, traffic_halted: bool) -> float:
-    """Same rule as before - only the DURATION logic is changing, not this."""
     if risk_score <= 20:
         severity = 0.10
     elif risk_score <= 40:
@@ -122,8 +120,7 @@ def evaluate_corridor(corridor_name: str, severity: float, supplier_breakdown, i
     residual_daily_shortfall_bpd = max(0, remaining_daily_bpd)
     covered_daily_bpd = daily_shortfall_bpd - residual_daily_shortfall_bpd
 
-    # --- 4. THE KEY CHANGE: derive duration from alt-supplier lead times, ---
-    #         not from an arbitrary threat_level lookup table
+    # --- 4. Duration derived from alt-supplier lead times ---
     if allocations_for_lead_time:
         estimated_replacement_days = math.ceil(
             weighted_average_lead_time(allocations_for_lead_time)
@@ -132,13 +129,8 @@ def evaluate_corridor(corridor_name: str, severity: float, supplier_breakdown, i
         estimated_replacement_days = 0  # no alternative supply available at all
 
     # --- 5. NOW calculate the actual barrel loss, using that derived duration ---
-    # "Ramp-up" loss: full daily shortfall is lost every day until replacement arrives
     ramp_up_loss_bbl = daily_shortfall_bpd * estimated_replacement_days
-
-    # "Chronic" loss: if alt. supply can never fully cover the daily gap,
-    # that residual keeps bleeding for a longer reporting window
     chronic_loss_bbl = residual_daily_shortfall_bpd * CHRONIC_EXPOSURE_WINDOW_DAYS
-
     gross_loss_bbl = ramp_up_loss_bbl + chronic_loss_bbl
 
     inventory_offset_bbl = min(STRATEGIC_RESERVE_BARRELS, gross_loss_bbl)
@@ -187,10 +179,6 @@ def evaluate_corridor(corridor_name: str, severity: float, supplier_breakdown, i
 
 
 def run_full_pipeline(phase1_output: dict):
-    """
-    Entry point: takes RAW Phase-1 output and runs the full new-flow
-    Phase-2 engine for every corridor Phase-1 evaluated.
-    """
     baseline = load_baseline_oil_balance()
     corridor_data = load_supplier_corridor_dependency()
     supplier_breakdown = corridor_data["supplier_breakdown"]

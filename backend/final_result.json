@@ -2,27 +2,27 @@
   "phase1_risk_report": {
     "strait_of_hormuz": {
       "name": "Strait of Hormuz",
-      "risk_score": 40,
-      "threat_level": 4,
-      "traffic_halted": false,
-      "summary": "Heightened US-Iran tensions and looming sanctions are driving up energy prices and threatening regional shipping stability.",
-      "raw_headlines": "Europe’s Energy Reserves Worked. The Next Test Will Be Harder\nDiesel still ripping higher than the rest of the barrel; here’s why\nEPA allows early switch to winter gasoline to lower prices\nChevron Jumps as Brent Crude Approaches $94\nUS Treasury secretary says new economic measures will ‘collapse’ Iran\nEPA allows early switch to winter gasoline to lower prices\nIncreased US sanctions on Iran make large-scale war less likely: Bessent\nIran war hits small factories with £350,000 energy shock\nIran war hits small factories with £350,000 energy bill\nYields are on the move once again. These stocks could get a boost if they keep going higher"
-    },
-    "red_sea": {
-      "name": "Red Sea",
       "risk_score": 70,
       "threat_level": 4,
       "traffic_halted": true,
-      "summary": "Resurgent Somali piracy and regional chaos linked to the Middle East conflict are severely threatening maritime traffic.",
-      "raw_headlines": "Arctic power play gives top US adversary new opening with Russia as US stakes grow\nChina growth straining global auto shipping capacity: Liner CEO\nOne geography, two states: Saudi Arabia’s security approach to Sudan\nGunmen seize tanker off Yemen amid resurgence of Somali piracy\nZim profit rises on Q2 revenue of $1.78 billion\nGreen light for new U.S. port that will handle 2 million containers a year\nNavios Maritime Partners Q2 2026 Earnings Call Transcript\nAP reporter Christopher Bodeen, a tenacious chronicler of China’s rise, dies at 55\nAuto & Transport Roundup: Market Talk\nSomali pirate menace returns as U.S.-Iran war stokes regional chaos and saps enforcement resources"
+      "summary": "Escalating military rhetoric, impending severe sanctions, and stalled oil flows indicate a high disruption risk and active friction in the Strait of Hormuz.",
+      "raw_headlines": "Trump heads into midterms short on foreign policy wins\nSix investors reveal the biggest market risks — and one strategy they agree on\nPentagon Data Reveals More Than 750 US Troops Wounded in Iran War\nUS, Iran keep up hostile rhetoric ahead of new sanctions\nQatar cuts state spending at home and abroad as war shrinks economy\nTrump Administration Threatens Iran With ‘Toughest Sanctions in History’ — Tehran Warns US of ‘Crushing, Punishing and Devastating’ Retaliation\nU.S., Iran trade warnings as new sanctions loom and Hormuz oil flows stall\nTrump says he views strait of Hormuz as ‘American territory’\nU.S., Iran trade warnings as new sanctions loom and Hormuz oil flows stall\nUS, Iran keep up hostile rhetoric ahead of new sanctions"
+    },
+    "red_sea": {
+      "name": "Red Sea",
+      "risk_score": 80,
+      "threat_level": 5,
+      "traffic_halted": true,
+      "summary": "Houthi maneuvers to control the Bab el-Mandeb chokepoint and regional tanker attacks have forced carriers to evade the area and alter traditional routes.",
+      "raw_headlines": "Iran-linked oil tanker falls victim to Somali piracy surge \nReuters NEXT Gulf leadership summit to return with Abu Dhabi Department of Economic Development as exclusive host city partner for next three years\nOil Extends Rise after Trump Shifts Iran Strategy to Economic Strangling\nClosure of al-Makha port leaves workers and traders fearing for the future\nPort of Los Angeles preps for cargo bump as shippers navigate global risks\nDP World moves 500,000 TEUs across GCC overland network\nSaudis Shuttle Oil North on Sinokor Tankers to Evade Houthis\nEgypt breaks ground on $658mln Abu Tartour phosphoric acid complex\nHouthis Move to Gain Complete Control Over Crucial Bab el-Mandeb Oil Chokepoint\nNavios Maritime Partners LP (NMM) (Q2 2026) Earnings Call Highlights: Record $4. ..."
     },
     "cape_of_good_hope": {
       "name": "Cape of Good Hope",
-      "risk_score": 30,
-      "threat_level": 3,
+      "risk_score": 20,
+      "threat_level": 2,
       "traffic_halted": false,
-      "summary": "Global freight is increasingly rerouting around Africa and alternative northern paths due to Middle East chokepoint disruptions.",
-      "raw_headlines": "Beyond Tariffs: Geopolitics & Climate Reroute Global Freight\nA 4-Million-Bpd Shadow Oil Highway Is Running Through Hormuz\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nCan China’s new Arctic Sea route to Europe replace Middle East chokepoints?\nThe post-Hormuz era offers Africa a great opportunity\nChina Is Opening the First Regular Cargo Route Through the Arctic\nSomali Piracy Surges Amid Hormuz Blockade\nMaersk returns another Asia-Europe service through Suez, but wider return remains distant"
+      "summary": "Middle East conflicts and chokepoint disruptions are driving increased traffic and alternative route testing, such as Arctic and African passages, around the Cape.",
+      "raw_headlines": "South Korea ship to test alternative Arctic route as Mideast conflict disrupts shipping\nExplainer: What El Niño's return means for the Panama Canal — and global trade\nBeyond Tariffs: Geopolitics & Climate Reroute Global Freight\nA 4-Million-Bpd Shadow Oil Highway Is Running Through Hormuz\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nCan China’s new Arctic Sea route to Europe replace Middle East chokepoints?\nThe post-Hormuz era offers Africa a great opportunity\nChina Is Opening the First Regular Cargo Route Through the Arctic"
     }
   },
   "phase2_disruption_report": {
@@ -32,52 +32,52 @@
       "strait_of_hormuz": {
         "phase1_context": {
           "name": "Strait of Hormuz",
-          "risk_score": 40,
+          "risk_score": 70,
           "threat_level": 4,
-          "traffic_halted": false,
-          "summary": "Heightened US-Iran tensions and looming sanctions are driving up energy prices and threatening regional shipping stability.",
-          "raw_headlines": "Europe’s Energy Reserves Worked. The Next Test Will Be Harder\nDiesel still ripping higher than the rest of the barrel; here’s why\nEPA allows early switch to winter gasoline to lower prices\nChevron Jumps as Brent Crude Approaches $94\nUS Treasury secretary says new economic measures will ‘collapse’ Iran\nEPA allows early switch to winter gasoline to lower prices\nIncreased US sanctions on Iran make large-scale war less likely: Bessent\nIran war hits small factories with £350,000 energy shock\nIran war hits small factories with £350,000 energy bill\nYields are on the move once again. These stocks could get a boost if they keep going higher"
+          "traffic_halted": true,
+          "summary": "Escalating military rhetoric, impending severe sanctions, and stalled oil flows indicate a high disruption risk and active friction in the Strait of Hormuz.",
+          "raw_headlines": "Trump heads into midterms short on foreign policy wins\nSix investors reveal the biggest market risks — and one strategy they agree on\nPentagon Data Reveals More Than 750 US Troops Wounded in Iran War\nUS, Iran keep up hostile rhetoric ahead of new sanctions\nQatar cuts state spending at home and abroad as war shrinks economy\nTrump Administration Threatens Iran With ‘Toughest Sanctions in History’ — Tehran Warns US of ‘Crushing, Punishing and Devastating’ Retaliation\nU.S., Iran trade warnings as new sanctions loom and Hormuz oil flows stall\nTrump says he views strait of Hormuz as ‘American territory’\nU.S., Iran trade warnings as new sanctions loom and Hormuz oil flows stall\nUS, Iran keep up hostile rhetoric ahead of new sanctions"
         },
         "scenario": {
           "corridor": "Strait of Hormuz",
-          "severity": 0.3
+          "severity": 0.9
         },
         "baseline": {
           "india_total_import_bpd": 4931790,
           "corridor_dependency_share": 0.4853,
           "corridor_dependent_bpd": 2393561,
-          "daily_shortfall_bpd": 718068
+          "daily_shortfall_bpd": 2154205
         },
         "affected_suppliers": [
           {
             "country": "Iraq",
             "normal_bpd": 982978,
-            "lost_bpd": 294893,
-            "surviving_bpd": 688085
+            "lost_bpd": 884680,
+            "surviving_bpd": 98298
           },
           {
             "country": "Saudi Arabia",
             "normal_bpd": 722673,
-            "lost_bpd": 216802,
-            "surviving_bpd": 505871
+            "lost_bpd": 650406,
+            "surviving_bpd": 72267
           },
           {
             "country": "United Arab Emirates",
             "normal_bpd": 522619,
-            "lost_bpd": 156786,
-            "surviving_bpd": 365834
+            "lost_bpd": 470357,
+            "surviving_bpd": 52262
           },
           {
             "country": "Kuwait",
             "normal_bpd": 161220,
-            "lost_bpd": 48366,
-            "surviving_bpd": 112854
+            "lost_bpd": 145098,
+            "surviving_bpd": 16122
           },
           {
             "country": "Iran",
             "normal_bpd": 4070,
-            "lost_bpd": 1221,
-            "surviving_bpd": 2849
+            "lost_bpd": 3663,
+            "surviving_bpd": 407
           }
         ],
         "alternative_sources": [
@@ -141,38 +141,52 @@
             "supplier": "Colombia",
             "corridor": "Cape of Good Hope",
             "current_bpd": 66446,
-            "additional_bpd_offered": 6232,
+            "additional_bpd_offered": 19934,
             "lead_time_days": 27
+          },
+          {
+            "supplier": "Venezuela",
+            "corridor": "Cape of Good Hope",
+            "current_bpd": 30309,
+            "additional_bpd_offered": 9093,
+            "lead_time_days": 27
+          },
+          {
+            "supplier": "Brazil",
+            "corridor": "Cape of Good Hope",
+            "current_bpd": 68687,
+            "additional_bpd_offered": 20606,
+            "lead_time_days": 28
           }
         ],
         "derived_lead_time": {
           "estimated_replacement_days": 20,
-          "covered_daily_bpd": 718068,
-          "residual_daily_shortfall_bpd": 0,
+          "covered_daily_bpd": 761469,
+          "residual_daily_shortfall_bpd": 1392736,
           "note": "Duration is derived from the barrel-weighted average shipping lead-time of the alternative suppliers actually used to cover the daily shortfall - not a fixed lookup table."
         },
         "supply_impact": {
-          "ramp_up_loss_bbl": 14361366,
-          "chronic_loss_bbl": 0,
-          "gross_loss_bbl": 14361366,
+          "ramp_up_loss_bbl": 43084097,
+          "chronic_loss_bbl": 41782085,
+          "gross_loss_bbl": 84866182,
           "inventory_offset_bbl": 9500000,
-          "net_gap_bbl": 4861366
+          "net_gap_bbl": 75366182
         },
         "economic_estimates": {
-          "supply_drop_pct": 14.56,
+          "supply_drop_pct": 43.68,
           "price_elasticity_assumption": 1.25,
-          "estimated_crude_price_spike_pct": 18.2,
+          "estimated_crude_price_spike_pct": 54.6,
           "note": "Modelled estimate based on supply shock and assumed elasticity; not an official forecast."
         }
       },
       "red_sea": {
         "phase1_context": {
           "name": "Red Sea",
-          "risk_score": 70,
-          "threat_level": 4,
+          "risk_score": 80,
+          "threat_level": 5,
           "traffic_halted": true,
-          "summary": "Resurgent Somali piracy and regional chaos linked to the Middle East conflict are severely threatening maritime traffic.",
-          "raw_headlines": "Arctic power play gives top US adversary new opening with Russia as US stakes grow\nChina growth straining global auto shipping capacity: Liner CEO\nOne geography, two states: Saudi Arabia’s security approach to Sudan\nGunmen seize tanker off Yemen amid resurgence of Somali piracy\nZim profit rises on Q2 revenue of $1.78 billion\nGreen light for new U.S. port that will handle 2 million containers a year\nNavios Maritime Partners Q2 2026 Earnings Call Transcript\nAP reporter Christopher Bodeen, a tenacious chronicler of China’s rise, dies at 55\nAuto & Transport Roundup: Market Talk\nSomali pirate menace returns as U.S.-Iran war stokes regional chaos and saps enforcement resources"
+          "summary": "Houthi maneuvers to control the Bab el-Mandeb chokepoint and regional tanker attacks have forced carriers to evade the area and alter traditional routes.",
+          "raw_headlines": "Iran-linked oil tanker falls victim to Somali piracy surge \nReuters NEXT Gulf leadership summit to return with Abu Dhabi Department of Economic Development as exclusive host city partner for next three years\nOil Extends Rise after Trump Shifts Iran Strategy to Economic Strangling\nClosure of al-Makha port leaves workers and traders fearing for the future\nPort of Los Angeles preps for cargo bump as shippers navigate global risks\nDP World moves 500,000 TEUs across GCC overland network\nSaudis Shuttle Oil North on Sinokor Tankers to Evade Houthis\nEgypt breaks ground on $658mln Abu Tartour phosphoric acid complex\nHouthis Move to Gain Complete Control Over Crucial Bab el-Mandeb Oil Chokepoint\nNavios Maritime Partners LP (NMM) (Q2 2026) Earnings Call Highlights: Record $4. ..."
         },
         "scenario": {
           "corridor": "Suez Canal / Red Sea",
@@ -320,52 +334,52 @@
       "cape_of_good_hope": {
         "phase1_context": {
           "name": "Cape of Good Hope",
-          "risk_score": 30,
-          "threat_level": 3,
+          "risk_score": 20,
+          "threat_level": 2,
           "traffic_halted": false,
-          "summary": "Global freight is increasingly rerouting around Africa and alternative northern paths due to Middle East chokepoint disruptions.",
-          "raw_headlines": "Beyond Tariffs: Geopolitics & Climate Reroute Global Freight\nA 4-Million-Bpd Shadow Oil Highway Is Running Through Hormuz\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nCan China’s new Arctic Sea route to Europe replace Middle East chokepoints?\nThe post-Hormuz era offers Africa a great opportunity\nChina Is Opening the First Regular Cargo Route Through the Arctic\nSomali Piracy Surges Amid Hormuz Blockade\nMaersk returns another Asia-Europe service through Suez, but wider return remains distant"
+          "summary": "Middle East conflicts and chokepoint disruptions are driving increased traffic and alternative route testing, such as Arctic and African passages, around the Cape.",
+          "raw_headlines": "South Korea ship to test alternative Arctic route as Mideast conflict disrupts shipping\nExplainer: What El Niño's return means for the Panama Canal — and global trade\nBeyond Tariffs: Geopolitics & Climate Reroute Global Freight\nA 4-Million-Bpd Shadow Oil Highway Is Running Through Hormuz\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nCan China’s new Arctic Sea route to Europe replace Middle East chokepoints?\nThe post-Hormuz era offers Africa a great opportunity\nChina Is Opening the First Regular Cargo Route Through the Arctic"
         },
         "scenario": {
           "corridor": "Cape of Good Hope",
-          "severity": 0.3
+          "severity": 0.1
         },
         "baseline": {
           "india_total_import_bpd": 4931790,
           "corridor_dependency_share": 0.104,
           "corridor_dependent_bpd": 513059,
-          "daily_shortfall_bpd": 153918
+          "daily_shortfall_bpd": 51306
         },
         "affected_suppliers": [
           {
             "country": "United States",
             "normal_bpd": 264326,
-            "lost_bpd": 79298,
-            "surviving_bpd": 185028
+            "lost_bpd": 26433,
+            "surviving_bpd": 237893
           },
           {
             "country": "Canada",
             "normal_bpd": 83291,
-            "lost_bpd": 24987,
-            "surviving_bpd": 58304
+            "lost_bpd": 8329,
+            "surviving_bpd": 74962
           },
           {
             "country": "Brazil",
             "normal_bpd": 68687,
-            "lost_bpd": 20606,
-            "surviving_bpd": 48081
+            "lost_bpd": 6869,
+            "surviving_bpd": 61818
           },
           {
             "country": "Colombia",
             "normal_bpd": 66446,
-            "lost_bpd": 19934,
-            "surviving_bpd": 46512
+            "lost_bpd": 6645,
+            "surviving_bpd": 59801
           },
           {
             "country": "Venezuela",
             "normal_bpd": 30309,
-            "lost_bpd": 9093,
-            "surviving_bpd": 21217
+            "lost_bpd": 3031,
+            "surviving_bpd": 27278
           }
         ],
         "alternative_sources": [
@@ -401,27 +415,27 @@
             "supplier": "United Arab Emirates",
             "corridor": "Strait of Hormuz",
             "current_bpd": 522619,
-            "additional_bpd_offered": 143795,
+            "additional_bpd_offered": 41183,
             "lead_time_days": 5
           }
         ],
         "derived_lead_time": {
           "estimated_replacement_days": 5,
-          "covered_daily_bpd": 153918,
+          "covered_daily_bpd": 51306,
           "residual_daily_shortfall_bpd": 0,
           "note": "Duration is derived from the barrel-weighted average shipping lead-time of the alternative suppliers actually used to cover the daily shortfall - not a fixed lookup table."
         },
         "supply_impact": {
-          "ramp_up_loss_bbl": 769589,
+          "ramp_up_loss_bbl": 256530,
           "chronic_loss_bbl": 0,
-          "gross_loss_bbl": 769589,
-          "inventory_offset_bbl": 769589,
+          "gross_loss_bbl": 256530,
+          "inventory_offset_bbl": 256530,
           "net_gap_bbl": 0
         },
         "economic_estimates": {
-          "supply_drop_pct": 3.12,
+          "supply_drop_pct": 1.04,
           "price_elasticity_assumption": 1.25,
-          "estimated_crude_price_spike_pct": 3.9,
+          "estimated_crude_price_spike_pct": 1.3,
           "note": "Modelled estimate based on supply shock and assumed elasticity; not an official forecast."
         }
       }
