@@ -5,7 +5,7 @@
       "risk_score": 70,
       "threat_level": 4,
       "traffic_halted": true,
-      "summary": "Escalating military rhetoric, impending severe sanctions, and stalled oil flows indicate a high disruption risk and active friction in the Strait of Hormuz.",
+      "summary": "Escalating military rhetoric, impending severe sanctions, and stalled oil flows create a high-risk disruption environment.",
       "raw_headlines": "Trump heads into midterms short on foreign policy wins\nSix investors reveal the biggest market risks — and one strategy they agree on\nPentagon Data Reveals More Than 750 US Troops Wounded in Iran War\nUS, Iran keep up hostile rhetoric ahead of new sanctions\nQatar cuts state spending at home and abroad as war shrinks economy\nTrump Administration Threatens Iran With ‘Toughest Sanctions in History’ — Tehran Warns US of ‘Crushing, Punishing and Devastating’ Retaliation\nU.S., Iran trade warnings as new sanctions loom and Hormuz oil flows stall\nTrump says he views strait of Hormuz as ‘American territory’\nU.S., Iran trade warnings as new sanctions loom and Hormuz oil flows stall\nUS, Iran keep up hostile rhetoric ahead of new sanctions"
     },
     "red_sea": {
@@ -13,7 +13,7 @@
       "risk_score": 80,
       "threat_level": 5,
       "traffic_halted": true,
-      "summary": "Houthi maneuvers to control the Bab el-Mandeb chokepoint and regional tanker attacks have forced carriers to evade the area and alter traditional routes.",
+      "summary": "Houthi movements to gain control over Bab el-Mandeb and attacks on tankers continue to threaten vital maritime transit.",
       "raw_headlines": "Iran-linked oil tanker falls victim to Somali piracy surge \nReuters NEXT Gulf leadership summit to return with Abu Dhabi Department of Economic Development as exclusive host city partner for next three years\nOil Extends Rise after Trump Shifts Iran Strategy to Economic Strangling\nClosure of al-Makha port leaves workers and traders fearing for the future\nPort of Los Angeles preps for cargo bump as shippers navigate global risks\nDP World moves 500,000 TEUs across GCC overland network\nSaudis Shuttle Oil North on Sinokor Tankers to Evade Houthis\nEgypt breaks ground on $658mln Abu Tartour phosphoric acid complex\nHouthis Move to Gain Complete Control Over Crucial Bab el-Mandeb Oil Chokepoint\nNavios Maritime Partners LP (NMM) (Q2 2026) Earnings Call Highlights: Record $4. ..."
     },
     "cape_of_good_hope": {
@@ -21,7 +21,7 @@
       "risk_score": 20,
       "threat_level": 2,
       "traffic_halted": false,
-      "summary": "Middle East conflicts and chokepoint disruptions are driving increased traffic and alternative route testing, such as Arctic and African passages, around the Cape.",
+      "summary": "Middle East conflicts are prompting ships to explore alternative routes like the Arctic while benefiting African trade hubs.",
       "raw_headlines": "South Korea ship to test alternative Arctic route as Mideast conflict disrupts shipping\nExplainer: What El Niño's return means for the Panama Canal — and global trade\nBeyond Tariffs: Geopolitics & Climate Reroute Global Freight\nA 4-Million-Bpd Shadow Oil Highway Is Running Through Hormuz\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nCan China’s new Arctic Sea route to Europe replace Middle East chokepoints?\nThe post-Hormuz era offers Africa a great opportunity\nChina Is Opening the First Regular Cargo Route Through the Arctic"
     }
   },
@@ -35,7 +35,7 @@
           "risk_score": 70,
           "threat_level": 4,
           "traffic_halted": true,
-          "summary": "Escalating military rhetoric, impending severe sanctions, and stalled oil flows indicate a high disruption risk and active friction in the Strait of Hormuz.",
+          "summary": "Escalating military rhetoric, impending severe sanctions, and stalled oil flows create a high-risk disruption environment.",
           "raw_headlines": "Trump heads into midterms short on foreign policy wins\nSix investors reveal the biggest market risks — and one strategy they agree on\nPentagon Data Reveals More Than 750 US Troops Wounded in Iran War\nUS, Iran keep up hostile rhetoric ahead of new sanctions\nQatar cuts state spending at home and abroad as war shrinks economy\nTrump Administration Threatens Iran With ‘Toughest Sanctions in History’ — Tehran Warns US of ‘Crushing, Punishing and Devastating’ Retaliation\nU.S., Iran trade warnings as new sanctions loom and Hormuz oil flows stall\nTrump says he views strait of Hormuz as ‘American territory’\nU.S., Iran trade warnings as new sanctions loom and Hormuz oil flows stall\nUS, Iran keep up hostile rhetoric ahead of new sanctions"
         },
         "scenario": {
@@ -185,7 +185,7 @@
           "risk_score": 80,
           "threat_level": 5,
           "traffic_halted": true,
-          "summary": "Houthi maneuvers to control the Bab el-Mandeb chokepoint and regional tanker attacks have forced carriers to evade the area and alter traditional routes.",
+          "summary": "Houthi movements to gain control over Bab el-Mandeb and attacks on tankers continue to threaten vital maritime transit.",
           "raw_headlines": "Iran-linked oil tanker falls victim to Somali piracy surge \nReuters NEXT Gulf leadership summit to return with Abu Dhabi Department of Economic Development as exclusive host city partner for next three years\nOil Extends Rise after Trump Shifts Iran Strategy to Economic Strangling\nClosure of al-Makha port leaves workers and traders fearing for the future\nPort of Los Angeles preps for cargo bump as shippers navigate global risks\nDP World moves 500,000 TEUs across GCC overland network\nSaudis Shuttle Oil North on Sinokor Tankers to Evade Houthis\nEgypt breaks ground on $658mln Abu Tartour phosphoric acid complex\nHouthis Move to Gain Complete Control Over Crucial Bab el-Mandeb Oil Chokepoint\nNavios Maritime Partners LP (NMM) (Q2 2026) Earnings Call Highlights: Record $4. ..."
         },
         "scenario": {
@@ -337,7 +337,7 @@
           "risk_score": 20,
           "threat_level": 2,
           "traffic_halted": false,
-          "summary": "Middle East conflicts and chokepoint disruptions are driving increased traffic and alternative route testing, such as Arctic and African passages, around the Cape.",
+          "summary": "Middle East conflicts are prompting ships to explore alternative routes like the Arctic while benefiting African trade hubs.",
           "raw_headlines": "South Korea ship to test alternative Arctic route as Mideast conflict disrupts shipping\nExplainer: What El Niño's return means for the Panama Canal — and global trade\nBeyond Tariffs: Geopolitics & Climate Reroute Global Freight\nA 4-Million-Bpd Shadow Oil Highway Is Running Through Hormuz\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nCan China’s new Arctic Sea route to Europe replace Middle East chokepoints?\nThe post-Hormuz era offers Africa a great opportunity\nChina Is Opening the First Regular Cargo Route Through the Arctic"
         },
         "scenario": {

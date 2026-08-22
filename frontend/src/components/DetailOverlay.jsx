@@ -1,5 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { api, RISK_COLORS, RISK_LABELS } from "../lib/api";
+import RiskGauge from "./RiskGauge.jsx";
+import SupplyFlowDiagram from "./SupplyFlowDiagram.jsx";
+import SupplierTable from "./SupplierTable.jsx";
+import AlternativeSourceTable from "./AlternativeSourceTable.jsx";
+import EconomicPanel from "./EconomicPanel.jsx";
 
 function fmt(n) {
   if (n === undefined || n === null) return "—";
@@ -53,9 +58,13 @@ export default function DetailOverlay({ corridorKey, onClose }) {
               style={{
                 background: `${RISK_COLORS[detail.risk_bucket]}1a`,
                 borderColor: RISK_COLORS[detail.risk_bucket],
+                display: "flex",
+                alignItems: "center",
+                gap: 16,
               }}
             >
-              <div>
+              <RiskGauge severity={(detail.risk_score || 0) / 100} size={92} />
+              <div style={{ flex: 1 }}>
                 <div
                   className="risk-banner-label"
                   style={{ color: RISK_COLORS[detail.risk_bucket] }}
@@ -63,90 +72,58 @@ export default function DetailOverlay({ corridorKey, onClose }) {
                   {RISK_LABELS[detail.risk_bucket]} risk
                   {detail.traffic_halted ? " · traffic halted" : ""}
                 </div>
-                <div
-                  className="risk-banner-score"
-                  style={{ color: RISK_COLORS[detail.risk_bucket] }}
-                >
-                  {detail.risk_score}
-                  <span style={{ fontSize: 13, opacity: 0.6 }}>/100</span>
-                </div>
+                <div className="risk-banner-summary">{detail.summary}</div>
               </div>
-              <div className="risk-banner-summary">{detail.summary}</div>
             </div>
 
             {detail.baseline && (
-              <div className="stat-grid">
-                <div className="stat-card">
-                  <div className="val">{fmt(detail.baseline.india_total_import_bpd)}</div>
-                  <div className="lbl">India total import (bpd)</div>
-                </div>
-                <div className="stat-card">
-                  <div className="val">{fmt(detail.baseline.corridor_dependent_bpd)}</div>
-                  <div className="lbl">Corridor-dependent bpd</div>
-                </div>
-                <div className="stat-card">
-                  <div className="val">{fmt(detail.supply_impact?.net_gap_bbl)}</div>
-                  <div className="lbl">Net barrel gap</div>
-                </div>
-                <div className="stat-card">
-                  <div className="val">
-                    {detail.economic_estimates?.estimated_crude_price_spike_pct}%
+              <>
+                <SupplyFlowDiagram
+                  severity={(detail.risk_score || 0) / 100}
+                  dailyBpd={
+                    detail.baseline.daily_shortfall_bpd ??
+                    detail.baseline.corridor_dependent_bpd ??
+                    0
+                  }
+                />
+
+                <div className="stat-grid">
+                  <div className="stat-card">
+                    <div className="val">{fmt(detail.baseline.india_total_import_bpd)}</div>
+                    <div className="lbl">India total import (bpd)</div>
                   </div>
-                  <div className="lbl">Est. price spike</div>
+                  <div className="stat-card">
+                    <div className="val">{fmt(detail.baseline.corridor_dependent_bpd)}</div>
+                    <div className="lbl">Corridor-dependent bpd</div>
+                  </div>
+                  <div className="stat-card">
+                    <div className="val">{fmt(detail.supply_impact?.net_gap_bbl)}</div>
+                    <div className="lbl">Net barrel gap</div>
+                  </div>
+                  <div className="stat-card">
+                    <div className="val">
+                      {detail.economic_estimates?.estimated_crude_price_spike_pct}%
+                    </div>
+                    <div className="lbl">Est. price spike</div>
+                  </div>
                 </div>
-              </div>
+              </>
             )}
 
             <div className="section-title">Affected countries / suppliers</div>
-            {detail.affected_suppliers?.length ? (
-              <table className="data-table">
-                <thead>
-                  <tr>
-                    <th>Country</th>
-                    <th className="num">Normal bpd</th>
-                    <th className="num">Lost bpd</th>
-                    <th className="num">Surviving bpd</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {detail.affected_suppliers.map((s) => (
-                    <tr key={s.country}>
-                      <td>{s.country}</td>
-                      <td className="num">{fmt(s.normal_bpd)}</td>
-                      <td className="num neg">−{fmt(s.lost_bpd)}</td>
-                      <td className="num">{fmt(s.surviving_bpd)}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            ) : (
-              <div className="note-box">{detail.note || "No affected-supplier data for this corridor."}</div>
-            )}
+            <SupplierTable suppliers={detail.affected_suppliers} />
 
             <div className="section-title">Alternate routes / suppliers</div>
-            {detail.alternative_sources?.length ? (
-              <table className="data-table">
-                <thead>
-                  <tr>
-                    <th>Supplier</th>
-                    <th>Corridor</th>
-                    <th className="num">Extra bpd offered</th>
-                    <th className="num">Lead time (d)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {detail.alternative_sources.map((s) => (
-                    <tr key={s.supplier}>
-                      <td>{s.supplier}</td>
-                      <td>{s.corridor}</td>
-                      <td className="num pos">+{fmt(s.additional_bpd_offered)}</td>
-                      <td className="num">{s.lead_time_days}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            ) : (
-              <div className="note-box">No alternate-supply data available for this corridor.</div>
+            <AlternativeSourceTable sources={detail.alternative_sources} />
+
+            {detail.economic_estimates && detail.supply_impact && (
+              <>
+                <div className="section-title">Economic impact</div>
+                <EconomicPanel
+                  economics={detail.economic_estimates}
+                  supplyImpact={detail.supply_impact}
+                />
+              </>
             )}
 
             {detail.derived_lead_time && (
@@ -167,6 +144,10 @@ export default function DetailOverlay({ corridorKey, onClose }) {
                   </div>
                 </div>
               </>
+            )}
+
+            {!detail.baseline && detail.note && (
+              <div className="note-box">{detail.note}</div>
             )}
           </>
         )}

@@ -13,12 +13,18 @@ export default function Dashboard({ theme, setTheme }) {
   const [updatedAt, setUpdatedAt] = useState(null);
   const [selectedSource, setSelectedSource] = useState(null);
   const [activeCorridorKey, setActiveCorridorKey] = useState(null);
+  // NEW — the full resolved route (source port -> spur -> chokepoint -> India),
+  // fetched once per source change and handed straight to MapView so it can
+  // draw the ONE bold/dark active line instead of just relying on the
+  // generic corridor trunk.
+  const [activeRoute, setActiveRoute] = useState(null);
   const [openDetailKey, setOpenDetailKey] = useState(null);
   const [simulating, setSimulating] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    api.meta()
+    api
+      .meta()
       .then((m) => {
         setMeta(m);
         setSelectedSource(m.suppliers[0]?.country ?? null);
@@ -29,13 +35,20 @@ export default function Dashboard({ theme, setTheme }) {
 
   useEffect(() => {
     if (!selectedSource || !meta) return;
-    api.route(selectedSource)
-      .then((r) => setActiveCorridorKey(r.corridor_key))
-      .catch(() => {});
+    api
+      .route(selectedSource)
+      .then((r) => {
+        setActiveCorridorKey(r.corridor_key);
+        setActiveRoute(r);
+      })
+      .catch(() => {
+        setActiveRoute(null);
+      });
   }, [selectedSource, meta]);
 
   function loadCorridors() {
-    return api.corridors()
+    return api
+      .corridors()
       .then((data) => {
         setCorridors(data.corridors);
         setMode(data.mode);
@@ -51,6 +64,10 @@ export default function Dashboard({ theme, setTheme }) {
       setCorridors(data.corridors);
       setMode(data.mode);
       setUpdatedAt(data.updated_at);
+      // refresh the active route too so its risk color/summary stays in sync
+      if (selectedSource) {
+        api.route(selectedSource).then(setActiveRoute).catch(() => {});
+      }
     } catch (e) {
       setError(e.message);
     } finally {
@@ -105,6 +122,7 @@ export default function Dashboard({ theme, setTheme }) {
           theme={theme}
           corridors={corridors}
           activeCorridorKey={activeCorridorKey}
+          activeRoute={activeRoute}
           onOpenDetail={setOpenDetailKey}
           destination={meta.destination}
           suppliers={meta.suppliers}

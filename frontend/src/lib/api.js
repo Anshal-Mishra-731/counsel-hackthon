@@ -15,6 +15,9 @@ export const api = {
   route: (source) => req(`/api/route?source=${encodeURIComponent(source)}`),
   simulate: () => req("/api/simulate", { method: "POST" }),
   stats: () => req("/api/stats"),
+  // NEW — full affected/alternate/economics detail for every corridor in one call,
+  // used by CorridorAnalyticsGrid so we don't fire N requests for N corridors.
+  analytics: () => req("/api/analytics"),
 };
 
 // Five-bucket risk scale used across the map, sidebar and detail overlay.

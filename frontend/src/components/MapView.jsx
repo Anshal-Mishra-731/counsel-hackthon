@@ -6,11 +6,13 @@ import { RISK_COLORS } from "../lib/api";
 const TILE = {
   dark: {
     url: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
   },
   light: {
     url: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
   },
 };
 
@@ -38,8 +40,15 @@ function portIcon(color, big) {
 }
 
 export default function MapView({
-  theme, corridors, activeCorridorKey, onOpenDetail,
-  destination, suppliers, selectedSource, setSelectedSource,
+  theme,
+  corridors,
+  activeCorridorKey,
+  activeRoute, // NEW — { waypoints, corridor_key, risk_bucket, traffic_halted, ... } from api.route(source)
+  onOpenDetail,
+  destination,
+  suppliers,
+  selectedSource,
+  setSelectedSource,
 }) {
   const wrapperRef = useRef(null);
   const [isFullscreen, setIsFullscreen] = useState(false);
@@ -72,12 +81,7 @@ export default function MapView({
       </div>
 
       <MapContainer center={[15, 55]} zoom={3} minZoom={2} worldCopyJump>
-        <TileLayer
-          key={theme}
-          url={tile.url}
-          attribution={tile.attribution}
-          subdomains={["a", "b", "c", "d"]}
-        />
+        <TileLayer key={theme} url={tile.url} attribution={tile.attribution} subdomains={["a", "b", "c", "d"]} />
 
         <Marker position={[destination.lat, destination.lng]} icon={portIcon("#2dd4bf", true)}>
           <Tooltip direction="top">📍 {destination.name} · {destination.port}</Tooltip>
@@ -94,32 +98,51 @@ export default function MapView({
           </Marker>
         ))}
 
-        {corridors.map((c) => {
-          const color = RISK_COLORS[c.risk_bucket] || "#8ba3ba";
-          const isActive = c.key === activeCorridorKey;
-          return (
-            <React.Fragment key={c.key}>
-              <Polyline
-                positions={c.waypoints}
-                pathOptions={{
-                  color,
-                  weight: isActive ? 5 : 3,
-                  opacity: isActive ? 0.95 : 0.55,
-                  dashArray: c.traffic_halted ? "2 10" : null,
-                }}
-                eventHandlers={{ click: () => onOpenDetail(c.key) }}
-              />
-              {/* floating "buoy" button on each route — click for the full detail overlay */}
-              <Marker
-                position={midpoint(c.waypoints)}
-                icon={buoyIcon(color, isActive)}
-                eventHandlers={{ click: () => onOpenDetail(c.key) }}
-              >
-                <Tooltip direction="top">{c.name} · risk {c.risk_score}/100 · click for details</Tooltip>
-              </Marker>
-            </React.Fragment>
-          );
-        })}
+        {/* 1) BASELINE — every corridor, always drawn LIGHT so you can see all
+               possible routes at once, regardless of what's selected */}
+        {corridors.map((c) => (
+          <Polyline
+            key={`base-${c.key}`}
+            positions={c.waypoints}
+            pathOptions={{
+              color: RISK_COLORS[c.risk_bucket] || "#8ba3ba",
+              weight: 2,
+              opacity: c.key === activeRoute?.corridor_key ? 0.18 : 0.4,
+              dashArray: c.traffic_halted ? "2 10" : null,
+            }}
+            eventHandlers={{ click: () => onOpenDetail(c.key) }}
+          />
+        ))}
+
+        {/* 2) floating "buoy" per corridor — always clickable for full detail,
+               dims/brightens to show which one matches the current selection */}
+        {corridors.map((c) => (
+          <Marker
+            key={`buoy-${c.key}`}
+            position={midpoint(c.waypoints)}
+            icon={buoyIcon(RISK_COLORS[c.risk_bucket] || "#8ba3ba", c.key === activeCorridorKey)}
+            eventHandlers={{ click: () => onOpenDetail(c.key) }}
+          >
+            <Tooltip direction="top">{c.name} · risk {c.risk_score}/100 · click for details</Tooltip>
+          </Marker>
+        ))}
+
+        {/* 3) ACTIVE ROUTE — the ONE bold/dark line: selected source's own port,
+               through its real spur, to the corridor chokepoint, into India.
+               This is what was missing before — without it, every source just
+               looked like it was reusing the same generic corridor trunk. */}
+        {activeRoute?.waypoints?.length > 1 && (
+          <Polyline
+            key={`active-${activeRoute.corridor_key}-${selectedSource}`}
+            positions={activeRoute.waypoints}
+            pathOptions={{
+              color: RISK_COLORS[activeRoute.risk_bucket] || "#2dd4bf",
+              weight: 5,
+              opacity: 0.95,
+              dashArray: activeRoute.traffic_halted ? "2 10" : null,
+            }}
+          />
+        )}
       </MapContainer>
     </div>
   );
