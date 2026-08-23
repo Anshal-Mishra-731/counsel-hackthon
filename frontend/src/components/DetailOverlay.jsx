@@ -146,6 +146,29 @@ export default function DetailOverlay({ corridorKey, onClose }) {
               </>
             )}
 
+            {/* NEW PHASE 4: Strategic Petroleum Reserve Plan */}
+            {detail.phase4_spr_summary && Object.keys(detail.phase4_spr_summary).length > 0 && (
+              <>
+                <div className="section-title">Phase 4: Reserve Drawdown Plan</div>
+                <div className="stat-grid">
+                  <div className="stat-card" style={{ borderColor: "var(--accent-cyan)" }}>
+                    <div className="val" style={{ color: "var(--accent-cyan)" }}>
+                      {detail.phase4_spr_summary.crisis_duration_days || "—"}d
+                    </div>
+                    <div className="lbl">Strategic cover used</div>
+                  </div>
+                  <div className="stat-card" style={{ borderColor: "var(--accent-cyan)" }}>
+                    <div className="val" style={{ color: "var(--accent-cyan)" }}>
+                      {detail.phase4_spr_summary.isprl_summary?.total_drawn_barrels 
+                        ? `${(detail.phase4_spr_summary.isprl_summary.total_drawn_barrels / 1_000_000).toFixed(1)}M` 
+                        : "—"}
+                    </div>
+                    <div className="lbl">Total barrels drawn</div>
+                  </div>
+                </div>
+              </>
+            )}
+
             {!detail.baseline && detail.note && (
               <div className="note-box">{detail.note}</div>
             )}

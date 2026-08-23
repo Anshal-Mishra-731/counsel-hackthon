@@ -47,12 +47,37 @@ export default function CorridorAnalyticsGrid() {
             <>
               <h4>Affected suppliers</h4>
               <SupplierTable suppliers={c.affected_suppliers} />
+              
               <h4>Alternate sources</h4>
               <AlternativeSourceTable sources={c.alternative_sources} />
+              
               {c.economic_estimates && c.supply_impact && (
                 <>
                   <h4>Economic impact</h4>
                   <EconomicPanel economics={c.economic_estimates} supplyImpact={c.supply_impact} />
+                </>
+              )}
+
+              {/* NEW PHASE 4: Mini Strategic Reserve Plan */}
+              {c.phase4_spr_summary && Object.keys(c.phase4_spr_summary).length > 0 && (
+                <>
+                  <h4>Phase 4 Reserve Plan</h4>
+                  <div style={{ display: "flex", gap: "12px" }}>
+                    <div style={{ flex: 1, padding: "10px", background: "var(--bg-panel-2)", border: "1px solid var(--accent-cyan)", borderRadius: "var(--radius-sm)" }}>
+                      <div className="mono" style={{ fontSize: "16px", fontWeight: 700, color: "var(--accent-cyan)" }}>
+                        {c.phase4_spr_summary.crisis_duration_days || "—"}d
+                      </div>
+                      <div style={{ fontSize: "10px", color: "var(--text-muted)", letterSpacing: "0.02em" }}>Cover drawn</div>
+                    </div>
+                    <div style={{ flex: 1, padding: "10px", background: "var(--bg-panel-2)", border: "1px solid var(--accent-cyan)", borderRadius: "var(--radius-sm)" }}>
+                      <div className="mono" style={{ fontSize: "16px", fontWeight: 700, color: "var(--accent-cyan)" }}>
+                        {c.phase4_spr_summary.isprl_summary?.total_drawn_barrels 
+                          ? `${(c.phase4_spr_summary.isprl_summary.total_drawn_barrels / 1_000_000).toFixed(1)}M` 
+                          : "—"}
+                      </div>
+                      <div style={{ fontSize: "10px", color: "var(--text-muted)", letterSpacing: "0.02em" }}>Barrels active</div>
+                    </div>
+                  </div>
                 </>
               )}
             </>

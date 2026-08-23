@@ -11,7 +11,8 @@ export default function Sidebar({
   mode, updatedAt,
 }) {
   const [query, setQuery] = useState("");
-
+  const [scenarioInput, setScenarioInput] = useState("");
+  
   const filtered = useMemo(() => {
     if (!query.trim()) return suppliers;
     const q = query.toLowerCase();
@@ -62,22 +63,26 @@ export default function Sidebar({
             <p className="corridor-summary" style={{ padding: "8px 4px" }}>No country matches "{query}".</p>
           )}
         </div>
-
-        <div className="swap-row">
-          <div className="line" />
-          <span className="swap-icon">⛴ sea route ⛴</span>
-          <div className="line" />
-        </div>
-
-        <div>
-          <label className="field-label">Destination</label>
-          <div className="dest-box">📍 {destination.name} — {destination.port}</div>
-        </div>
       </div>
 
-      <button className="start-btn" onClick={onStartSimulation} disabled={simulating}>
-        {simulating ? "Running simulation…" : "▶ Start Simulation"}
-      </button>
+      {/* NEW: What-If Scenario Input Box */}
+      <div className="field-group" style={{ marginTop: "16px" }}>
+        <label className="field-label">Custom "What-If" Scenario</label>
+        <input
+          className="search-input"
+          placeholder="e.g., Submarine blocks Malacca Strait..."
+          value={scenarioInput}
+          onChange={(e) => setScenarioInput(e.target.value)}
+          style={{ marginBottom: "12px" }}
+        />
+        <button 
+          className="start-btn" 
+          onClick={() => onStartSimulation(scenarioInput)} 
+          disabled={simulating}
+        >
+          {simulating ? "Running simulation…" : "▶ Start Simulation"}
+        </button>
+      </div>
 
       <div className="divider" />
 

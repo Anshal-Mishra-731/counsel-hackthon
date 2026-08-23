@@ -3,23 +3,28 @@ from src.models.risk_agent import calculate_global_risk, master_routes
 from src.models.disruption_sim import run_simulation
 from src.models.spr_optimizer import load_reserves_data
 
-# --- SMART IN-MEMORY CACHE (Prevents duplicate LLM calls and empty-cache bugs) ---
+# --- SMART CACHE ---
 _CACHED_RISK = None
 _CACHED_SIMULATION = None
 _LAST_CACHE_TIME = 0
-CACHE_TTL_SECONDS = 300  # Cache for 5 minutes
+CACHE_TTL_SECONDS = 300
+
+def force_refresh_cache():
+    """Wipes the memory so the 'Start Simulation' button forces a fresh Gemini calculation."""
+    global _CACHED_RISK, _CACHED_SIMULATION, _LAST_CACHE_TIME
+    _CACHED_RISK = None
+    _CACHED_SIMULATION = None
+    _LAST_CACHE_TIME = 0
 
 def get_cached_risk_data():
     global _CACHED_RISK, _LAST_CACHE_TIME
     now = time.time()
     
-    # Return cache if valid and fresh
     if _CACHED_RISK and (now - _LAST_CACHE_TIME < CACHE_TTL_SECONDS):
         return _CACHED_RISK
         
     try:
         live_risk = calculate_global_risk(master_routes)
-        # ONLY cache if it's a valid non-empty dictionary
         if live_risk and isinstance(live_risk, dict) and len(live_risk) > 0:
             _CACHED_RISK = live_risk
             _LAST_CACHE_TIME = now
@@ -27,11 +32,8 @@ def get_cached_risk_data():
     except Exception as e:
         print(f"Error fetching live risk: {e}")
         
-    # If it failed/returned empty, and we have a stale cache, use the stale cache
     if _CACHED_RISK:
         return _CACHED_RISK
-        
-    # Absolute fallback if we've NEVER had a successful call
     return {k: {"name": k.replace("_", " ").title(), "risk_score": 15, "traffic_halted": False} for k in master_routes}
 
 def get_cached_simulation_data():
@@ -42,25 +44,23 @@ def get_cached_simulation_data():
     live_risk = get_cached_risk_data()
     try:
         sim = run_simulation(live_risk_report=live_risk)
-        # ONLY cache if simulation succeeded
         if sim and isinstance(sim, dict) and len(sim) > 0:
             _CACHED_SIMULATION = sim
             return sim
     except Exception as e:
         print(f"Error running simulation: {e}")
-        
     return _CACHED_SIMULATION or {}
 
 
-# --- HIGH-PRECISION MARITIME SEA LANES (Realistic Oceanic Curves) ---
+# --- HIGH-PRECISION MARITIME SEA LANES (Your exact working curves) ---
 CORRIDOR_WAYPOINTS = {
     "strait_of_hormuz": [
         [29.98, 48.45], [27.50, 50.80], [26.56, 56.25], [24.80, 58.20], [21.50, 63.50], [22.84, 69.70]
     ],
-    "suez_canal_red_sea": [
+    "red_sea": [
         [31.25, 32.30], [29.97, 32.55], [27.50, 34.00], [20.00, 38.50], [14.50, 42.20], [12.58, 43.32], [11.90, 45.00], [12.50, 51.50], [16.00, 60.00], [22.84, 69.70]
     ],
-    "red_sea": [
+    "suez_canal_red_sea": [ # Safeguard duplicate so the map never drops it
         [31.25, 32.30], [29.97, 32.55], [27.50, 34.00], [20.00, 38.50], [14.50, 42.20], [12.58, 43.32], [11.90, 45.00], [12.50, 51.50], [16.00, 60.00], [22.84, 69.70]
     ],
     "cape_of_good_hope": [
@@ -73,7 +73,10 @@ CORRIDOR_WAYPOINTS = {
         [43.13, 131.88], [38.50, 132.50], [34.20, 129.50], [29.50, 125.00], [22.00, 120.00], [14.00, 114.00], [4.00, 106.50], [1.25, 103.85], [3.00, 101.00], [5.80, 95.20], [9.00, 85.00], [13.08, 80.27], [17.50, 83.50], [20.25, 86.65]
     ],
     "instc": [
-        [40.40, 49.86], [37.47, 49.46], [32.65, 51.66], [27.18, 56.27], [25.30, 60.60], [23.50, 64.00], [22.84, 69.70]
+        [40.40, 49.86], [37.47, 49.46], [35.68, 51.38], [32.65, 51.66], [29.61, 52.53], [27.18, 56.27], [25.30, 60.60], [24.50, 63.00], [23.50, 66.00], [22.84, 69.70]
+    ],
+    "international_north_south_transport_corridor": [
+        [40.40, 49.86], [37.47, 49.46], [35.68, 51.38], [32.65, 51.66], [29.61, 52.53], [27.18, 56.27], [25.30, 60.60], [24.50, 63.00], [23.50, 66.00], [22.84, 69.70]
     ]
 }
 
@@ -120,9 +123,6 @@ class SupplyChainService:
 
         for key, data in live_risk.items():
             score = data.get("risk_score", 15)
-            # Fetch waypoints flexibly to handle any key naming
-            waypoints = CORRIDOR_WAYPOINTS.get(key) or CORRIDOR_WAYPOINTS.get(key.replace("suez_canal_", "")) or [[20.0, 50.0], [22.84, 69.70]]
-            
             corridors_list.append({
                 "key": key,
                 "name": data.get("name", key.replace("_", " ").title()),
@@ -130,7 +130,7 @@ class SupplyChainService:
                 "risk_bucket": bucket_for_score(score),
                 "summary": data.get("reason", "Corridor operational under regular maritime security patrols."),
                 "traffic_halted": data.get("traffic_halted", False),
-                "waypoints": waypoints
+                "waypoints": CORRIDOR_WAYPOINTS.get(key, [[20.0, 50.0], [22.84, 69.70]])
             })
 
         return {
@@ -159,7 +159,7 @@ class SupplyChainService:
                 "lost_bpd": v["normal_bpd"] if is_disrupted else 0,
                 "surviving_bpd": 0 if is_disrupted else v["normal_bpd"]
             }
-            for k, v in SUPPLIER_PROFILES.items() if v["corridor"] == key
+            for k, v in SUPPLIER_PROFILES.items() if v["corridor"] == key or (key == "suez_canal_red_sea" and v["corridor"] == "red_sea") or (key == "red_sea" and v["corridor"] == "suez_canal_red_sea")
         ]
         corridor_dependent_bpd = sum(s["normal_bpd"] for s in corridor_suppliers)
 
@@ -197,7 +197,7 @@ class SupplyChainService:
                 },
                 "economic_estimates": {
                     "estimated_crude_price_spike_pct": econ.get("estimated_crude_price_spike_pct", 48.0),
-                    "supply_drop_pct": round((corridor_dependent_bpd / 4931790) * 100, 1),
+                    "supply_drop_pct": round((corridor_dependent_bpd / 4931790) * 100, 1) if corridor_dependent_bpd > 0 else 0,
                     "price_elasticity_assumption": 1.25
                 },
                 "derived_lead_time": {
@@ -250,7 +250,7 @@ class SupplyChainService:
             corridor_key = "chennai_vladivostok_maritime_corridor"
             score = 10
         else:
-            waypoints = CORRIDOR_WAYPOINTS.get(corridor_key) or CORRIDOR_WAYPOINTS.get(corridor_key.replace("suez_canal_", "")) or [[profile["lat"], profile["lng"]], [22.84, 69.70]]
+            waypoints = CORRIDOR_WAYPOINTS.get(corridor_key, [[profile["lat"], profile["lng"]], [22.84, 69.70]])
 
         return {
             "source": source,
@@ -297,3 +297,28 @@ class SupplyChainService:
             },
             "corridor_risk_snapshot": snapshot
         }
+    @staticmethod
+    def run_custom_simulation(scenario: str = None):
+        """Wipes cache, runs the AI with a custom scenario, and pre-warms the simulation."""
+        global _CACHED_RISK, _CACHED_SIMULATION, _LAST_CACHE_TIME
+        
+        # 1. Wipe the slate clean
+        _CACHED_RISK = None
+        _CACHED_SIMULATION = None
+        
+        # 2. Run the AI with the fake scenario
+        try:
+            live_risk = calculate_global_risk(master_routes, custom_scenario=scenario)
+            if live_risk and isinstance(live_risk, dict) and len(live_risk) > 0:
+                _CACHED_RISK = live_risk
+                _LAST_CACHE_TIME = time.time()
+                
+                # 3. Immediately run Phase 2-4 pipeline so it's ready for the UI
+                sim = run_simulation(live_risk_report=_CACHED_RISK)
+                if sim:
+                    _CACHED_SIMULATION = sim
+        except Exception as e:
+            print(f"Error running custom simulation: {e}")
+            
+        # 4. Return the updated overview
+        return SupplyChainService.get_corridors_overview()

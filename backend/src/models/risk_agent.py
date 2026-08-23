@@ -68,7 +68,7 @@ def calculate_global_risk(corridors: list[str] = None) -> dict:
         f"--- CORRIDOR KEY: {key} ({data['name']}) ---\n{data['headlines']}"
         for key, data in corridor_news_map.items()
     )
-
+        
     prompt = f"""
     Analyze recent news headlines for these global shipping corridors and evaluate their threat levels.
 

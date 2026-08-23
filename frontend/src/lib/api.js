@@ -13,7 +13,11 @@ export const api = {
   corridors: () => req("/api/corridors"),
   corridorDetail: (key) => req(`/api/corridor/${key}`),
   route: (source) => req(`/api/route?source=${encodeURIComponent(source)}`),
-  simulate: () => req("/api/simulate", { method: "POST" }),
+  simulate: (scenario) => req("/api/simulate", { 
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ scenario: scenario || "" })
+  }),
   stats: () => req("/api/stats"),
   // NEW — full affected/alternate/economics detail for every corridor in one call,
   // used by CorridorAnalyticsGrid so we don't fire N requests for N corridors.

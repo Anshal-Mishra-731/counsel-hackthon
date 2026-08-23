@@ -13,10 +13,6 @@ export default function Dashboard({ theme, setTheme }) {
   const [updatedAt, setUpdatedAt] = useState(null);
   const [selectedSource, setSelectedSource] = useState(null);
   const [activeCorridorKey, setActiveCorridorKey] = useState(null);
-  // NEW — the full resolved route (source port -> spur -> chokepoint -> India),
-  // fetched once per source change and handed straight to MapView so it can
-  // draw the ONE bold/dark active line instead of just relying on the
-  // generic corridor trunk.
   const [activeRoute, setActiveRoute] = useState(null);
   const [openDetailKey, setOpenDetailKey] = useState(null);
   const [simulating, setSimulating] = useState(false);
@@ -57,10 +53,11 @@ export default function Dashboard({ theme, setTheme }) {
       .catch((e) => setError(e.message));
   }
 
-  async function handleStartSimulation() {
+  // NEW: Accepts customScenario from the Sidebar text box
+  async function handleStartSimulation(customScenario = "") {
     setSimulating(true);
     try {
-      const data = await api.simulate();
+      const data = await api.simulate(customScenario);
       setCorridors(data.corridors);
       setMode(data.mode);
       setUpdatedAt(data.updated_at);

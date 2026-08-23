@@ -1,6 +1,10 @@
 from fastapi import APIRouter, Query, Request
 from src.api.services import SupplyChainService
 from src.api.schemas import MetaResponse, CorridorsResponse
+from pydantic import BaseModel
+
+class SimulationPayload(BaseModel):
+    scenario: str = None
 
 api_router = APIRouter()
 
@@ -26,7 +30,8 @@ async def get_route(source: str = Query(...)):
 
 @api_router.post("/api/simulate", tags=["Frontend Bridge"])
 async def post_simulate():
-    """Forces an on-demand recalculation of the live simulation pipeline."""
+    """Executes live simulation recalculation."""
+    SupplyChainService.force_refresh_cache()
     return SupplyChainService.get_corridors_overview()
 
 @api_router.get("/api/stats", tags=["Frontend Bridge"])
