@@ -13,14 +13,28 @@ export default function Dashboard({ theme, setTheme }) {
   const [updatedAt, setUpdatedAt] = useState(null);
   const [selectedSource, setSelectedSource] = useState(null);
   const [activeCorridorKey, setActiveCorridorKey] = useState(null);
-  // NEW — the full resolved route (source port -> spur -> chokepoint -> India),
-  // fetched once per source change and handed straight to MapView so it can
-  // draw the ONE bold/dark active line instead of just relying on the
-  // generic corridor trunk.
   const [activeRoute, setActiveRoute] = useState(null);
   const [openDetailKey, setOpenDetailKey] = useState(null);
   const [simulating, setSimulating] = useState(false);
+
+  // Full-page blocking error — ONLY for "can't reach the backend at all"
+  // situations (initial /api/meta or /api/corridors load failing).
   const [error, setError] = useState(null);
+
+  // Small non-blocking banner — for recoverable issues like "simulation
+  // succeeded but this source's route couldn't be resolved". Never blocks
+  // the rest of the dashboard.
+  const [routeWarning, setRouteWarning] = useState(null);
+
+  // Sidebar toggle: OFF (default) = sirf selected/simulated route dikhega,
+  // ON = sabhi possible corridors dikhenge.
+  const [showAllRoutes, setShowAllRoutes] = useState(false);
+
+  // Tracks WHICH source was last SUCCESSFULLY simulated (not a plain
+  // boolean, and only set when the route actually resolved) — so the
+  // "locked" badge and the visible route line can never go out of sync.
+  const [simulatedSource, setSimulatedSource] = useState(null);
+  const hasSimulated = Boolean(selectedSource) && simulatedSource === selectedSource;
 
   useEffect(() => {
     api
@@ -59,16 +73,39 @@ export default function Dashboard({ theme, setTheme }) {
 
   async function handleStartSimulation() {
     setSimulating(true);
+    setRouteWarning(null);
     try {
       const data = await api.simulate();
       setCorridors(data.corridors);
       setMode(data.mode);
       setUpdatedAt(data.updated_at);
-      // refresh the active route too so its risk color/summary stays in sync
+
+      let routeOk = false;
       if (selectedSource) {
-        api.route(selectedSource).then(setActiveRoute).catch(() => {});
+        try {
+          const r = await api.route(selectedSource);
+          if (r?.waypoints?.length > 1) {
+            setActiveCorridorKey(r.corridor_key);
+            setActiveRoute(r);
+            routeOk = true;
+          }
+        } catch (routeErr) {
+          console.error("Route refetch after simulate failed:", routeErr);
+        }
+      }
+
+      // "Locked" badge only ever turns on when the route actually resolved —
+      // badge and visible line can never disagree with each other.
+      if (routeOk) {
+        setSimulatedSource(selectedSource);
+      } else {
+        setSimulatedSource(null);
+        setRouteWarning(
+          `Simulation ho gaya, lekin "${selectedSource}" ka route resolve nahi hua. Backend /api/route check karo.`
+        );
       }
     } catch (e) {
+      // Only a genuine /api/simulate failure lands here — not a route hiccup.
       setError(e.message);
     } finally {
       setSimulating(false);
@@ -99,6 +136,42 @@ export default function Dashboard({ theme, setTheme }) {
 
   return (
     <div className="app">
+      {routeWarning && (
+        <div
+          style={{
+            position: "fixed",
+            top: 12,
+            left: "50%",
+            transform: "translateX(-50%)",
+            zIndex: 9999,
+            background: "#3a1a1a",
+            border: "1px solid #f43f5e",
+            color: "#fecaca",
+            padding: "10px 18px",
+            borderRadius: 10,
+            fontSize: 13,
+            maxWidth: "90%",
+            textAlign: "center",
+            boxShadow: "0 8px 24px rgba(0,0,0,0.4)",
+          }}
+        >
+          ⚠️ {routeWarning}
+          <button
+            onClick={() => setRouteWarning(null)}
+            style={{
+              marginLeft: 12,
+              background: "none",
+              border: "none",
+              color: "#fecaca",
+              cursor: "pointer",
+              fontWeight: 700,
+            }}
+          >
+            ✕
+          </button>
+        </div>
+      )}
+
       <Sidebar
         theme={theme}
         setTheme={setTheme}
@@ -115,6 +188,8 @@ export default function Dashboard({ theme, setTheme }) {
         simulating={simulating}
         mode={mode}
         updatedAt={updatedAt}
+        showAllRoutes={showAllRoutes}
+        onToggleShowAllRoutes={setShowAllRoutes}
       />
 
       {view === "map" ? (
@@ -128,6 +203,8 @@ export default function Dashboard({ theme, setTheme }) {
           suppliers={meta.suppliers}
           selectedSource={selectedSource}
           setSelectedSource={setSelectedSource}
+          showAllRoutes={showAllRoutes}
+          hasSimulated={hasSimulated}
         />
       ) : (
         <StatsView />

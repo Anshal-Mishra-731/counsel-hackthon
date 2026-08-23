@@ -5,6 +5,7 @@ import {
 } from "recharts";
 import { api, RISK_COLORS } from "../lib/api";
 import CorridorAnalyticsGrid from "./CorridorAnalyticsGrid.jsx";
+import RouteSearchPanel from "./RouteSearchPanel.jsx";
 
 const PIE_COLORS = ["#37c9e0", "#f2b134", "#ff8a3d", "#2dd9b5", "#8b7bd8", "#ff4d5e", "#4fb0ff"];
 
@@ -63,6 +64,8 @@ export default function StatsView() {
           {updated_at ? ` · updated ${new Date(updated_at * 1000).toLocaleTimeString()}` : ""}
         </p>
       </div>
+
+      <RouteSearchPanel />
 
       <div className="stats-cards">
         <StatCard label="Corridors evaluated" value={corridor_risk_snapshot.length} />
@@ -137,9 +140,8 @@ export default function StatsView() {
         )}
       </div>
 
-      {/* NEW — full per-corridor breakdown: affected suppliers, alternate
-          sources, risk gauge and economics for EVERY corridor, in one place,
-          as both text (tables) and charts (gauge + bar segments). */}
+      {/* Full per-corridor breakdown: affected suppliers, alternate sources,
+          risk gauge and economics for EVERY corridor, in one place. */}
       <div className="stats-header" style={{ marginTop: 28 }}>
         <h2>Full corridor breakdown</h2>
         <p>Every corridor's affected suppliers, alternate routes and economic impact — all from <span className="mono">/api/analytics</span>.</p>

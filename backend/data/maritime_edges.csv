@@ -1,0 +1,4 @@
+from_node,to_node,distance_km,risk_score
+ras_tanura,hormuz,500,40
+hormuz,arabian_sea,900,40
+arabian_sea,india_jamnagar,1200,20

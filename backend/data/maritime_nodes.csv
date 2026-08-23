@@ -1,0 +1,6 @@
+node_id,lat,lng,type,name
+india_jamnagar,22.47,69.07,port,Jamnagar
+hormuz,26.57,56.25,chokepoint,Hormuz
+arabian_sea,15.0,60.0,sea,Arabian Sea
+red_sea,15.0,40.0,sea,Red Sea
+cape, -34.0,18.5,chokepoint,Cape of Good Hope

@@ -2,27 +2,27 @@
   "phase1_risk_report": {
     "strait_of_hormuz": {
       "name": "Strait of Hormuz",
-      "risk_score": 70,
+      "risk_score": 40,
       "threat_level": 4,
-      "traffic_halted": true,
-      "summary": "Escalating military rhetoric, impending severe sanctions, and stalled oil flows create a high-risk disruption environment.",
-      "raw_headlines": "Trump heads into midterms short on foreign policy wins\nSix investors reveal the biggest market risks — and one strategy they agree on\nPentagon Data Reveals More Than 750 US Troops Wounded in Iran War\nUS, Iran keep up hostile rhetoric ahead of new sanctions\nQatar cuts state spending at home and abroad as war shrinks economy\nTrump Administration Threatens Iran With ‘Toughest Sanctions in History’ — Tehran Warns US of ‘Crushing, Punishing and Devastating’ Retaliation\nU.S., Iran trade warnings as new sanctions loom and Hormuz oil flows stall\nTrump says he views strait of Hormuz as ‘American territory’\nU.S., Iran trade warnings as new sanctions loom and Hormuz oil flows stall\nUS, Iran keep up hostile rhetoric ahead of new sanctions"
+      "traffic_halted": false,
+      "summary": "Heightened U.S.-Iran tensions and economic pressures create serious disruption risks, though tankers continue to pass through the strait.",
+      "raw_headlines": "As Global Fuel Markets Whipsaw Through Historic Volatility, JSV Global's Jason Venturelli Calls for a New Playbook on Fuel Risk\nEvery Chokepoint That Isn't Hormuz\nWhat did war with the US reveal about Iran’s weapons capabilities?\nAhead of tough new U.S. sanctions, Iran criticizes 'extraterritorial sovereignty'\n⁠Their finances were tough. Then came 'insane' back-to-school costs\nWall Street week ahead: Reports on consumer confidence and inflation on tap\nIran says the world has accepted it has defeated the US, and other Middle East developments\nMiddle East live: Iran allows several Iraqi oil tankers to pass through Hormuz strait\nIran says the world has accepted it has defeated the US, and other Middle East developments\nIran’s Top Politicians Urge an End to the War"
     },
     "red_sea": {
       "name": "Red Sea",
-      "risk_score": 80,
-      "threat_level": 5,
+      "risk_score": 70,
+      "threat_level": 4,
       "traffic_halted": true,
-      "summary": "Houthi movements to control Bab el-Mandeb and ongoing attacks force tankers to evade the chokepoint through alternative routes.",
-      "raw_headlines": "Iran-linked oil tanker falls victim to Somali piracy surge \nReuters NEXT Gulf leadership summit to return with Abu Dhabi Department of Economic Development as exclusive host city partner for next three years\nOil Extends Rise after Trump Shifts Iran Strategy to Economic Strangling\nClosure of al-Makha port leaves workers and traders fearing for the future\nPort of Los Angeles preps for cargo bump as shippers navigate global risks\nDP World moves 500,000 TEUs across GCC overland network\nSaudis Shuttle Oil North on Sinokor Tankers to Evade Houthis\nEgypt breaks ground on $658mln Abu Tartour phosphoric acid complex\nHouthis Move to Gain Complete Control Over Crucial Bab el-Mandeb Oil Chokepoint\nNavios Maritime Partners LP (NMM) (Q2 2026) Earnings Call Highlights: Record $4. ..."
+      "summary": "Regional conflicts, piracy surges, and port closures continue to disrupt maritime traffic, prompting global shippers to navigate alternative routes.",
+      "raw_headlines": "Every Chokepoint That Isn't Hormuz\nUS military newspaper editor voices censorship fears after being fired\nWhat did war with the US reveal about Iran’s weapons capabilities?\nAC Milan-owner RedBird Capital pitches PREM Rugby deal\nIran-linked oil tanker falls victim to Somali piracy surge \nReuters NEXT Gulf leadership summit to return with Abu Dhabi Department of Economic Development as exclusive host city partner for next three years\nOil Extends Rise after Trump Shifts Iran Strategy to Economic Strangling\nClosure of al-Makha port leaves workers and traders fearing for the future\nPort of Los Angeles preps for cargo bump as shippers navigate global risks\nDP World moves 500,000 TEUs across GCC overland network"
     },
     "cape_of_good_hope": {
       "name": "Cape of Good Hope",
       "risk_score": 20,
       "threat_level": 2,
       "traffic_halted": false,
-      "summary": "Middle East and Red Sea conflicts are driving traffic toward alternative passages like the Arctic and African routes, but the Cape sees elevated use rather than kinetic conflict.",
-      "raw_headlines": "South Korea ship to test alternative Arctic route as Mideast conflict disrupts shipping\nExplainer: What El Niño's return means for the Panama Canal — and global trade\nBeyond Tariffs: Geopolitics & Climate Reroute Global Freight\nA 4-Million-Bpd Shadow Oil Highway Is Running Through Hormuz\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nCan China’s new Arctic Sea route to Europe replace Middle East chokepoints?\nThe post-Hormuz era offers Africa a great opportunity\nChina Is Opening the First Regular Cargo Route Through the Arctic"
+      "summary": "Middle East conflicts and climate issues are actively rerouting global freight toward alternative paths like the Arctic and Africa.",
+      "raw_headlines": "Every Chokepoint That Isn't Hormuz\nSouth Korea ship to test alternative Arctic route as Mideast conflict disrupts shipping\nExplainer: What El Niño's return means for the Panama Canal — and global trade\nBeyond Tariffs: Geopolitics & Climate Reroute Global Freight\nA 4-Million-Bpd Shadow Oil Highway Is Running Through Hormuz\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nCan China’s new Arctic Sea route to Europe replace Middle East chokepoints?\nThe post-Hormuz era offers Africa a great opportunity"
     }
   },
   "phase2_disruption_report": {
@@ -32,52 +32,52 @@
       "strait_of_hormuz": {
         "phase1_context": {
           "name": "Strait of Hormuz",
-          "risk_score": 70,
+          "risk_score": 40,
           "threat_level": 4,
-          "traffic_halted": true,
-          "summary": "Escalating military rhetoric, impending severe sanctions, and stalled oil flows create a high-risk disruption environment.",
-          "raw_headlines": "Trump heads into midterms short on foreign policy wins\nSix investors reveal the biggest market risks — and one strategy they agree on\nPentagon Data Reveals More Than 750 US Troops Wounded in Iran War\nUS, Iran keep up hostile rhetoric ahead of new sanctions\nQatar cuts state spending at home and abroad as war shrinks economy\nTrump Administration Threatens Iran With ‘Toughest Sanctions in History’ — Tehran Warns US of ‘Crushing, Punishing and Devastating’ Retaliation\nU.S., Iran trade warnings as new sanctions loom and Hormuz oil flows stall\nTrump says he views strait of Hormuz as ‘American territory’\nU.S., Iran trade warnings as new sanctions loom and Hormuz oil flows stall\nUS, Iran keep up hostile rhetoric ahead of new sanctions"
+          "traffic_halted": false,
+          "summary": "Heightened U.S.-Iran tensions and economic pressures create serious disruption risks, though tankers continue to pass through the strait.",
+          "raw_headlines": "As Global Fuel Markets Whipsaw Through Historic Volatility, JSV Global's Jason Venturelli Calls for a New Playbook on Fuel Risk\nEvery Chokepoint That Isn't Hormuz\nWhat did war with the US reveal about Iran’s weapons capabilities?\nAhead of tough new U.S. sanctions, Iran criticizes 'extraterritorial sovereignty'\n⁠Their finances were tough. Then came 'insane' back-to-school costs\nWall Street week ahead: Reports on consumer confidence and inflation on tap\nIran says the world has accepted it has defeated the US, and other Middle East developments\nMiddle East live: Iran allows several Iraqi oil tankers to pass through Hormuz strait\nIran says the world has accepted it has defeated the US, and other Middle East developments\nIran’s Top Politicians Urge an End to the War"
         },
         "scenario": {
           "corridor": "Strait of Hormuz",
-          "severity": 0.9
+          "severity": 0.3
         },
         "baseline": {
           "india_total_import_bpd": 4931790,
           "corridor_dependency_share": 0.4853,
           "corridor_dependent_bpd": 2393561,
-          "daily_shortfall_bpd": 2154205
+          "daily_shortfall_bpd": 718068
         },
         "affected_suppliers": [
           {
             "country": "Iraq",
             "normal_bpd": 982978,
-            "lost_bpd": 884680,
-            "surviving_bpd": 98298
+            "lost_bpd": 294893,
+            "surviving_bpd": 688085
           },
           {
             "country": "Saudi Arabia",
             "normal_bpd": 722673,
-            "lost_bpd": 650406,
-            "surviving_bpd": 72267
+            "lost_bpd": 216802,
+            "surviving_bpd": 505871
           },
           {
             "country": "United Arab Emirates",
             "normal_bpd": 522619,
-            "lost_bpd": 470357,
-            "surviving_bpd": 52262
+            "lost_bpd": 156786,
+            "surviving_bpd": 365834
           },
           {
             "country": "Kuwait",
             "normal_bpd": 161220,
-            "lost_bpd": 145098,
-            "surviving_bpd": 16122
+            "lost_bpd": 48366,
+            "surviving_bpd": 112854
           },
           {
             "country": "Iran",
             "normal_bpd": 4070,
-            "lost_bpd": 3663,
-            "surviving_bpd": 407
+            "lost_bpd": 1221,
+            "surviving_bpd": 2849
           }
         ],
         "alternative_sources": [
@@ -141,52 +141,38 @@
             "supplier": "Colombia",
             "corridor": "Cape of Good Hope",
             "current_bpd": 66446,
-            "additional_bpd_offered": 19934,
+            "additional_bpd_offered": 6232,
             "lead_time_days": 27
-          },
-          {
-            "supplier": "Venezuela",
-            "corridor": "Cape of Good Hope",
-            "current_bpd": 30309,
-            "additional_bpd_offered": 9093,
-            "lead_time_days": 27
-          },
-          {
-            "supplier": "Brazil",
-            "corridor": "Cape of Good Hope",
-            "current_bpd": 68687,
-            "additional_bpd_offered": 20606,
-            "lead_time_days": 28
           }
         ],
         "derived_lead_time": {
           "estimated_replacement_days": 0,
-          "covered_daily_bpd": 761469,
-          "residual_daily_shortfall_bpd": 1392736,
+          "covered_daily_bpd": 718068,
+          "residual_daily_shortfall_bpd": 0,
           "note": "Duration is derived from the barrel-weighted average shipping lead-time of the alternative suppliers actually used to cover the daily shortfall - not a fixed lookup table."
         },
         "supply_impact": {
           "ramp_up_loss_bbl": 0,
-          "chronic_loss_bbl": 41782085,
-          "gross_loss_bbl": 41782085,
-          "inventory_offset_bbl": 9500000,
-          "net_gap_bbl": 32282085
+          "chronic_loss_bbl": 0,
+          "gross_loss_bbl": 0,
+          "inventory_offset_bbl": 0,
+          "net_gap_bbl": 0
         },
         "economic_estimates": {
-          "supply_drop_pct": 43.68,
+          "supply_drop_pct": 14.56,
           "price_elasticity_assumption": 1.25,
-          "estimated_crude_price_spike_pct": 54.6,
+          "estimated_crude_price_spike_pct": 18.2,
           "note": "Modelled estimate based on supply shock and assumed elasticity; not an official forecast."
         }
       },
       "red_sea": {
         "phase1_context": {
           "name": "Red Sea",
-          "risk_score": 80,
-          "threat_level": 5,
+          "risk_score": 70,
+          "threat_level": 4,
           "traffic_halted": true,
-          "summary": "Houthi movements to control Bab el-Mandeb and ongoing attacks force tankers to evade the chokepoint through alternative routes.",
-          "raw_headlines": "Iran-linked oil tanker falls victim to Somali piracy surge \nReuters NEXT Gulf leadership summit to return with Abu Dhabi Department of Economic Development as exclusive host city partner for next three years\nOil Extends Rise after Trump Shifts Iran Strategy to Economic Strangling\nClosure of al-Makha port leaves workers and traders fearing for the future\nPort of Los Angeles preps for cargo bump as shippers navigate global risks\nDP World moves 500,000 TEUs across GCC overland network\nSaudis Shuttle Oil North on Sinokor Tankers to Evade Houthis\nEgypt breaks ground on $658mln Abu Tartour phosphoric acid complex\nHouthis Move to Gain Complete Control Over Crucial Bab el-Mandeb Oil Chokepoint\nNavios Maritime Partners LP (NMM) (Q2 2026) Earnings Call Highlights: Record $4. ..."
+          "summary": "Regional conflicts, piracy surges, and port closures continue to disrupt maritime traffic, prompting global shippers to navigate alternative routes.",
+          "raw_headlines": "Every Chokepoint That Isn't Hormuz\nUS military newspaper editor voices censorship fears after being fired\nWhat did war with the US reveal about Iran’s weapons capabilities?\nAC Milan-owner RedBird Capital pitches PREM Rugby deal\nIran-linked oil tanker falls victim to Somali piracy surge \nReuters NEXT Gulf leadership summit to return with Abu Dhabi Department of Economic Development as exclusive host city partner for next three years\nOil Extends Rise after Trump Shifts Iran Strategy to Economic Strangling\nClosure of al-Makha port leaves workers and traders fearing for the future\nPort of Los Angeles preps for cargo bump as shippers navigate global risks\nDP World moves 500,000 TEUs across GCC overland network"
         },
         "scenario": {
           "corridor": "Suez Canal / Red Sea",
@@ -337,8 +323,8 @@
           "risk_score": 20,
           "threat_level": 2,
           "traffic_halted": false,
-          "summary": "Middle East and Red Sea conflicts are driving traffic toward alternative passages like the Arctic and African routes, but the Cape sees elevated use rather than kinetic conflict.",
-          "raw_headlines": "South Korea ship to test alternative Arctic route as Mideast conflict disrupts shipping\nExplainer: What El Niño's return means for the Panama Canal — and global trade\nBeyond Tariffs: Geopolitics & Climate Reroute Global Freight\nA 4-Million-Bpd Shadow Oil Highway Is Running Through Hormuz\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nCan China’s new Arctic Sea route to Europe replace Middle East chokepoints?\nThe post-Hormuz era offers Africa a great opportunity\nChina Is Opening the First Regular Cargo Route Through the Arctic"
+          "summary": "Middle East conflicts and climate issues are actively rerouting global freight toward alternative paths like the Arctic and Africa.",
+          "raw_headlines": "Every Chokepoint That Isn't Hormuz\nSouth Korea ship to test alternative Arctic route as Mideast conflict disrupts shipping\nExplainer: What El Niño's return means for the Panama Canal — and global trade\nBeyond Tariffs: Geopolitics & Climate Reroute Global Freight\nA 4-Million-Bpd Shadow Oil Highway Is Running Through Hormuz\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nIdemitsu starts sourcing Saudi crude via Suez route, sees no risk to stable supplies -president\nCan China’s new Arctic Sea route to Europe replace Middle East chokepoints?\nThe post-Hormuz era offers Africa a great opportunity"
         },
         "scenario": {
           "corridor": "Cape of Good Hope",

@@ -9,6 +9,7 @@ export default function Sidebar({
   corridors, activeCorridorKey, onSelectCorridor,
   onStartSimulation, simulating,
   mode, updatedAt,
+  showAllRoutes, onToggleShowAllRoutes, // NEW
 }) {
   const [query, setQuery] = useState("");
 
@@ -79,6 +80,26 @@ export default function Sidebar({
         {simulating ? "Running simulation…" : "▶ Start Simulation"}
       </button>
 
+      {/* ===== NEW: show all routes toggle ===== */}
+      <div className="route-toggle-row">
+        <div className="route-toggle-label">
+          <span>Show all possible routes</span>
+          <span className="route-toggle-sub">
+            {showAllRoutes ? "Sabhi corridors dikh rahe hain" : "Sirf simulated / selected route dikh raha hai"}
+          </span>
+        </div>
+        <button
+          type="button"
+          role="switch"
+          aria-checked={showAllRoutes}
+          className={`route-toggle-switch ${showAllRoutes ? "on" : "off"}`}
+          onClick={() => onToggleShowAllRoutes(!showAllRoutes)}
+          title="Toggle all possible routes"
+        >
+          <span className="route-toggle-knob" />
+        </button>
+      </div>
+
       <div className="divider" />
 
       <div className="legend">
@@ -117,6 +138,32 @@ export default function Sidebar({
         <span>mode: {mode}</span>
         <span>{updatedAt ? `updated ${new Date(updatedAt * 1000).toLocaleTimeString()}` : "—"}</span>
       </div>
+
+      <style>{`
+        .route-toggle-row {
+          display: flex; align-items: center; justify-content: space-between;
+          gap: 12px; padding: 10px 12px; margin-top: 10px;
+          background: var(--bg-panel-2, var(--ink-700));
+          border: 1px solid var(--hairline);
+          border-radius: var(--radius-sm, 10px);
+        }
+        .route-toggle-label { display: flex; flex-direction: column; gap: 2px; }
+        .route-toggle-label > span:first-child { font-size: 12.5px; color: var(--text-primary); font-weight: 600; }
+        .route-toggle-sub { font-size: 10.5px; color: var(--text-muted); }
+        .route-toggle-switch {
+          position: relative; width: 42px; height: 22px; border-radius: 999px;
+          border: none; cursor: pointer; flex-shrink: 0;
+          background: var(--hairline-strong, #33475c);
+          transition: background 0.2s ease;
+        }
+        .route-toggle-switch.on { background: var(--accent-cyan, #37c9e0); }
+        .route-toggle-knob {
+          position: absolute; top: 2px; left: 2px; width: 18px; height: 18px;
+          border-radius: 50%; background: #fff; transition: transform 0.2s ease;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.4);
+        }
+        .route-toggle-switch.on .route-toggle-knob { transform: translateX(20px); }
+      `}</style>
     </aside>
   );
 }
