@@ -13,7 +13,7 @@ The architecture is fully decoupled, utilizing a high-performance backend to han
 * **Backend Ecosystem:** Python 3.10+, FastAPI, Uvicorn (ASGI server), Pydantic (data validation).
 * **AI & Data Ingestion:** Google Gemini LLM API (intelligence parsing), RSS Feeds (live breaking news), Finnhub API (financial and flight data endpoints).
 * **Frontend Ecosystem:** Node.js, npm, React (Vite build tool).
-* **Visualization & UI:** React-Router-DOM (routing), React-Leaflet & Leaflet.js (interactive geographic mapping with CARTO basemaps), Recharts (data visualization), custom CSS-in-JS.
+* **Visualization & UI:** React-Router-DOM (routing), React-Leaflet & Leaflet.js (interactive geographic mapping with CARTO basemaps), Recharts (data visualization), custom CSS-in-JS (no external CSS frameworks).
 
 ---
 
@@ -23,27 +23,23 @@ The architecture is fully decoupled, utilizing a high-performance backend to han
 
 The backend ingests live data streams via RSS news feeds and Finnhub endpoints. A dedicated Gemini LLM agent continuously parses this unstructured data to assess global geopolitical stability. It assigns real-time risk scores (0-100) and traffic statuses to six major maritime chokepoints, including the Strait of Hormuz, Red Sea, and Strait of Malacca.
 
-### 2. Interactive "What-If" Sandbox
+### 2. Smart Caching System
 
-Designed for live demonstrations, the platform allows users to inject custom hypothetical scenarios (e.g., "A submarine blockade in the Strait of Malacca") into the simulation. The backend intercepts this text, overrides the live news feed, and forces the LLM to treat the scenario as absolute truth, instantly cascading the effects throughout the UI.
+To prevent LLM API rate-limiting during testing and ensure instantaneous frontend load times, the backend utilizes an in-memory caching mechanism. The cache holds recent calculations but is intentionally bypassed and wiped clean whenever a user manually executes a new simulation, ensuring the data is mathematically fresh upon request.
 
-### 3. Smart Caching System
-
-To prevent LLM API rate-limiting during testing and ensure instantaneous frontend load times, the backend utilizes an in-memory caching mechanism. The cache holds recent calculations but is intentionally bypassed and wiped clean whenever a user executes a new simulation, ensuring the data is always mathematically fresh when needed.
-
-### 4. Economic Disruption Simulator
+### 3. Economic Disruption Simulator
 
 When a corridor's risk exceeds critical thresholds, the engine calculates the exact barrel shortfall. It models anticipated crude price spikes using a 1.25x price elasticity assumption and evaluates the net gap against India's total baseline demand.
 
-### 5. Procurement Optimization
+### 4. Procurement Optimization
 
-The system dynamically reroutes halted shipments to alternative sea lanes. For instance, if the Red Sea is compromised, Russian crude is automatically reallocated via the Cape of Good Hope or the Chennai-Vladivostok Maritime Corridor (CVMC), recalculating the transit lead times accordingly.
+The system dynamically reroutes halted shipments to alternative sea lanes. For instance, if the Red Sea is compromised, Russian crude is automatically reallocated via the Cape of Good Hope or the Chennai-Vladivostok Maritime Corridor (CVMC), recalculating the transit lead times and available capacities accordingly.
 
-### 6. Phase 4 SPR Optimization
+### 5. Phase 4 SPR Optimization
 
-A granular model that calculates the exact daily drawdown required from India's Strategic Petroleum Reserves (ISPRL). It allocates emergency barrel drawdowns across specific underground caverns (Padur, Mangaluru, Visakhapatnam) and OMC commercial reserves to cover the supply gap until alternative shipments arrive.
+A granular model calculates the exact daily drawdown required from India's Strategic Petroleum Reserves (ISPRL). It allocates emergency barrel drawdowns across specific underground caverns (Padur, Mangaluru, Visakhapatnam) and OMC commercial reserves to cover the supply gap until alternative shipments arrive.
 
-### 7. Dynamic Route Visualization
+### 6. Dynamic Route Visualization
 
 Sea routes are rendered using high-precision geographical coordinate arrays. Simulated active routes are highlighted using a dark-core, dashed, marching-ants animation positioned over a glowing cyan halo, ensuring maximum visibility against the dark CARTO basemap.
 
@@ -64,8 +60,22 @@ cd counsel/backend
 
 
 2. **Create and activate a virtual environment:**
-* Windows: `python -m venv venv` followed by `venv\Scripts\activate`
-* macOS/Linux: `python3 -m venv venv` followed by `source venv/bin/activate`
+* Windows:
+```bash
+python -m venv venv
+venv\Scripts\activate
+
+```
+
+
+* macOS/Linux:
+```bash
+python3 -m venv venv
+source venv/bin/activate
+
+```
+
+
 
 
 3. **Install the required Python packages:**
@@ -76,7 +86,13 @@ pip install -r requirements.txt
 
 
 4. **Configure Environment Variables:**
-Create a `.env` file in the `backend` directory and add your API keys (Google Gemini, Finnhub, etc.).
+Create a `.env` file in the `backend` directory and add your API keys:
+```env
+GEMINI_API_KEY=your_key_here
+
+```
+
+
 5. **Start the ASGI server:**
 ```bash
 uvicorn src.main:app --reload --port 8000
@@ -117,23 +133,23 @@ npm run dev
 
 
 5. **View the application:**
-Open `http://localhost:5173` in your web browser.
+Open `http://localhost:5173` in your web browser. The live console is accessible at `/dashboard`.
 
 ---
 
 ## API Architecture
 
-The frontend communicates with the FastAPI backend via the following primary endpoints:
+The frontend communicates with the FastAPI backend via the following primary endpoints at `VITE_API_BASE`:
 
 | Endpoint | Method | Purpose |
 | --- | --- | --- |
-| `/api/meta` | GET | Supplier country list (lat/lng/port) and destination info |
-| `/api/corridors` | GET | High-level status and waypoints for all corridors |
-| `/api/corridor/{key}` | GET | Deep-dive intelligence, economics, and SPR resolution |
-| `/api/route?source=X` | GET | Resolves a source country to its specific corridor |
+| `/api/meta` | GET | Supplier country list (lat/lng/port) and India destination info |
+| `/api/corridors` | GET | High-level status and geographic waypoints for all corridors |
+| `/api/corridor/{key}` | GET | Deep-dive intelligence, economics, and SPR resolution for a specific route |
+| `/api/route?source=X` | GET | Resolves a source country to its primary sea-lane corridor |
 | `/api/simulate` | POST | Wipes cache and executes a fresh live simulation |
 | `/api/stats` | GET | Aggregate analytics and dependency metrics |
-| `/api/analytics` | GET | Full affected/alternate detail for the analytics grid |
+| `/api/analytics` | GET | Full affected/alternate detail for the frontend analytics grid |
 
 ---
 
@@ -193,7 +209,3 @@ counsel/
     └── vite.config.js
 
 ```
-
----
-
-To ensure this documentation is fully complete before you submit it, could you clarify what Phase 5 of the hackathon project entails, so I can accurately add its details to the core features section?
