@@ -65,7 +65,7 @@ export default function Home({ theme, setTheme }) {
       <nav className="home__nav">
         <Link to="/" className="home__brand">
           <ChokepointMark />
-          <span>Chokepoint</span>
+          <span>Counsel</span>
         </Link>
         <div className="home__nav-links">
           <a href="#features">Features</a>
