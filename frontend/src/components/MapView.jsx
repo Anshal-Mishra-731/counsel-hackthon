@@ -5,14 +5,12 @@ import { RISK_COLORS } from "../lib/api";
 
 const TILE = {
   dark: {
-    url: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
-    attribution:
-      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    url: "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Dark_Gray_Base/MapServer/tile/{z}/{y}/{x}",
+    attribution: '&copy; <a href="https://www.esri.com/">Esri</a> &copy; OpenStreetMap contributors',
   },
   light: {
-    url: "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
-    attribution:
-      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
+    url: "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}",
+    attribution: '&copy; <a href="https://www.esri.com/">Esri</a> &copy; OpenStreetMap contributors',
   },
 };
 
@@ -81,7 +79,7 @@ export default function MapView({
       </div>
 
       <MapContainer center={[15, 55]} zoom={3} minZoom={2} worldCopyJump>
-        <TileLayer key={theme} url={tile.url} attribution={tile.attribution} subdomains={["a", "b", "c", "d"]} />
+        <TileLayer key={theme} url={tile.url} attribution={tile.attribution} />
 
         <Marker position={[destination.lat, destination.lng]} icon={portIcon("#2dd4bf", true)}>
           <Tooltip direction="top">📍 {destination.name} · {destination.port}</Tooltip>

@@ -84,7 +84,7 @@ export default function StatsView() {
               <CartesianGrid strokeDasharray="3 3" stroke="var(--hairline)" horizontal={false} />
               <XAxis type="number" domain={[0, 100]} tick={{ fontSize: 11, fill: "var(--text-muted)" }} />
               <YAxis type="category" dataKey="name" width={110} tick={{ fontSize: 11.5, fill: "var(--text-secondary)" }} />
-              <RTooltip contentStyle={tooltipStyle()} />
+              <RTooltip cursor={false} contentStyle={tooltipStyle()} />
               <Bar dataKey="risk" radius={[0, 6, 6, 0]}>
                 {riskChartData.map((d, i) => <Cell key={i} fill={d.fill} />)}
               </Bar>
@@ -102,10 +102,31 @@ export default function StatsView() {
           {corridor_dependency.available ? (
             <ResponsiveContainer width="100%" height={260}>
               <PieChart>
-                <Pie data={dependencyPieData} dataKey="value" nameKey="name" innerRadius={55} outerRadius={90} paddingAngle={2}>
-                  {dependencyPieData.map((_, i) => <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />)}
-                </Pie>
-                <RTooltip contentStyle={tooltipStyle()} formatter={(v) => `${v}%`} />
+                  <Pie 
+                  data={dependencyPieData} dataKey="value" nameKey="name" innerRadius={55} outerRadius={90} paddingAngle={2}
+                  >
+                  {dependencyPieData.map((_, i) => (
+                    <Cell key={i} fill={PIE_COLORS[i % PIE_COLORS.length]} />
+                  ))}
+                  </Pie>
+                  <RTooltip
+                    content={({ active, payload }) => {
+                      if (active && payload && payload.length) {
+                        const data = payload[0];
+                        return (
+                          <div style={tooltipStyle()}>
+                            <div style={{ color: "var(--text-secondary, #8ba3ba)", marginBottom: 2 }}>
+                              {data.name}
+                            </div>
+                            <div style={{ color: "var(--accent-cyan, #2dd4bf)", fontWeight: 700, fontFamily: "monospace" }}>
+                              {data.value}%
+                            </div>
+                          </div>
+                        );
+                      }
+                      return null;
+                    }}
+                  />
                 <Legend wrapperStyle={{ fontSize: 11.5 }} />
               </PieChart>
             </ResponsiveContainer>
@@ -128,7 +149,7 @@ export default function StatsView() {
               <CartesianGrid strokeDasharray="3 3" stroke="var(--hairline)" vertical={false} />
               <XAxis dataKey="name" tick={{ fontSize: 10.5, fill: "var(--text-muted)" }} interval={0} angle={-35} textAnchor="end" height={70} />
               <YAxis tick={{ fontSize: 11, fill: "var(--text-muted)" }} unit="%" />
-              <RTooltip contentStyle={tooltipStyle()} formatter={(v) => `${v}%`} />
+              <RTooltip cursor={false} contentStyle={tooltipStyle()} formatter={(v) => `${v}%`} />
               <Bar dataKey="share" fill="var(--accent-cyan)" radius={[6, 6, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
@@ -176,6 +197,7 @@ function tooltipStyle() {
     background: "var(--bg-panel)",
     border: "1px solid var(--hairline)",
     borderRadius: 8,
+    padding: "8px 12px",
     fontSize: 12,
     color: "var(--text-primary)",
   };

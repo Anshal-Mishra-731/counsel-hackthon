@@ -34,7 +34,17 @@ def get_cached_risk_data():
         
     if _CACHED_RISK:
         return _CACHED_RISK
-    return {k: {"name": k.replace("_", " ").title(), "risk_score": 15, "traffic_halted": False} for k in master_routes}
+        
+    # Clean default fallback without forced blockages
+    return {
+        k: {
+            "name": k.replace("_", " ").title(),
+            "risk_score": 15,
+            "traffic_halted": False,
+            "reason": "Corridor operational under regular maritime security patrols."
+        }
+        for k in master_routes
+    }
 
 def get_cached_simulation_data():
     global _CACHED_SIMULATION
