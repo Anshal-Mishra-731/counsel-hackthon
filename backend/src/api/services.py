@@ -10,11 +10,14 @@ _LAST_CACHE_TIME = 0
 CACHE_TTL_SECONDS = 300
 
 def force_refresh_cache():
-    """Wipes the memory so the 'Start Simulation' button forces a fresh Gemini calculation."""
+    """Wipes memory so simulation forces a fresh calculation."""
     global _CACHED_RISK, _CACHED_SIMULATION, _LAST_CACHE_TIME
     _CACHED_RISK = None
     _CACHED_SIMULATION = None
     _LAST_CACHE_TIME = 0
+
+def to_slug(name: str) -> str:
+    return name.lower().replace(" ", "_").replace("-", "_")
 
 def get_cached_risk_data():
     global _CACHED_RISK, _LAST_CACHE_TIME
@@ -35,9 +38,8 @@ def get_cached_risk_data():
     if _CACHED_RISK:
         return _CACHED_RISK
         
-    # Clean default fallback without forced blockages
     return {
-        k: {
+        to_slug(k): {
             "name": k.replace("_", " ").title(),
             "risk_score": 15,
             "traffic_halted": False,
@@ -62,44 +64,164 @@ def get_cached_simulation_data():
     return _CACHED_SIMULATION or {}
 
 
-# --- HIGH-PRECISION MARITIME SEA LANES (Your exact working curves) ---
+# --- DENSE NAUTICAL SEA LANES (No Land Collisions) ---
 CORRIDOR_WAYPOINTS = {
     "strait_of_hormuz": [
-        [29.98, 48.45], [27.50, 50.80], [26.56, 56.25], [24.80, 58.20], [21.50, 63.50], [22.84, 69.70]
+        [30.02, 48.55],  # Al Basra Offshore Terminal (ABOT)
+        [29.35, 49.30],  # Kuwait Outflow Channel
+        [28.45, 50.15],  # Ras Tanura Anchorage
+        [27.10, 51.60],  # Central Gulf TSS
+        [26.40, 53.60],  # South of Lavan Island
+        [26.15, 55.40],  # Tunb Island Passage
+        [26.35, 56.40],  # Strait of Hormuz Chokepoint
+        [25.75, 56.95],  # Outflow into Gulf of Oman
+        [24.50, 58.50],  # Gulf of Oman TSS
+        [23.50, 60.50],  # Ras al Hadd Turn
+        [22.80, 63.50],  # Central Arabian Sea Corridor
+        [22.00, 66.50],  # Gujarat Approach
+        [22.47, 69.84]   # Vadinar / Jamnagar / Mundra Hub
     ],
     "red_sea": [
-        [31.25, 32.30], [29.97, 32.55], [27.50, 34.00], [20.00, 38.50], [14.50, 42.20], [12.58, 43.32], [11.90, 45.00], [12.50, 51.50], [16.00, 60.00], [22.84, 69.70]
+        [31.30, 32.35],  # Port Said North Gate
+        [30.50, 32.40],  # Great Bitter Lake
+        [29.90, 32.55],  # Suez South Anchorage
+        [27.80, 33.70],  # Strait of Gubal
+        [26.50, 35.00],  # Northern Red Sea Central Trench
+        [23.50, 37.20],  # Yanbu Offshore
+        [20.50, 38.80],  # Central Red Sea
+        [16.50, 41.20],  # Farasan Islands Outer Deep
+        [13.80, 42.60],  # Hanish Islands Channel
+        [12.60, 43.35],  # Bab-el-Mandeb Chokepoint
+        [11.90, 44.50],  # Gulf of Aden Inbound
+        [12.20, 48.00],  # IRTC Patrol Channel
+        [12.50, 51.50],  # Socotra Gap
+        [14.50, 56.00],  # Arabian Sea Deep Water
+        [17.50, 62.00],  # Trans-Arabian Tanker Lane
+        [20.50, 67.00],  # Western India Inbound
+        [22.47, 69.84]   # Vadinar / Mundra Refineries
     ],
-    "suez_canal_red_sea": [ # Safeguard duplicate so the map never drops it
-        [31.25, 32.30], [29.97, 32.55], [27.50, 34.00], [20.00, 38.50], [14.50, 42.20], [12.58, 43.32], [11.90, 45.00], [12.50, 51.50], [16.00, 60.00], [22.84, 69.70]
+    "suez_canal_red_sea": [
+        [31.30, 32.35], [30.50, 32.40], [29.90, 32.55], [27.80, 33.70],
+        [26.50, 35.00], [23.50, 37.20], [20.50, 38.80], [16.50, 41.20],
+        [13.80, 42.60], [12.60, 43.35], [11.90, 44.50], [12.20, 48.00],
+        [12.50, 51.50], [14.50, 56.00], [17.50, 62.00], [20.50, 67.00],
+        [22.47, 69.84]
     ],
     "cape_of_good_hope": [
-        [60.35, 28.63], [57.50, 8.00], [52.00, 2.50], [48.50, -5.50], [36.00, -10.50], [20.00, -18.50], [4.44, 7.17], [-8.83, 12.00], [-28.00, 14.50], [-34.85, 19.80], [-32.00, 33.00], [-20.00, 48.00], [-5.00, 60.00], [10.00, 66.00], [22.84, 69.70]
+        # European / Baltic crude feeder
+        [60.35, 28.63],  # Primorsk (Baltic)
+        [57.50, 11.00],  # Kattegat Strait
+        [57.70, 8.00],   # Skagerrak
+        [53.00, 2.00],   # North Sea Southern Trench
+        [50.50, -1.00],  # English Channel
+        [48.50, -5.50],  # Ushant TSS
+        [44.00, -9.50],  # Bay of Biscay Offshore
+        [37.00, -10.00], # Cape St. Vincent
+        [28.00, -16.00], # Canary Islands Channel
+        [20.00, -18.50], # Cape Verde Passage
+        [10.00, -16.00], # Guinea Abyssal Plain
+        [4.44, 7.17],    # Bonny Offshore Terminal (Nigeria)
+        [0.00, 5.00],    # Equator Crossing Atlantic
+        [-8.80, 12.50],  # Luanda Offshore (Angola)
+        [-20.00, 10.00], # Walvis Ridge
+        [-30.00, 15.00], # Namaqua Deep
+        [-34.80, 18.20], # Cape of Good Hope Rounding
+        [-35.50, 22.00], # Agulhas Retroflection (Deep Ocean)
+        [-34.00, 28.00], # South African East Coast Passage
+        [-30.00, 35.00], # Natal Basin
+        [-25.00, 40.00], # Mozambique Channel South
+        [-18.00, 45.00], # Mozambique Channel Center
+        [-10.00, 50.00], # North Madagascar Trench
+        [0.00, 58.00],   # Equatorial Indian Ocean Trunk
+        [10.00, 65.00],  # Lakshadweep Sea
+        [16.00, 68.50],  # Konkan Deep Water
+        [22.47, 69.84]   # Vadinar Terminal, India
     ],
     "strait_of_malacca": [
-        [1.25, 103.85], [2.50, 101.80], [4.50, 98.80], [5.80, 95.20], [6.50, 90.00], [8.50, 83.00], [13.08, 80.27], [5.80, 80.50], [8.50, 76.50], [15.50, 72.50], [22.84, 69.70]
+        [1.20, 103.90],  # Singapore TSS
+        [2.10, 102.10],  # Malacca Strait Narrow
+        [3.80, 100.20],  # One Fathom Bank
+        [5.20, 97.80],   # Diamond Point
+        [5.95, 95.20],   # Banda Aceh Northern Gate
+        [6.50, 93.40],   # Great Channel (Nicobar)
+        [8.50, 87.00],   # Bay of Bengal Crossing
+        [11.00, 82.50],  # Coromandel Approach
+        [13.08, 80.27],  # Chennai Port & Refinery Hub
+        [17.68, 83.21],  # Visakhapatnam HPCL Hub
+        [20.25, 86.65]   # Paradip IOCL Mega-Refinery
     ],
     "chennai_vladivostok_maritime_corridor": [
-        [43.13, 131.88], [38.50, 132.50], [34.20, 129.50], [29.50, 125.00], [22.00, 120.00], [14.00, 114.00], [4.00, 106.50], [1.25, 103.85], [3.00, 101.00], [5.80, 95.20], [9.00, 85.00], [13.08, 80.27], [17.50, 83.50], [20.25, 86.65]
+        [43.11, 131.88], # Vladivostok Commercial Port
+        [39.00, 133.00], # Sea of Japan Central
+        [34.80, 129.50], # Tsushima Strait
+        [30.50, 125.00], # East China Sea
+        [25.00, 122.50], # East of Taiwan
+        [20.50, 120.50], # Luzon Strait (Bashi Channel)
+        [15.00, 115.00], # South China Sea Deep Trunk
+        [8.00, 109.50],  # Spratly Deep Water
+        [3.00, 106.00],  # Natuna Sea Basin
+        [1.25, 103.85],  # Singapore Strait Entry
+        [5.95, 95.20],   # Outflow via Banda Aceh
+        [10.00, 86.00],  # Andaman Sea Traverse
+        [13.08, 80.27]   # Chennai Port Terminal
     ],
     "instc": [
-        [40.40, 49.86], [37.47, 49.46], [35.68, 51.38], [32.65, 51.66], [29.61, 52.53], [27.18, 56.27], [25.30, 60.60], [24.50, 63.00], [23.50, 66.00], [22.84, 69.70]
+        [27.14, 56.28],  # Bandar Abbas Port, Iran
+        [25.29, 60.64],  # Chabahar Port, Iran
+        [24.80, 62.50],  # Gwadar Deep-Sea Approach
+        [23.50, 65.50],  # North Arabian Sea Maritime Transit
+        [22.47, 69.84]   # Vadinar / Mundra Port
     ],
     "international_north_south_transport_corridor": [
-        [40.40, 49.86], [37.47, 49.46], [35.68, 51.38], [32.65, 51.66], [29.61, 52.53], [27.18, 56.27], [25.30, 60.60], [24.50, 63.00], [23.50, 66.00], [22.84, 69.70]
+        [27.14, 56.28],  # Bandar Abbas Port
+        [25.29, 60.64],  # Chabahar Port
+        [24.80, 62.50],
+        [23.50, 65.50],
+        [22.47, 69.84]
     ]
 }
 
-# Real-world baseline import distribution & ports
+# --- REAL-WORLD EXPORT PORTS & DOMESTIC REFINERIES ---
+DOMESTIC_REFINERY_HUBS = [
+    {"name": "Jamnagar / Vadinar Hub", "port": "Reliance / Nayara Marine Terminal", "lat": 22.47, "lng": 69.84, "capacity_bpd": 1360000},
+    {"name": "Mundra Port", "port": "Adani Crude Terminal", "lat": 22.75, "lng": 69.70, "capacity_bpd": 400000},
+    {"name": "Mumbai High / BPCL", "port": "Jawahar Dweep (Butcher Island)", "lat": 18.95, "lng": 72.88, "capacity_bpd": 240000},
+    {"name": "Kochi Refinery (BPCL)", "port": "Cochin Single Point Mooring", "lat": 9.96, "lng": 76.22, "capacity_bpd": 310000},
+    {"name": "Chennai Petroleum (CPCL)", "port": "Ennore / Chennai Marine Base", "lat": 13.08, "lng": 80.27, "capacity_bpd": 210000},
+    {"name": "Visakhapatnam (HPCL)", "port": "Vizag Outer Harbour SPM", "lat": 17.68, "lng": 83.21, "capacity_bpd": 166000},
+    {"name": "Paradip Mega-Refinery (IOCL)", "port": "Paradip Offshore SPM", "lat": 20.25, "lng": 86.65, "capacity_bpd": 300000}
+]
+
 SUPPLIER_PROFILES = {
-    "Iraq": {"corridor": "strait_of_hormuz", "port": "Basra Oil Terminal", "lat": 30.50, "lng": 47.78, "normal_bpd": 982978},
-    "Saudi Arabia": {"corridor": "strait_of_hormuz", "port": "Ras Tanura", "lat": 26.65, "lng": 50.15, "normal_bpd": 722673},
-    "United Arab Emirates": {"corridor": "strait_of_hormuz", "port": "Fujairah / Jebel Dhanna", "lat": 25.12, "lng": 56.33, "normal_bpd": 522619},
-    "Kuwait": {"corridor": "strait_of_hormuz", "port": "Mina Al-Ahmadi", "lat": 29.08, "lng": 48.14, "normal_bpd": 161220},
-    "Russia": {"corridor": "suez_canal_red_sea", "port": "Novorossiysk / Primorsk", "lat": 60.35, "lng": 28.63, "normal_bpd": 1785713},
-    "Nigeria": {"corridor": "cape_of_good_hope", "port": "Bonny Terminal", "lat": 4.44, "lng": 7.17, "normal_bpd": 146838},
-    "Angola": {"corridor": "cape_of_good_hope", "port": "Luanda", "lat": -8.83, "lng": 13.23, "normal_bpd": 109084},
-    "United States": {"corridor": "cape_of_good_hope", "port": "Houston (USGC)", "lat": 29.76, "lng": -95.36, "normal_bpd": 264326}
+    # Persian Gulf (Hormuz)
+    "Iraq": {"corridor": "strait_of_hormuz", "port": "Basra Oil Terminal", "lat": 29.98, "lng": 48.60, "normal_bpd": 982978},
+    "Saudi Arabia": {"corridor": "strait_of_hormuz", "port": "Ras Tanura Terminal", "lat": 26.65, "lng": 50.15, "normal_bpd": 722673},
+    "United Arab Emirates": {"corridor": "strait_of_hormuz", "port": "Fujairah SPM / Jebel Dhanna", "lat": 25.12, "lng": 56.33, "normal_bpd": 522619},
+    "Kuwait": {"corridor": "strait_of_hormuz", "port": "Mina Al-Ahmadi Sea Island", "lat": 29.08, "lng": 48.14, "normal_bpd": 161220},
+    "Qatar": {"corridor": "strait_of_hormuz", "port": "Ras Laffan / Halul Island", "lat": 25.90, "lng": 51.55, "normal_bpd": 75000},
+    "Oman": {"corridor": "strait_of_hormuz", "port": "Mina Al Fahal", "lat": 23.63, "lng": 58.52, "normal_bpd": 115000},
+
+    # Red Sea / Black Sea & Mediterranean Feeders
+    "Russia": {"corridor": "red_sea", "port": "Novorossiysk / Primorsk SPM", "lat": 44.72, "lng": 37.78, "normal_bpd": 1785713},
+    "Algeria": {"corridor": "red_sea", "port": "Arzew Marine Terminal", "lat": 35.85, "lng": -0.31, "normal_bpd": 65000},
+    "Egypt": {"corridor": "red_sea", "port": "Sidi Kerir (SUMED Terminal)", "lat": 31.10, "lng": 29.62, "normal_bpd": 45000},
+
+    # Cape of Good Hope Long-Haul
+    "Nigeria": {"corridor": "cape_of_good_hope", "port": "Bonny Offshore Terminal", "lat": 4.44, "lng": 7.17, "normal_bpd": 146838},
+    "Angola": {"corridor": "cape_of_good_hope", "port": "Malongo / Cabinda Terminal", "lat": -5.55, "lng": 12.19, "normal_bpd": 109084},
+    "United States": {"corridor": "cape_of_good_hope", "port": "LOOP / Houston Ship Channel", "lat": 28.88, "lng": -90.02, "normal_bpd": 264326},
+    "Brazil": {"corridor": "cape_of_good_hope", "port": "Angra dos Reis / Santos", "lat": -23.01, "lng": -44.31, "normal_bpd": 85000},
+    "Gabon": {"corridor": "cape_of_good_hope", "port": "Cap Lopez Terminal", "lat": -0.63, "lng": 8.70, "normal_bpd": 35000},
+    "Norway": {"corridor": "cape_of_good_hope", "port": "Mongstad Crude Base", "lat": 60.81, "lng": 5.03, "normal_bpd": 40000},
+
+    # Far East & Malacca
+    "Malaysia": {"corridor": "strait_of_malacca", "port": "Bintulu / Malacca STS", "lat": 3.20, "lng": 113.05, "normal_bpd": 55000},
+    "Indonesia": {"corridor": "strait_of_malacca", "port": "Dumai Crude Terminal", "lat": 1.68, "lng": 101.45, "normal_bpd": 40000},
+    "Australia": {"corridor": "strait_of_malacca", "port": "North West Shelf (Dampier)", "lat": -20.65, "lng": 116.71, "normal_bpd": 30000},
+
+    # INSTC / Caspian
+    "Iran": {"corridor": "instc", "port": "Chabahar / Bandar Abbas", "lat": 25.29, "lng": 60.64, "normal_bpd": 90000},
+    "Kazakhstan": {"corridor": "instc", "port": "Aktau Port (Caspian)", "lat": 43.65, "lng": 51.15, "normal_bpd": 45000}
 }
 
 def bucket_for_score(score: float) -> str:
@@ -115,13 +237,21 @@ class SupplyChainService:
     def get_meta_data():
         return {
             "destination": {
-                "name": "India Refineries Hub",
-                "port": "Mundra / Sikka / Paradip / Chennai",
-                "lat": 22.84,
-                "lng": 69.70
+                "name": "India Strategic Refining Cluster",
+                "port": "Vadinar, Mundra, Mumbai, Kochi, Paradip, Vizag, Chennai",
+                "lat": 22.47,
+                "lng": 69.84,
+                "hubs": DOMESTIC_REFINERY_HUBS
             },
             "suppliers": [
-                {"country": k, "port": v["port"], "lat": v["lat"], "lng": v["lng"]}
+                {
+                    "country": k,
+                    "port": v["port"],
+                    "lat": v["lat"],
+                    "lng": v["lng"],
+                    "corridor": v["corridor"],
+                    "volume_bpd": v["normal_bpd"]
+                }
                 for k, v in SUPPLIER_PROFILES.items()
             ]
         }
@@ -132,15 +262,18 @@ class SupplyChainService:
         corridors_list = []
 
         for key, data in live_risk.items():
+            norm_key = to_slug(key)
             score = data.get("risk_score", 15)
+            waypoints = CORRIDOR_WAYPOINTS.get(norm_key) or CORRIDOR_WAYPOINTS.get(key) or [[20.0, 50.0], [22.47, 69.84]]
+
             corridors_list.append({
-                "key": key,
-                "name": data.get("name", key.replace("_", " ").title()),
+                "key": norm_key,
+                "name": data.get("name", norm_key.replace("_", " ").title()),
                 "risk_score": score,
                 "risk_bucket": bucket_for_score(score),
-                "summary": data.get("reason", "Corridor operational under regular maritime security patrols."),
+                "summary": data.get("reason") or data.get("summary", "Corridor operational under regular maritime security patrols."),
                 "traffic_halted": data.get("traffic_halted", False),
-                "waypoints": CORRIDOR_WAYPOINTS.get(key, [[20.0, 50.0], [22.84, 69.70]])
+                "waypoints": waypoints
             })
 
         return {
@@ -151,9 +284,10 @@ class SupplyChainService:
 
     @staticmethod
     def get_corridor_intelligence(key: str):
+        norm_key = to_slug(key)
         live_risk = get_cached_risk_data()
-        corridor_info = live_risk.get(key, {
-            "name": key.replace("_", " ").title(),
+        corridor_info = live_risk.get(norm_key) or live_risk.get(key, {
+            "name": norm_key.replace("_", " ").title(),
             "risk_score": 15,
             "traffic_halted": False,
             "reason": "Commercial shipping flows proceeding normally."
@@ -169,7 +303,9 @@ class SupplyChainService:
                 "lost_bpd": v["normal_bpd"] if is_disrupted else 0,
                 "surviving_bpd": 0 if is_disrupted else v["normal_bpd"]
             }
-            for k, v in SUPPLIER_PROFILES.items() if v["corridor"] == key or (key == "suez_canal_red_sea" and v["corridor"] == "red_sea") or (key == "red_sea" and v["corridor"] == "suez_canal_red_sea")
+            for k, v in SUPPLIER_PROFILES.items() 
+            if to_slug(v["corridor"]) == norm_key 
+            or (norm_key in ["red_sea", "suez_canal_red_sea"] and v["corridor"] in ["red_sea", "suez_canal_red_sea"])
         ]
         corridor_dependent_bpd = sum(s["normal_bpd"] for s in corridor_suppliers)
 
@@ -181,13 +317,13 @@ class SupplyChainService:
             spr = sim_result.get("phase4_spr_drawdown_optimization", {})
             
             return {
-                "key": key,
+                "key": norm_key,
                 "name": corridor_info.get("name"),
                 "mode": "Disruption Scenario Active",
                 "risk_score": score,
                 "risk_bucket": bucket_for_score(score),
                 "traffic_halted": corridor_info.get("traffic_halted", True),
-                "summary": f"INTEL RADAR: {corridor_info.get('reason', 'Active kinetic threat in corridor.')}",
+                "summary": f"INTEL RADAR: {corridor_info.get('reason') or corridor_info.get('summary', 'Active kinetic threat in corridor.')}",
                 "baseline": {
                     "india_total_import_bpd": impact.get("total_baseline_demand_bpd", 4931790),
                     "corridor_dependent_bpd": corridor_dependent_bpd,
@@ -218,13 +354,13 @@ class SupplyChainService:
             }
         else:
             return {
-                "key": key,
+                "key": norm_key,
                 "name": corridor_info.get("name"),
                 "mode": "Normal Operation",
                 "risk_score": score,
                 "risk_bucket": bucket_for_score(score),
                 "traffic_halted": False,
-                "summary": f"INTEL RADAR: {corridor_info.get('reason', 'Commercial maritime lanes safe and open.')}",
+                "summary": f"INTEL RADAR: {corridor_info.get('reason') or corridor_info.get('summary', 'Commercial maritime lanes safe and open.')}",
                 "baseline": {
                     "india_total_import_bpd": 4931790,
                     "corridor_dependent_bpd": corridor_dependent_bpd,
@@ -248,19 +384,21 @@ class SupplyChainService:
     @staticmethod
     def resolve_supplier_route(source: str):
         profile = SUPPLIER_PROFILES.get(source, {"corridor": "strait_of_hormuz", "lat": 25.0, "lng": 55.0})
-        corridor_key = profile["corridor"]
+        corridor_key = to_slug(profile["corridor"])
 
         live_risk = get_cached_risk_data()
-        corridor_risk = live_risk.get(corridor_key, {"risk_score": 15, "traffic_halted": False})
+        corridor_risk = live_risk.get(corridor_key) or live_risk.get(profile["corridor"], {"risk_score": 15, "traffic_halted": False})
         score = corridor_risk.get("risk_score", 15)
 
-        # Dynamic bypass for disrupted Russian supply
+        # Dynamic bypass for disrupted Russian supply via Pacific route
         if source == "Russia" and corridor_risk.get("traffic_halted", False):
             waypoints = CORRIDOR_WAYPOINTS["chennai_vladivostok_maritime_corridor"]
             corridor_key = "chennai_vladivostok_maritime_corridor"
             score = 10
         else:
-            waypoints = CORRIDOR_WAYPOINTS.get(corridor_key, [[profile["lat"], profile["lng"]], [22.84, 69.70]])
+            trunk = CORRIDOR_WAYPOINTS.get(corridor_key, [[profile["lat"], profile["lng"]], [22.47, 69.84]])
+            # Connect the individual supplier port cleanly to the oceanic trunk
+            waypoints = [[profile["lat"], profile["lng"]]] + trunk[1:]
 
         return {
             "source": source,
@@ -274,7 +412,7 @@ class SupplyChainService:
     def get_analytics_overview():
         live_risk = get_cached_risk_data()
         snapshot = [
-            {"key": k, "name": v.get("name", k.replace("_", " ").title()), "risk_score": v.get("risk_score", 15)}
+            {"key": to_slug(k), "name": v.get("name", k.replace("_", " ").title()), "risk_score": v.get("risk_score", 15)}
             for k, v in live_risk.items()
         ]
         return {
@@ -307,28 +445,23 @@ class SupplyChainService:
             },
             "corridor_risk_snapshot": snapshot
         }
+
     @staticmethod
     def run_custom_simulation(scenario: str = None):
-        """Wipes cache, runs the AI with a custom scenario, and pre-warms the simulation."""
         global _CACHED_RISK, _CACHED_SIMULATION, _LAST_CACHE_TIME
-        
-        # 1. Wipe the slate clean
         _CACHED_RISK = None
         _CACHED_SIMULATION = None
+        _LAST_CACHE_TIME = 0
         
-        # 2. Run the AI with the fake scenario
         try:
             live_risk = calculate_global_risk(master_routes, custom_scenario=scenario)
             if live_risk and isinstance(live_risk, dict) and len(live_risk) > 0:
                 _CACHED_RISK = live_risk
                 _LAST_CACHE_TIME = time.time()
-                
-                # 3. Immediately run Phase 2-4 pipeline so it's ready for the UI
                 sim = run_simulation(live_risk_report=_CACHED_RISK)
                 if sim:
                     _CACHED_SIMULATION = sim
         except Exception as e:
             print(f"Error running custom simulation: {e}")
             
-        # 4. Return the updated overview
         return SupplyChainService.get_corridors_overview()

@@ -2,7 +2,7 @@ import { formatBpd } from "../lib/format";
 
 export default function SupplierTable({ suppliers }) {
   if (!suppliers?.length) {
-    return <p className="empty-note">No suppliers currently route through this corridor.</p>;
+    return <p className="empty-note">No affected suppliers through this corridor.</p>;
   }
   const maxNormal = Math.max(...suppliers.map((s) => s.normal_bpd));
 
