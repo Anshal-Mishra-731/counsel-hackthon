@@ -87,6 +87,8 @@ def run_simulation(live_risk_report: dict, override_days: int | None = None) -> 
 
     # 1. Identify disrupted corridors
     for corridor_key, metrics in live_risk_report.items():
+        if corridor_key.startswith("_") or not isinstance(metrics, dict):
+                continue
         is_halted = metrics.get("traffic_halted", False)
         risk_score = metrics.get("risk_score", 0)
         

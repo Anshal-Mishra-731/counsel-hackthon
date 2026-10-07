@@ -13,15 +13,19 @@ export const api = {
   corridors: () => req("/api/corridors"),
   corridorDetail: (key) => req(`/api/corridor/${key}`),
   route: (source) => req(`/api/route?source=${encodeURIComponent(source)}`),
-  simulate: (scenario) => req("/api/simulate", { 
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ scenario: scenario || "" })
-  }),
+  simulate: (scenario) =>
+    req("/api/simulate", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ scenario: scenario || "" }),
+    }),
   stats: () => req("/api/stats"),
-  // NEW — full affected/alternate/economics detail for every corridor in one call,
-  // used by CorridorAnalyticsGrid so we don't fire N requests for N corridors.
   analytics: () => req("/api/analytics"),
+  reset: () =>
+    req("/api/reset", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+    }),
 };
 
 // Five-bucket risk scale used across the map, sidebar and detail overlay.

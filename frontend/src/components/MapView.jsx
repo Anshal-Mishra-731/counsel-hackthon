@@ -31,11 +31,13 @@ function buoyIcon(color, isActive) {
   });
 }
 
-function portIcon(color, isSelected, isIndiaHub = false) {
-  const size = isIndiaHub ? 14 : isSelected ? 12 : 8;
-  const borderCol = isIndiaHub ? "#38bdf8" : isSelected ? "#2dd4bf" : "#ffffff";
+function portIcon(color, isSelected, isIndiaHub = false, isDisrupted = false) {
+  const size = isIndiaHub ? 14 : isSelected || isDisrupted ? 12 : 8;
+  const borderCol = isIndiaHub ? "#38bdf8" : isDisrupted ? "#fda4af" : isSelected ? "#2dd4bf" : "#ffffff";
   const glow = isIndiaHub
     ? "0 0 10px rgba(56, 189, 248, 0.8)"
+    : isDisrupted
+    ? "0 0 14px rgba(244, 63, 94, 0.95)"
     : isSelected
     ? "0 0 12px rgba(45, 212, 191, 0.9)"
     : "0 0 4px rgba(0, 0, 0, 0.6)";
@@ -43,7 +45,7 @@ function portIcon(color, isSelected, isIndiaHub = false) {
   return L.divIcon({
     className: "",
     html: `
-      <div class="port-marker-dot" style="
+      <div class="port-marker-dot ${isDisrupted ? "port-marker-dot--disrupted" : ""}" style="
         width:${size}px;
         height:${size}px;
         background:${color};
@@ -61,6 +63,8 @@ function portIcon(color, isSelected, isIndiaHub = false) {
 export default function MapView({
   theme,
   corridors = [],
+  feederSpurs = [],
+  disruptedSuppliers = [],
   activeCorridorKey,
   activeRoute,
   onOpenDetail,
@@ -91,7 +95,7 @@ export default function MapView({
           <Marker
             key={`hub-${idx}`}
             position={[hub.lat, hub.lng]}
-            icon={portIcon("#38bdf8", false, true)}
+            icon={portIcon("#38bdf8", false, true, false)}
           >
             <Tooltip direction="top" offset={[0, -8]}>
               <div style={{ fontSize: "11px", fontWeight: 700 }}>🇮🇳 {hub.name}</div>
@@ -105,24 +109,37 @@ export default function MapView({
           </Marker>
         ))}
 
-        {/* 2) Global Crude Supplier Ports */}
+        {/* 2) Global Crude Supplier Ports with Disruption Detection */}
         {suppliers.map((s) => {
           const isSelected = s.country === selectedSource;
+          const isDisrupted = (disruptedSuppliers || []).some((d) =>
+            s.country.toLowerCase().includes(d.toLowerCase())
+          );
+
+          // Color priority: Disrupted (Red) > Selected (Cyan) > Nominal (Amber)
+          const markerColor = isDisrupted ? "#f43f5e" : isSelected ? "#2dd4bf" : "#f59e0b";
+
           return (
             <Marker
               key={s.country}
               position={[s.lat, s.lng]}
-              icon={portIcon(isSelected ? "#2dd4bf" : "#f59e0b", isSelected, false)}
+              icon={portIcon(markerColor, isSelected, false, isDisrupted)}
               eventHandlers={{ click: () => setSelectedSource(s.country) }}
             >
               <Tooltip direction="top" offset={[0, -6]}>
-                <div style={{ fontSize: "11.5px", fontWeight: 700, color: "#f8fafc" }}>
-                  {s.country}
+                <div style={{ fontSize: "11.5px", fontWeight: 700, color: isDisrupted ? "#f43f5e" : "#f8fafc" }}>
+                  {s.country} {isDisrupted && "⚠️ (EMBARGOED / OFFLINE)"}
                 </div>
                 <div style={{ fontSize: "10px", color: "#cbd5e1" }}>{s.port}</div>
                 {s.volume_bpd && (
-                  <div style={{ fontSize: "10px", color: "#2dd4bf", fontFamily: "monospace", marginTop: "2px" }}>
-                    Normal flow: {(s.volume_bpd / 1000).toFixed(0)}k bpd
+                  <div style={{
+                    fontSize: "10px",
+                    color: isDisrupted ? "#f43f5e" : "#2dd4bf",
+                    fontFamily: "monospace",
+                    marginTop: "2px",
+                    fontWeight: isDisrupted ? 700 : 400
+                  }}>
+                    {isDisrupted ? "Flow Halted: 0 bpd" : `Normal flow: ${(s.volume_bpd / 1000).toFixed(0)}k bpd`}
                   </div>
                 )}
                 <div style={{ fontSize: "9px", color: "#94a3b8", textTransform: "uppercase", marginTop: "2px" }}>
@@ -133,7 +150,28 @@ export default function MapView({
           );
         })}
 
-        {/* 3) Baseline Network Corridors */}
+        {/* 3) Baseline Feeder Spurs */}
+        {feederSpurs && feederSpurs.map((spur) => {
+          const isSelected = spur.country === selectedSource;
+          if (isSelected) return null;
+          return (
+            <Polyline
+              key={`feeder-${spur.country}`}
+              positions={spur.waypoints}
+              pathOptions={{
+                color: "#64748b",
+                weight: 1.5,
+                opacity: 0.22,
+                dashArray: "3 6",
+                lineCap: "round",
+                lineJoin: "round",
+              }}
+              eventHandlers={{ click: () => setSelectedSource(spur.country) }}
+            />
+          );
+        })}
+
+        {/* 4) Baseline Network Corridors */}
         {corridors.map((c) => (
           <Polyline
             key={`base-${c.key}`}
@@ -150,7 +188,7 @@ export default function MapView({
           />
         ))}
 
-        {/* 4) Interactive Corridor Chokepoint Buoys */}
+        {/* 5) Interactive Corridor Chokepoint Buoys */}
         {corridors.map((c) => (
           <Marker
             key={`buoy-${c.key}`}
@@ -168,10 +206,9 @@ export default function MapView({
           </Marker>
         ))}
 
-        {/* 5) Active Selection Route with Dual-Layer Glow */}
+        {/* 6) Active Selection Route with Dual-Layer Glow */}
         {activeRoute?.waypoints?.length > 1 && (
           <>
-            {/* Ambient Halos */}
             <Polyline
               key={`glow-${activeRoute.corridor_key}-${selectedSource}`}
               positions={activeRoute.waypoints}
@@ -183,7 +220,6 @@ export default function MapView({
                 lineJoin: "round",
               }}
             />
-            {/* Core Sharp Vector */}
             <Polyline
               key={`active-${activeRoute.corridor_key}-${selectedSource}`}
               positions={activeRoute.waypoints}
@@ -233,7 +269,14 @@ export default function MapView({
         .port-marker-dot:hover {
           transform: scale(1.6);
         }
-        /* Custom Leaflet Tooltip Overrides */
+        @keyframes pulse-red {
+          0% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0.75); }
+          70% { box-shadow: 0 0 0 10px rgba(244, 63, 94, 0); }
+          100% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0); }
+        }
+        .port-marker-dot--disrupted {
+          animation: pulse-red 1.6s infinite;
+        }
         .leaflet-tooltip {
           background: rgba(11, 21, 34, 0.92) !important;
           border: 1px solid #1e293b !important;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import Sidebar from "../components/Sidebar.jsx";
 import MapView from "../components/MapView.jsx";
 import StatsView from "../components/StatsView.jsx";
@@ -9,6 +9,8 @@ export default function Dashboard({ theme, setTheme }) {
   const [view, setView] = useState("map"); // "map" | "stats"
   const [meta, setMeta] = useState(null);
   const [corridors, setCorridors] = useState([]);
+  const [feederSpurs, setFeederSpurs] = useState([]);
+  const [disruptedSuppliers, setDisruptedSuppliers] = useState([]);
   const [mode, setMode] = useState("uninitialized");
   const [updatedAt, setUpdatedAt] = useState(null);
   const [selectedSource, setSelectedSource] = useState(null);
@@ -19,51 +21,75 @@ export default function Dashboard({ theme, setTheme }) {
   const [error, setError] = useState(null);
   const [sidebarOpen, setSidebarOpen] = useState(true);
 
-  useEffect(() => {
-    api
-      .meta()
-      .then((m) => {
-        setMeta(m);
-        setSelectedSource(m.suppliers[0]?.country ?? null);
-      })
-      .catch((e) => setError(e.message));
-    loadCorridors();
+  // Single helper to batch state updates from corridor API payloads
+  const applyCorridorData = useCallback((data) => {
+    if (!data) return;
+    setCorridors(data.corridors || []);
+    setFeederSpurs(data.feeder_spurs || []);
+    setDisruptedSuppliers(data.disrupted_suppliers || []);
+    setMode(data.mode || "live_monitoring");
+    setUpdatedAt(data.updated_at || Date.now());
   }, []);
 
+  // Fetch initial metadata and baseline corridor network
   useEffect(() => {
-    if (!selectedSource || !meta) return;
+    let active = true;
+
+    Promise.all([api.meta(), api.corridors()])
+      .then(([m, c]) => {
+        if (!active) return;
+        setMeta(m);
+        setSelectedSource(m.suppliers?.[0]?.country ?? null);
+        applyCorridorData(c);
+      })
+      .catch((e) => {
+        if (active) setError(e.message);
+      });
+
+    return () => {
+      active = false;
+    };
+  }, [applyCorridorData]);
+
+  // Sync selected supplier route whenever the source changes
+  const syncActiveRoute = useCallback((source) => {
+    if (!source) return;
     api
-      .route(selectedSource)
+      .route(source)
       .then((r) => {
         setActiveCorridorKey(r.corridor_key);
         setActiveRoute(r);
       })
-      .catch(() => {
-        setActiveRoute(null);
-      });
-  }, [selectedSource, meta]);
+      .catch(() => setActiveRoute(null));
+  }, []);
 
-  function loadCorridors() {
-    return api
-      .corridors()
-      .then((data) => {
-        setCorridors(data.corridors);
-        setMode(data.mode);
-        setUpdatedAt(data.updated_at);
-      })
-      .catch((e) => setError(e.message));
-  }
+  useEffect(() => {
+    if (selectedSource && meta) {
+      syncActiveRoute(selectedSource);
+    }
+  }, [selectedSource, meta, syncActiveRoute]);
 
+  // Trigger what-if scenario
   async function handleStartSimulation(customScenario = "") {
     setSimulating(true);
     try {
       const data = await api.simulate(customScenario);
-      setCorridors(data.corridors);
-      setMode(data.mode);
-      setUpdatedAt(data.updated_at);
-      if (selectedSource) {
-        api.route(selectedSource).then(setActiveRoute).catch(() => {});
-      }
+      applyCorridorData(data);
+      if (selectedSource) syncActiveRoute(selectedSource);
+    } catch (e) {
+      setError(e.message);
+    } finally {
+      setSimulating(false);
+    }
+  }
+
+  // Clear what-if scenario and return to live baseline
+  async function handleResetSimulation() {
+    setSimulating(true);
+    try {
+      const data = api.reset ? await api.reset() : await api.simulate("");
+      applyCorridorData(data);
+      if (selectedSource) syncActiveRoute(selectedSource);
     } catch (e) {
       setError(e.message);
     } finally {
@@ -95,7 +121,7 @@ export default function Dashboard({ theme, setTheme }) {
 
   return (
     <div className={`app ${sidebarOpen ? "sidebar-expanded" : "sidebar-collapsed"}`}>
-      {/* Floating Toggle Tab - Mounted at Root Layer to evade Leaflet z-index traps */}
+      {/* Floating Toggle Tab */}
       <button
         type="button"
         className="sidebar-floating-toggle"
@@ -134,20 +160,23 @@ export default function Dashboard({ theme, setTheme }) {
           setSelectedSource={setSelectedSource}
           corridors={corridors}
           activeCorridorKey={activeCorridorKey}
-          onSelectCorridor={(key) => setActiveCorridorKey(key)}
+          onSelectCorridor={setActiveCorridorKey}
           onStartSimulation={handleStartSimulation}
+          onResetSimulation={handleResetSimulation}
           simulating={simulating}
           mode={mode}
           updatedAt={updatedAt}
         />
       </div>
 
-      {/* Main View Area */}
+      {/* Main Workspace Area */}
       <div className="app-main-view">
         {view === "map" ? (
           <MapView
             theme={theme}
             corridors={corridors}
+            feederSpurs={feederSpurs}
+            disruptedSuppliers={disruptedSuppliers}
             activeCorridorKey={activeCorridorKey}
             activeRoute={activeRoute}
             onOpenDetail={setOpenDetailKey}
@@ -162,7 +191,10 @@ export default function Dashboard({ theme, setTheme }) {
       </div>
 
       {openDetailKey && (
-        <DetailOverlay corridorKey={openDetailKey} onClose={() => setOpenDetailKey(null)} />
+        <DetailOverlay
+          corridorKey={openDetailKey}
+          onClose={() => setOpenDetailKey(null)}
+        />
       )}
 
       <style>{`
@@ -175,7 +207,6 @@ export default function Dashboard({ theme, setTheme }) {
           background: #04080e;
         }
 
-        /* Dedicated Sidebar Viewport Track */
         .app-sidebar-wrap {
           height: 100%;
           position: relative;
@@ -199,7 +230,6 @@ export default function Dashboard({ theme, setTheme }) {
           pointer-events: none;
         }
 
-        /* Persistent Floating Toggle Tab */
         .sidebar-floating-toggle {
           position: fixed;
           top: 50%;
@@ -238,7 +268,6 @@ export default function Dashboard({ theme, setTheme }) {
           border-color: rgba(45, 212, 191, 0.5);
         }
 
-        /* Main Workspace View */
         .app-main-view {
           flex: 1;
           height: 100%;

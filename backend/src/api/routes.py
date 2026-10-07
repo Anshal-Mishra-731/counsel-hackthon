@@ -1,5 +1,5 @@
 from fastapi import APIRouter, Query, Request
-from src.api.services import SupplyChainService
+from src.api.services import SupplyChainService, force_refresh_cache
 from src.api.schemas import MetaResponse, CorridorsResponse
 from pydantic import BaseModel
 from typing import Optional
@@ -34,6 +34,12 @@ async def post_simulate(payload: Optional[SimulationPayload] = None):
     """Executes live simulation recalculation with optional custom scenario."""
     scenario_text = payload.scenario if payload and payload.scenario else None
     return SupplyChainService.run_custom_simulation(scenario=scenario_text)
+
+@api_router.post("/api/reset", tags=["Simulation Control"])
+async def reset_simulation():
+    """Wipes all what-if simulation states and restores live maritime baseline."""
+    force_refresh_cache()
+    return SupplyChainService.get_corridors_overview()
 
 @api_router.get("/api/stats", tags=["Frontend Bridge"])
 async def get_stats():

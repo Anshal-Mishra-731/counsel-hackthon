@@ -5,27 +5,61 @@ import SupplierTable from "./SupplierTable.jsx";
 import AlternativeSourceTable from "./AlternativeSourceTable.jsx";
 import EconomicPanel from "./EconomicPanel.jsx";
 
-export default function CorridorAnalyticsGrid() {
-  const [corridors, setCorridors] = useState(null);
+function fmt(n) {
+  if (n === undefined || n === null || Number.isNaN(n)) return "—";
+  return Math.round(n).toLocaleString();
+}
+
+function bucketFor(score) {
+  if (score >= 80) return "critical";
+  if (score >= 60) return "high";
+  if (score >= 40) return "elevated";
+  if (score >= 20) return "guarded";
+  return "low";
+}
+
+export default function CorridorAnalyticsGrid({ corridors: initialCorridors }) {
+  const [corridors, setCorridors] = useState(initialCorridors || []);
   const [error, setError] = useState(null);
   const [expandedPlanKey, setExpandedPlanKey] = useState(null);
+  const [loading, setLoading] = useState(!initialCorridors || initialCorridors.length === 0);
 
   useEffect(() => {
+    if (initialCorridors && initialCorridors.length > 0) {
+      setCorridors(initialCorridors);
+      setLoading(false);
+      return;
+    }
+
     let cancelled = false;
+    setLoading(true);
     api
       .analytics()
-      .then((d) => !cancelled && setCorridors(d.corridors))
-      .catch((e) => !cancelled && setError(e.message));
+      .then((d) => {
+        if (!cancelled) {
+          setCorridors(d.corridors || []);
+          setLoading(false);
+        }
+      })
+      .catch((e) => {
+        if (!cancelled) {
+          setError(e.message);
+          setLoading(false);
+        }
+      });
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [initialCorridors]);
 
   if (error) {
     return <div className="cag-alert">Unable to load corridor analytics: {error}</div>;
   }
-  if (!corridors) {
+  if (loading) {
     return <div className="cag-alert">Loading operational intelligence…</div>;
+  }
+  if (!corridors || corridors.length === 0) {
+    return <div className="cag-alert">No corridor intelligence cards available.</div>;
   }
 
   const togglePlan = (key) => {
@@ -36,9 +70,9 @@ export default function CorridorAnalyticsGrid() {
     <div className="cag-container">
       {corridors.map((c) => {
         const isPlanOpen = expandedPlanKey === c.key;
+        const bucket = bucketFor(c.risk_score || 0);
         const spr = c.phase4_spr_summary;
-        const hasDisruptionData =
-          c.affected_suppliers?.length > 0 || c.alternative_sources?.length > 0;
+        const hasDisruptionData = c.affected_suppliers?.length > 0 || c.alternative_sources?.length > 0 || (c.supply_impact?.net_gap_bbl !== undefined && c.supply_impact.net_gap_bbl !== 0);
 
         return (
           <div
@@ -53,12 +87,12 @@ export default function CorridorAnalyticsGrid() {
                   <span
                     className="cag-risk-pill"
                     style={{
-                      color: RISK_COLORS[c.risk_bucket] || "#2dd4bf",
-                      borderColor: `${RISK_COLORS[c.risk_bucket] || "#2dd4bf"}55`,
-                      backgroundColor: `${RISK_COLORS[c.risk_bucket] || "#2dd4bf"}15`,
+                      color: RISK_COLORS[bucket] || "#2dd4bf",
+                      borderColor: `${RISK_COLORS[bucket] || "#2dd4bf"}55`,
+                      backgroundColor: `${RISK_COLORS[bucket] || "#2dd4bf"}15`,
                     }}
                   >
-                    {RISK_LABELS[c.risk_bucket] || "Normal"} · {c.risk_score}/100
+                    {RISK_LABELS[bucket] || "Normal"} · {c.risk_score || 0}/100
                   </span>
                   {c.traffic_halted && (
                     <span className="cag-halted-tag">TRAFFIC HALTED</span>
@@ -70,6 +104,18 @@ export default function CorridorAnalyticsGrid() {
                 <RiskGauge severity={(c.risk_score || 0) / 100} size={70} />
               </div>
             </div>
+
+            {/* Live Maritime Intel Wire (News Feed) */}
+            {c.raw_headlines && (
+              <div style={{ marginTop: "12px", padding: "10px", background: "rgba(15, 23, 42, 0.6)", borderRadius: "6px", border: "1px solid #1e293b" }}>
+                <div style={{ fontSize: "11px", fontWeight: 700, color: "#38bdf8", marginBottom: "6px" }}>
+                  📡 LATEST MARITIME INTEL WIRE
+                </div>
+                <div style={{ fontSize: "11px", color: "#94a3b8", whiteSpace: "pre-line", lineHeight: "1.4" }}>
+                  {c.raw_headlines}
+                </div>
+              </div>
+            )}
 
             {/* Main Content */}
             {hasDisruptionData ? (
@@ -101,7 +147,7 @@ export default function CorridorAnalyticsGrid() {
                       <div>
                         <span className="cag-spr-title">Phase 4 Strategic Reserve Plan</span>
                         <div className="cag-spr-subtitle">
-                          {spr.status || "Reserve Drawdown Optimization Successful"}
+                          {spr.status || "Reserve Drawdown Optimization Active"}
                         </div>
                       </div>
                       <button
@@ -109,14 +155,14 @@ export default function CorridorAnalyticsGrid() {
                         className={`cag-btn-plan ${isPlanOpen ? "cag-btn-plan-active" : ""}`}
                         onClick={() => togglePlan(c.key)}
                       >
-                        {isPlanOpen ? "Hide Plan ▲" : "View 32-Day Plan ↗"}
+                        {isPlanOpen ? "Hide Plan ▲" : `View ${spr.crisis_duration_days || 32}-Day Plan ↗`}
                       </button>
                     </div>
 
                     <div className="cag-spr-stats">
                       <div className="cag-spr-stat-box">
                         <span className="cag-spr-val">
-                          {spr.crisis_duration_days || "—"}d
+                          {spr.crisis_duration_days || "32"}d
                         </span>
                         <span className="cag-spr-lbl">Cover Duration</span>
                       </div>
@@ -143,14 +189,14 @@ export default function CorridorAnalyticsGrid() {
                       <div className="cag-drawer">
                         <div className="cag-drawer-header">
                           <span className="cag-drawer-title">
-                            Daily Schedule ({spr.crisis_duration_days} Days)
+                            Daily Schedule ({spr.crisis_duration_days || 32} Days)
                           </span>
                           <span className="cag-drawer-meta">
                             Unmet Shortfall:{" "}
-                            <strong style={{ color: "#34d399" }}>
+                            <strong style={{ color: spr.total_unmet_shortfall_barrels === 0 ? "#34d399" : "#f43f5e" }}>
                               {spr.total_unmet_shortfall_barrels === 0
                                 ? "0 bbl (100% Protected)"
-                                : `${spr.total_unmet_shortfall_barrels} bbl`}
+                                : `${spr.total_unmet_shortfall_barrels || 0} bbl`}
                             </strong>
                           </span>
                         </div>

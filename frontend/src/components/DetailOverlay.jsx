@@ -76,6 +76,26 @@ export default function DetailOverlay({ corridorKey, onClose }) {
               </div>
             </div>
 
+            {/* Live Maritime Intel Headlines */}
+            {detail.raw_headlines && (
+              <div
+                style={{
+                  marginTop: "12px",
+                  padding: "10px",
+                  background: "rgba(15, 23, 42, 0.6)",
+                  borderRadius: "6px",
+                  border: "1px solid #1e293b",
+                }}
+              >
+                <div style={{ fontSize: "11px", fontWeight: 700, color: "#38bdf8", marginBottom: "6px" }}>
+                  📡 LATEST MARITIME INTEL WIRE
+                </div>
+                <div style={{ fontSize: "11px", color: "#94a3b8", whiteSpace: "pre-line", lineHeight: "1.4", maxHeight: "140px", overflowY: "auto" }}>
+                  {detail.raw_headlines}
+                </div>
+              </div>
+            )}
+
             {detail.baseline && (
               <>
                 <SupplyFlowDiagram
@@ -146,7 +166,7 @@ export default function DetailOverlay({ corridorKey, onClose }) {
               </>
             )}
 
-            {/* NEW PHASE 4: Strategic Petroleum Reserve Plan */}
+            {/* Phase 4: Strategic Petroleum Reserve Plan */}
             {detail.phase4_spr_summary && Object.keys(detail.phase4_spr_summary).length > 0 && (
               <>
                 <div className="section-title">Phase 4: Reserve Drawdown Plan</div>
